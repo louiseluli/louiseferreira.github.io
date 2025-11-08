@@ -1,0 +1,329 @@
+/* =============================================================================
+   NAVIGATION BAR
+   Sticky header with mobile hamburger menu, social icons, and active states
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   HEADER CONTAINER
+   ----------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+
+  transition: all var(--transition-base);
+}
+
+/* Darker header on scroll (add .scrolled class via JS) */
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+body.dark-mode .site-header {
+  background-color: var(--gray-100);
+  border-bottom-color: var(--gray-200);
+}
+
+body.dark-mode .site-header.scrolled {
+  background-color: rgba(26, 26, 26, 0.95);
+}
+
+/* -----------------------------------------------------------------------------
+   NAVIGATION LAYOUT
+   ----------------------------------------------------------------------------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+   LOGO / SITE TITLE
+   ----------------------------------------------------------------------------- */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+
+  transition: color var(--transition-fast);
+}
+
+.navbar-brand:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.navbar-brand-logo {
+  width: 40px;
+  height: 40px;
+  /* Optional: Add your LF monogram SVG here */
+}
+
+/* -----------------------------------------------------------------------------
+   NAVIGATION MENU
+   ----------------------------------------------------------------------------- */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu a {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.navbar-menu a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Active page indicator (underline) */
+.navbar-menu a.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.navbar-menu a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+/* Focus state for keyboard navigation */
+.navbar-menu a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+/* -----------------------------------------------------------------------------
+   SOCIAL ICONS (in navbar)
+   ----------------------------------------------------------------------------- */
+.navbar-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-left: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--gray-200);
+}
+
+.navbar-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+
+  color: var(--gray-700);
+  border-radius: 50%;
+  transition: all var(--transition-fast);
+}
+
+.navbar-social a:hover {
+  color: var(--primary-color);
+  background-color: var(--gray-100);
+  transform: translateY(-2px);
+}
+
+.navbar-social svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* -----------------------------------------------------------------------------
+   MOBILE MENU TOGGLE (Hamburger)
+   ----------------------------------------------------------------------------- */
+.navbar-toggle {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  justify-content: space-around;
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  z-index: 1001;
+}
+
+.navbar-toggle:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Hamburger lines */
+.navbar-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+/* Animated hamburger → X transformation */
+.navbar-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* -----------------------------------------------------------------------------
+   MOBILE RESPONSIVE STYLES
+   ----------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Show hamburger button */
+  .navbar-toggle {
+    display: flex;
+  }
+
+  /* Hide desktop menu by default */
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Off-screen */
+
+    width: 280px;
+    height: 100vh;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+
+    background-color: var(--white);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-16) var(--space-6);
+
+    transition: right var(--transition-slow);
+  }
+
+  body.dark-mode .navbar-menu {
+    background-color: var(--gray-100);
+  }
+
+  /* Show menu when active */
+  .navbar-menu.active {
+    right: 0;
+  }
+
+  /* Menu items stacked vertically */
+  .navbar-menu li {
+    width: 100%;
+    margin-bottom: var(--space-2);
+  }
+
+  .navbar-menu a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-lg);
+    border-radius: var(--radius-md);
+  }
+
+  .navbar-menu a:hover {
+    background-color: var(--gray-100);
+  }
+
+  .navbar-menu a.active::after {
+    display: none; /* Remove underline on mobile */
+  }
+
+  .navbar-menu a.active {
+    background-color: var(--secondary-color);
+  }
+
+  /* Social icons move below menu items */
+  .navbar-social {
+    width: 100%;
+    margin-left: 0;
+    margin-top: var(--space-8);
+    padding-left: 0;
+    padding-top: var(--space-4);
+    border-left: none;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  /* Overlay when mobile menu is open */
+  .navbar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all var(--transition-base);
+    z-index: 998;
+  }
+
+  .navbar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* -----------------------------------------------------------------------------
+   MAIN CONTENT OFFSET (for fixed header)
+   ----------------------------------------------------------------------------- */
+.main-content {
+  padding-top: 72px; /* Height of navbar + buffer */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 64px;
+  }
+}
