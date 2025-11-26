@@ -1,14 +1,7 @@
+/* FILE: assets/js/theme-toggle.js (UPDATED FULL VERSION) */
 /**
- * NAVIGATION BAR FUNCTIONALITY
- *
- * Features:
- * - Mobile hamburger menu toggle
- * - Active page highlighting
- * - Smooth scroll to sections
- * - Scroll-based navbar style changes
- * - Accessible keyboard navigation
- * - Auto-close menu on link click (mobile)
- * - Auto-close menu on outside click
+ * THEME TOGGLE SYSTEM
+ * Handles Dark/Light mode switching with persistence and accessibility.
  */
 
 (function () {
@@ -17,220 +10,141 @@
   // ============================================================================
   // CONFIGURATION
   // ============================================================================
-  const SCROLL_THRESHOLD = 50; // Pixels scrolled before adding .scrolled class
-  const SMOOTH_SCROLL_DURATION = 800; // Milliseconds
+  const STORAGE_KEY = "louise-portfolio-theme";
+  const DARK_MODE_CLASS = "dark-mode";
+  const DATA_THEME_ATTR = "data-theme";
+  const NO_TRANSITION_CLASS = "no-transition";
 
   // ============================================================================
-  // DOM ELEMENTS (Lazy loaded in init)
+  // DOM ELEMENTS
   // ============================================================================
-  let navbar = null;
-  let navbarToggle = null;
-  let navbarMenu = null;
-  let navbarOverlay = null;
-  let navLinks = null;
+  const body = document.body;
+  let toggleButton = null;
 
   // ============================================================================
-  // MOBILE MENU TOGGLE
+  // THEME LOGIC
   // ============================================================================
 
   /**
-   * Toggle mobile menu open/closed
+   * Determine preferred theme from storage or system settings
+   * @returns {string} 'dark' or 'light'
    */
-  function toggleMobileMenu() {
-    const isActive = navbarMenu.classList.toggle("active");
-    navbarToggle.classList.toggle("active");
-
-    // Show/hide overlay
-    if (navbarOverlay) {
-      navbarOverlay.classList.toggle("active");
+  function getInitialTheme() {
+    const savedTheme = localStorage.getItem(STORAGE_KEY);
+    if (savedTheme) {
+      return savedTheme;
     }
 
-    // Prevent body scroll when menu is open
-    document.body.classList.toggle("menu-open", isActive);
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return "dark";
+    }
 
-    // Update aria-expanded for accessibility
-    navbarToggle.setAttribute("aria-expanded", isActive);
-
-    // Announce to screen readers
-    const announcement = isActive ? "Menu opened" : "Menu closed";
-    announceToScreenReader(announcement);
+    return "light";
   }
 
   /**
-   * Close mobile menu
+   * Apply the theme state to the DOM
+   * @param {string} theme - 'dark' or 'light'
+   * @param {boolean} disableTransition - prevent flash of styles
    */
-  function closeMobileMenu() {
-    navbarMenu.classList.remove("active");
-    navbarToggle.classList.remove("active");
-    if (navbarOverlay) {
-      navbarOverlay.classList.remove("active");
+  function applyTheme(theme, disableTransition = false) {
+    if (disableTransition) {
+      body.classList.add(NO_TRANSITION_CLASS);
     }
-    document.body.classList.remove("menu-open");
-    navbarToggle.setAttribute("aria-expanded", "false");
-  }
 
-  // ============================================================================
-  // SCROLL EFFECTS
-  // ============================================================================
-
-  /**
-   * Add/remove .scrolled class based on scroll position
-   */
-  function handleScroll() {
-    const header = document.querySelector(".site-header");
-    if (!header) return;
-
-    if (window.scrollY > SCROLL_THRESHOLD) {
-      header.classList.add("scrolled");
+    if (theme === "dark") {
+      body.classList.add(DARK_MODE_CLASS);
+      body.setAttribute(DATA_THEME_ATTR, "dark");
     } else {
-      header.classList.remove("scrolled");
+      body.classList.remove(DARK_MODE_CLASS);
+      body.setAttribute(DATA_THEME_ATTR, "light");
+    }
+
+    if (disableTransition) {
+      setTimeout(() => {
+        body.classList.remove(NO_TRANSITION_CLASS);
+      }, 50);
     }
   }
 
-  // Throttle scroll event for performance
-  let scrollTimeout;
-  function throttledScroll() {
-    if (scrollTimeout) return;
+  /**
+   * Toggle the current theme state
+   */
+  function toggleTheme() {
+    const isDark = body.classList.contains(DARK_MODE_CLASS);
+    const newTheme = isDark ? "light" : "dark"; // Toggle inverse
 
-    scrollTimeout = setTimeout(() => {
-      handleScroll();
-      scrollTimeout = null;
-    }, 100);
+    applyTheme(newTheme, false);
+    localStorage.setItem(STORAGE_KEY, newTheme);
+    updateButtonLabel(newTheme === "dark");
+
+    console.log(`Theme toggled to: ${newTheme}`);
   }
 
-  // ============================================================================
-  // ACTIVE PAGE HIGHLIGHTING
-  // ============================================================================
-
   /**
-   * Highlight current page in navigation
+   * Update button accessibility label
    */
-  function setActivePage() {
-    if (!navLinks) return;
-
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split("/").pop() || "index.html";
-
-    navLinks.forEach(link => {
-      const linkPath = link.getAttribute("href");
-
-      // Remove existing active class
-      link.classList.remove("active");
-
-      // Add active class to matching link
-      if (
-        linkPath === currentPage ||
-        (currentPage === "" && linkPath === "index.html") ||
-        (currentPage === "index.html" && linkPath === "/")
-      ) {
-        link.classList.add("active");
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  }
-
-  // ============================================================================
-  // SMOOTH SCROLL (for same-page anchor links)
-  // ============================================================================
-
-  /**
-   * Smooth scroll to anchor sections
-   * @param {Event} e - Click event
-   */
-  function smoothScrollToSection(e) {
-    const href = e.currentTarget.getAttribute("href");
-
-    // Only handle anchor links (#section)
-    if (!href || !href.startsWith("#")) return;
-
-    e.preventDefault();
-
-    const targetId = href.substring(1);
-    const targetElement = document.getElementById(targetId);
-
-    if (!targetElement) return;
-
-    // Calculate offset for fixed header
-    const headerHeight = navbar ? navbar.offsetHeight : 72;
-    const targetPosition = targetElement.offsetTop - headerHeight - 20;
-
-    // Smooth scroll
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-
-    // Close mobile menu if open
-    if (window.innerWidth <= 768) {
-      closeMobileMenu();
-    }
-
-    // Update URL without jumping
-    history.pushState(null, null, href);
-
-    // Focus target element for accessibility
-    targetElement.setAttribute("tabindex", "-1");
-    targetElement.focus();
-  }
-
-  // ============================================================================
-  // CREATE MOBILE OVERLAY
-  // ============================================================================
-
-  /**
-   * Create overlay element for mobile menu backdrop
-   */
-  function createOverlay() {
-    const overlay = document.createElement("div");
-    overlay.className = "navbar-overlay";
-    overlay.setAttribute("aria-hidden", "true");
-
-    // Close menu when clicking overlay
-    overlay.addEventListener("click", closeMobileMenu);
-
-    document.body.appendChild(overlay);
-    return overlay;
-  }
-
-  // ============================================================================
-  // KEYBOARD NAVIGATION
-  // ============================================================================
-
-  /**
-   * Handle keyboard events for accessibility
-   * @param {KeyboardEvent} e
-   */
-  function handleKeyboard(e) {
-    // Close mobile menu on Escape key
-    if (e.key === "Escape" && navbarMenu.classList.contains("active")) {
-      closeMobileMenu();
-      navbarToggle.focus(); // Return focus to toggle button
+  function updateButtonLabel(isDark) {
+    if (toggleButton) {
+      const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+      toggleButton.setAttribute("aria-label", label);
     }
   }
 
   // ============================================================================
-  // ACCESSIBILITY HELPERS
+  // COMPONENT SETUP
   // ============================================================================
 
   /**
-   * Announce changes to screen readers
-   * @param {string} message - Message to announce
+   * Find existing button or create a new one
    */
-  function announceToScreenReader(message) {
-    const announcement = document.createElement("div");
-    announcement.setAttribute("role", "status");
-    announcement.setAttribute("aria-live", "polite");
-    announcement.className = "sr-only";
-    announcement.textContent = message;
+  function setupToggleButton() {
+    // Check if button already exists in HTML (priority)
+    toggleButton = document.getElementById("themeToggle");
 
-    document.body.appendChild(announcement);
+    if (!toggleButton) {
+      createToggleButton();
+    } else {
+      // Attach listener to existing button
+      toggleButton.addEventListener("click", toggleTheme);
+    }
 
-    // Remove after announcement
-    setTimeout(() => {
-      document.body.removeChild(announcement);
-    }, 1000);
+    const isDark = body.classList.contains(DARK_MODE_CLASS);
+    updateButtonLabel(isDark);
+  }
+
+  /**
+   * Create button DOM elements if missing (Fallback)
+   */
+  function createToggleButton() {
+    toggleButton = document.createElement("button");
+    toggleButton.id = "themeToggle";
+    toggleButton.className = "theme-toggle";
+    toggleButton.setAttribute("type", "button");
+
+    // SVG Icons (Inline to ensure they exist if JS creates the button)
+    toggleButton.innerHTML = `
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    `;
+
+    document.body.appendChild(toggleButton);
+    toggleButton.addEventListener("click", toggleTheme);
   }
 
   // ============================================================================
@@ -238,46 +152,31 @@
   // ============================================================================
 
   /**
-   * Attach all event listeners
+   * System preference listener
    */
-  function attachEventListeners() {
-    // Mobile menu toggle
-    if (navbarToggle) {
-      navbarToggle.addEventListener("click", toggleMobileMenu);
-    }
+  function watchSystemPreference() {
+    if (!window.matchMedia) return;
 
-    // Close menu when clicking nav links
-    if (navLinks) {
-      navLinks.forEach(link => {
-        // Smooth scroll for anchor links
-        if (link.getAttribute("href")?.startsWith("#")) {
-          link.addEventListener("click", smoothScrollToSection);
-        }
+    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-        // Close mobile menu on any link click
-        link.addEventListener("click", () => {
-          if (window.innerWidth <= 768) {
-            setTimeout(closeMobileMenu, 300);
-          }
-        });
-      });
-    }
+    darkModeQuery.addEventListener("change", e => {
+      // Only override if user hasn't set a specific preference
+      if (!localStorage.getItem(STORAGE_KEY)) {
+        applyTheme(e.matches ? "dark" : "light", false);
+        updateButtonLabel(e.matches);
+      }
+    });
+  }
 
-    // Scroll effects
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-
-    // Keyboard navigation
-    document.addEventListener("keydown", handleKeyboard);
-
-    // Close menu on window resize (if going from mobile to desktop)
-    let resizeTimeout;
-    window.addEventListener("resize", () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        if (window.innerWidth > 768) {
-          closeMobileMenu();
-        }
-      }, 150);
+  /**
+   * Keyboard shortcut (Ctrl+Shift+D)
+   */
+  function enableKeyboardShortcut() {
+    document.addEventListener("keydown", e => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === "D") {
+        e.preventDefault();
+        toggleTheme();
+      }
     });
   }
 
@@ -285,51 +184,24 @@
   // INITIALIZATION
   // ============================================================================
 
-  /**
-   * Initialize navbar functionality
-   */
   function init() {
-    // Wait for DOM
+    // 1. Apply theme immediately to avoid flash
+    const initialTheme = getInitialTheme();
+    applyTheme(initialTheme, true);
+
+    // 2. Setup UI when DOM is ready
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initNavbar);
+      document.addEventListener("DOMContentLoaded", () => {
+        setupToggleButton();
+        watchSystemPreference();
+        enableKeyboardShortcut();
+      });
     } else {
-      initNavbar();
+      setupToggleButton();
+      watchSystemPreference();
+      enableKeyboardShortcut();
     }
   }
 
-  /**
-   * Initialize after DOM is ready
-   */
-  function initNavbar() {
-    // Get DOM elements
-    navbar = document.querySelector(".site-header");
-    navbarToggle = document.querySelector(".navbar-toggle");
-    navbarMenu = document.querySelector(".navbar-menu");
-    navLinks = document.querySelectorAll(".navbar-menu a");
-
-    // Create overlay for mobile menu
-    navbarOverlay = createOverlay();
-
-    // Set initial state
-    if (navbarToggle) {
-      navbarToggle.setAttribute("aria-expanded", "false");
-      navbarToggle.setAttribute("aria-label", "Open navigation menu");
-    }
-
-    // Highlight current page
-    setActivePage();
-
-    // Attach event listeners
-    attachEventListeners();
-
-    // Initial scroll check
-    handleScroll();
-
-    console.log("✅ Navbar initialized");
-  }
-
-  // ============================================================================
-  // RUN
-  // ============================================================================
   init();
 })();

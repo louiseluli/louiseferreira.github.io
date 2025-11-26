@@ -1,3 +1,4 @@
+/* FILE: assets/css/personal.css (UPDATED FULL VERSION) */
 /* =============================================================================
    PERSONAL PAGE STYLES
    Music, cinema, gaming, Brazilian culture, travel sections
@@ -265,16 +266,30 @@
 
 .film-poster {
   margin-bottom: var(--space-4);
+  overflow: hidden;
+  border-radius: var(--radius-md);
 }
 
 .poster-placeholder {
   width: 100%;
-  aspect-ratio: 2/3;
+  aspect-ratio: 2/3; /* Classic movie poster ratio */
   background: linear-gradient(135deg, #1f2937, #374151);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.poster-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.poster-placeholder:hover img {
+  transform: scale(1.05);
 }
 
 .poster-icon {
@@ -315,6 +330,8 @@
   text-align: center;
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
 }
 
 .era-card:hover {
@@ -326,6 +343,11 @@
   font-size: 2.5rem;
   display: block;
   margin-bottom: var(--space-2);
+}
+
+/* Specific styling for Venom Mob image if used as background */
+.era-card.martial-arts {
+  /* Optional: You could add a background image here if desired */
 }
 
 .era-card h5 {
@@ -443,6 +465,13 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto var(--space-4);
+  overflow: hidden; /* Ensures images stay circular */
+}
+
+.game-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .gaming-card h3 {

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ============================================================================
-       META TAGS
-       ============================================================================ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -12,15 +9,12 @@
     />
     <meta
       name="keywords"
-      content="AI projects, machine learning, algorithmic fairness, NLP, cinema analysis, chatbot development"
+      content="AI projects, machine learning, algorithmic fairness, NLP, cinema analysis, chatbot development, DocScope"
     />
     <meta name="author" content="Louise Ferreira" />
 
     <title>Projects - Louise Ferreira</title>
 
-    <!-- ============================================================================
-       FONTS
-       ============================================================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,24 +22,16 @@
       rel="stylesheet"
     />
 
-    <!-- ============================================================================
-       STYLESHEETS
-       ============================================================================ -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/theme.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/projects.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
-    <!-- ============================================================================
-       SKIP LINK
-       ============================================================================ -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- ============================================================================
-       NAVIGATION BAR
-       ============================================================================ -->
     <header class="site-header">
       <nav class="navbar" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="navbar-brand">
@@ -55,6 +41,7 @@
         <ul class="navbar-menu" role="list">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
           <li><a href="projects.html" class="active">Projects</a></li>
           <li><a href="skills.html">Skills</a></li>
           <li><a href="awards.html">Awards</a></li>
@@ -120,13 +107,7 @@
       </nav>
     </header>
 
-    <!-- ============================================================================
-       MAIN CONTENT
-       ============================================================================ -->
     <main id="main-content" class="main-content">
-      <!-- ==========================================================================
-         PAGE HEADER
-         ========================================================================== -->
       <section class="page-header">
         <div class="container">
           <h1 class="page-title" data-aos="fade-up">Projects That Matter</h1>
@@ -137,9 +118,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================================
-         FILTER SECTION
-         ========================================================================== -->
       <section class="filter-section">
         <div class="container">
           <div class="filter-controls" data-aos="fade-up">
@@ -162,9 +140,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================================
-     FEATURED PROJECT: MSc DISSERTATION
-     ========================================================================== -->
       <section class="featured-project section" data-category="fairness ml">
         <div class="container">
           <div class="featured-badge" data-aos="fade-up">
@@ -172,7 +147,6 @@
           </div>
 
           <div class="featured-content">
-            <!-- Main Content Column -->
             <div class="featured-text" data-aos="fade-right">
               <h2 class="project-title">
                 Fairness in Adult Content Classification Systems
@@ -182,7 +156,6 @@
                 content moderation
               </p>
 
-              <!-- Content Warning -->
               <div class="content-warning">
                 <div class="content-warning-title">
                   ⚠️ Research Content Note
@@ -195,7 +168,6 @@
                 </p>
               </div>
 
-              <!-- Executive Summary -->
               <div class="executive-summary">
                 <h3>Why This Research Matters</h3>
                 <p>
@@ -213,7 +185,6 @@
                 </p>
               </div>
 
-              <!-- Research Overview -->
               <div class="research-section">
                 <h3>The Research in Numbers</h3>
 
@@ -223,9 +194,9 @@
                     <div class="stat-label">Videos Analyzed</div>
                   </div>
                   <div class="stat-card">
-                    <div class="stat-number">67,987</div>
+                    <div class="stat-number">4,360</div>
                     <div class="stat-label">
-                      Videos with Protected Attributes
+                      Intersectional Samples (Black Women)
                     </div>
                   </div>
                   <div class="stat-card">
@@ -234,353 +205,18 @@
                   </div>
                   <div class="stat-card highlight-stat">
                     <div class="stat-number">-12.6%</div>
-                    <div class="stat-label">
-                      Accuracy Gap for Black Women (Baseline)
-                    </div>
+                    <div class="stat-label">Baseline Gap (Black Women)</div>
                   </div>
                 </div>
               </div>
 
-              <!-- Dataset Composition -->
-              <div class="research-section">
-                <h3>Dataset Composition</h3>
-                <p>
-                  Half a million videos spanning multiple platforms, enriched
-                  with intersectional demographic labels extracted via NLP.
-                  Protected attributes include race/ethnicity, gender identity,
-                  and sexuality markers.
-                </p>
-
-                <div class="data-breakdown">
-                  <div class="breakdown-item">
-                    <span class="breakdown-label">Black creators</span>
-                    <div class="breakdown-bar">
-                      <div
-                        class="bar-fill"
-                        style="
-                          width: 47.5%;
-                          background: linear-gradient(90deg, #dc2626, #ef4444);
-                        "
-                      ></div>
-                      <span class="bar-value">25,415 (47.5%)</span>
-                    </div>
-                  </div>
-                  <div class="breakdown-item">
-                    <span class="breakdown-label">Asian creators</span>
-                    <div class="breakdown-bar">
-                      <div
-                        class="bar-fill"
-                        style="
-                          width: 27.7%;
-                          background: linear-gradient(90deg, #7b3db8, #9b6fcc);
-                        "
-                      ></div>
-                      <span class="bar-value">14,831 (27.7%)</span>
-                    </div>
-                  </div>
-                  <div class="breakdown-item">
-                    <span class="breakdown-label">White creators</span>
-                    <div class="breakdown-bar">
-                      <div
-                        class="bar-fill"
-                        style="
-                          width: 20.8%;
-                          background: linear-gradient(90deg, #14b8a6, #2dd4bf);
-                        "
-                      ></div>
-                      <span class="bar-value">11,140 (20.8%)</span>
-                    </div>
-                  </div>
-                  <div class="breakdown-item">
-                    <span class="breakdown-label">Latina creators</span>
-                    <div class="breakdown-bar">
-                      <div
-                        class="bar-fill"
-                        style="
-                          width: 17.9%;
-                          background: linear-gradient(90deg, #f59e0b, #fbbf24);
-                        "
-                      ></div>
-                      <span class="bar-value">9,562 (17.9%)</span>
-                    </div>
-                  </div>
-                  <div class="breakdown-item highlight-breakdown">
-                    <span class="breakdown-label"
-                      >Intersectional Black Women</span
-                    >
-                    <div class="breakdown-bar">
-                      <div
-                        class="bar-fill"
-                        style="
-                          width: 8.1%;
-                          background: linear-gradient(90deg, #f43f5e, #fb7185);
-                        "
-                      ></div>
-                      <span class="bar-value">4,360 (8.1%)</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Key Findings -->
-              <div class="research-section findings-section">
-                <h3>Key Findings: The Bias is Real</h3>
-
-                <!-- Finding 1: Sexualization -->
-                <div class="finding-card critical">
-                  <div class="finding-header">
-                    <span class="finding-icon">🚨</span>
-                    <h4>Extreme Sexualization Patterns</h4>
-                  </div>
-                  <div class="finding-content">
-                    <p>
-                      <strong
-                        >Asian women's content is sexualized 99.5% of the
-                        time</strong
-                      >
-                      in metadata and tags. Not a typo. Ninety-nine point five
-                      percent. Black women: 77.6%. White women: 95.7%. This
-                      isn't just bias — it's systematic dehumanization encoded
-                      in algorithmic categorization.
-                    </p>
-                    <div class="finding-metrics">
-                      <div class="metric">
-                        <span class="metric-label">Asian Women</span>
-                        <span class="metric-value critical">99.5%</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label">White Women</span>
-                        <span class="metric-value critical">95.7%</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label">Black Women</span>
-                        <span class="metric-value warning">77.6%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Finding 2: Animalization -->
-                <div class="finding-card warning">
-                  <div class="finding-header">
-                    <span class="finding-icon">⚠️</span>
-                    <h4>Dehumanizing Stereotypes</h4>
-                  </div>
-                  <div class="finding-content">
-                    <p>
-                      Black creators face
-                      <strong>54.2% animalization</strong> in content
-                      descriptors (stereotypes comparing people to animals).
-                      Latina creators show the highest rates of
-                      relationship/role-based stereotyping at 25.1%. These
-                      aren't accidents — they're racist tropes embedded in
-                      training data.
-                    </p>
-                    <div class="finding-metrics">
-                      <div class="metric">
-                        <span class="metric-label">Black: Animalization</span>
-                        <span class="metric-value warning">54.2%</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label"
-                          >Latina: Relationship Stereotypes</span
-                        >
-                        <span class="metric-value warning">25.1%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Finding 3: Engagement Disparities -->
-                <div class="finding-card info">
-                  <div class="finding-header">
-                    <span class="finding-icon">📉</span>
-                    <h4>Algorithmic Suppression</h4>
-                  </div>
-                  <div class="finding-content">
-                    <p>
-                      Asian creators receive <strong>49% fewer views</strong> on
-                      average compared to non-Asian creators (43,597 vs 85,630).
-                      Lower ratings across the board for marginalized groups
-                      suggests algorithmic ranking bias, not just audience
-                      preference.
-                    </p>
-                    <div class="finding-metrics">
-                      <div class="metric">
-                        <span class="metric-label"
-                          >Asian Creators: Avg Views</span
-                        >
-                        <span class="metric-value">43,597</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label">Non-Asian: Avg Views</span>
-                        <span class="metric-value">85,630</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label">Disparity</span>
-                        <span class="metric-value critical">-49%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Finding 4: Model Performance Gaps -->
-                <div class="finding-card warning">
-                  <div class="finding-header">
-                    <span class="finding-icon">⚖️</span>
-                    <h4>Classification Accuracy Gaps</h4>
-                  </div>
-                  <div class="finding-content">
-                    <p>
-                      The baseline Random Forest model shows
-                      <strong>12.6% lower accuracy for Black women</strong>
-                      compared to White women. Asian women face 8.8% accuracy
-                      disparity. These aren't small differences — they're
-                      material harms affecting real people's livelihoods.
-                    </p>
-                    <div class="finding-metrics">
-                      <div class="metric">
-                        <span class="metric-label">Black Women</span>
-                        <span class="metric-value critical">-12.6%</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label">Asian Women</span>
-                        <span class="metric-value warning">-8.8%</span>
-                      </div>
-                      <div class="metric">
-                        <span class="metric-label">Latina Women</span>
-                        <span class="metric-value warning">-3.2%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Methodology -->
-              <div class="research-section">
-                <h3>Technical Approach</h3>
-
-                <div class="methodology-grid">
-                  <div class="method-card">
-                    <h4>1. Data Engineering</h4>
-                    <ul>
-                      <li>
-                        Extracted metadata from 535K+ videos using Python
-                        (Pandas, NumPy)
-                      </li>
-                      <li>
-                        NLP-based demographic attribute extraction with regex +
-                        spaCy
-                      </li>
-                      <li>
-                        Created intersectional labels (race × gender ×
-                        sexuality)
-                      </li>
-                      <li>
-                        Engineered 49 features including stereotype markers and
-                        harm categories
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="method-card">
-                    <h4>2. Exploratory Analysis</h4>
-                    <ul>
-                      <li>
-                        Quantified representation imbalances (Gini coefficient:
-                        0.77)
-                      </li>
-                      <li>
-                        Measured harm category prevalence across protected
-                        groups
-                      </li>
-                      <li>
-                        Analyzed engagement disparities (views, ratings) via
-                        statistical tests
-                      </li>
-                      <li>
-                        Identified stereotype co-occurrence patterns using PMI
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="method-card">
-                    <h4>3. Model Development</h4>
-                    <ul>
-                      <li>
-                        <strong>Baseline:</strong> Random Forest (80.5%
-                        accuracy)
-                      </li>
-                      <li>
-                        <strong>Advanced:</strong> BERT transformer (92.6%
-                        accuracy, 0.871 F1)
-                      </li>
-                      <li>Hyperparameter tuning with cross-validation</li>
-                      <li>SHAP analysis for model interpretability</li>
-                    </ul>
-                  </div>
-
-                  <div class="method-card">
-                    <h4>4. Fairness Evaluation</h4>
-                    <ul>
-                      <li>
-                        Demographic Parity, Equal Opportunity, Disparate Impact
-                        Ratio
-                      </li>
-                      <li>Per-group accuracy, precision, recall, F1 scores</li>
-                      <li>
-                        Statistical significance testing (permutation tests)
-                      </li>
-                      <li>
-                        Intersectional analysis (Black women as test case)
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="method-card">
-                    <h4>5. Bias Mitigation</h4>
-                    <ul>
-                      <li>
-                        <strong>Pre-processing:</strong> Reweighting (Fairlearn)
-                        → -10.8% gap
-                      </li>
-                      <li>
-                        <strong>In-processing:</strong> Exponentiated Gradient
-                        with DP → -4.6% gap
-                      </li>
-                      <li>
-                        <strong>Post-processing:</strong> Threshold optimization
-                        → -9.0% gap
-                      </li>
-                      <li>
-                        Pareto frontier analysis (accuracy vs fairness
-                        trade-offs)
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="method-card">
-                    <h4>6. Validation & Testing</h4>
-                    <ul>
-                      <li>Train/test/validation splits with stratification</li>
-                      <li>Gold standard evaluation set for quality control</li>
-                      <li>Robustness checks on multiple random seeds</li>
-                      <li>
-                        Self-checks on all analysis outputs for reproducibility
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Mitigation Results -->
               <div class="research-section">
                 <h3>Solutions: Bias Can Be Reduced</h3>
                 <p>
                   I tested three bias mitigation strategies. The best approach
                   (in-processing with demographic parity constraints) reduced
                   the accuracy gap for Black women from
-                  <strong>-12.6% to -4.6%</strong> — a 63% improvement. It's not
+                  <strong>-12.6% to -4.6%</strong> — a 64% improvement. It's not
                   perfect, but it proves fairness interventions work.
                 </p>
 
@@ -594,65 +230,16 @@
                     </div>
                   </div>
                   <div class="comparison-item">
-                    <div class="comparison-label">Reweighted RF</div>
-                    <div class="comparison-bar">
-                      <div class="bar-segment warning" style="width: 85.7%">
-                        <span>-10.8% gap (14% improvement)</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comparison-item">
-                    <div class="comparison-label">Post-Processing</div>
-                    <div class="comparison-bar">
-                      <div class="bar-segment ok" style="width: 71.4%">
-                        <span>-9.0% gap (29% improvement)</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="comparison-item highlight-comparison">
                     <div class="comparison-label">In-Processing (EG + DP)</div>
                     <div class="comparison-bar">
                       <div class="bar-segment good" style="width: 36.5%">
-                        <span>-4.6% gap (63% improvement!) ✨</span>
+                        <span>-4.6% gap (64% improvement!) ✨</span>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="mitigation-note">
-                  <strong>Trade-off:</strong> The best fairness intervention
-                  reduced overall accuracy from 80.5% to 74.8% — a 5.7
-                  percentage point drop. But here's the thing: if your system is
-                  90% accurate for white people and 60% accurate for Black
-                  people, it's not "90% accurate" — it's discriminatory.
-                  Fairness isn't a nice-to-have; it's a requirement for ethical
-                  deployment.
-                </div>
               </div>
 
-              <!-- Tech Stack -->
-              <div class="tech-stack-section">
-                <h4>Full Tech Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Pandas</span>
-                  <span class="tech-tag">NumPy</span>
-                  <span class="tech-tag">Scikit-learn</span>
-                  <span class="tech-tag">PyTorch</span>
-                  <span class="tech-tag">Transformers (HuggingFace)</span>
-                  <span class="tech-tag">BERT</span>
-                  <span class="tech-tag">Fairlearn</span>
-                  <span class="tech-tag">AIF360</span>
-                  <span class="tech-tag">SHAP</span>
-                  <span class="tech-tag">Matplotlib</span>
-                  <span class="tech-tag">Seaborn</span>
-                  <span class="tech-tag">spaCy</span>
-                  <span class="tech-tag">NLTK</span>
-                  <span class="tech-tag">Statsmodels</span>
-                </div>
-              </div>
-
-              <!-- Links -->
               <div class="project-links">
                 <a
                   href="https://github.com/louiseluli"
@@ -661,21 +248,6 @@
                   rel="noopener noreferrer"
                 >
                   View Research Code
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                    ></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
                 </a>
                 <button class="btn btn-secondary" disabled>
                   Full Paper (Coming Soon)
@@ -683,30 +255,25 @@
               </div>
             </div>
 
-            <!-- Visualization Column -->
             <div
               class="featured-visual"
               data-aos="fade-left"
               data-aos-delay="200"
             >
               <div class="visual-container">
-                <!-- SVG Data Visualization -->
                 <svg
                   class="data-viz"
                   viewBox="0 0 400 500"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <!-- Title -->
                   <text x="200" y="30" text-anchor="middle" class="viz-title">
                     Accuracy by Demographic Group
                   </text>
 
-                  <!-- Baseline Model -->
                   <text x="20" y="70" class="viz-subtitle">
                     Baseline Model (Random Forest)
                   </text>
 
-                  <!-- White Women (baseline) -->
                   <rect
                     x="20"
                     y="85"
@@ -719,7 +286,6 @@
                     White Women: 70.7%
                   </text>
 
-                  <!-- Black Women -->
                   <rect
                     x="20"
                     y="125"
@@ -729,41 +295,13 @@
                     rx="4"
                   />
                   <text x="230" y="145" class="viz-label">
-                    Black Women: 58.1% (-12.6%)
+                    Black Women: 58.1%
                   </text>
 
-                  <!-- Asian Women -->
-                  <rect
-                    x="20"
-                    y="165"
-                    width="215"
-                    height="30"
-                    fill="#F59E0B"
-                    rx="4"
-                  />
-                  <text x="245" y="185" class="viz-label">
-                    Asian Women: 61.9% (-8.8%)
-                  </text>
-
-                  <!-- Latina Women -->
-                  <rect
-                    x="20"
-                    y="205"
-                    width="232"
-                    height="30"
-                    fill="#7B3DB8"
-                    rx="4"
-                  />
-                  <text x="262" y="225" class="viz-label">
-                    Latina Women: 67.5% (-3.2%)
-                  </text>
-
-                  <!-- Best Mitigation -->
                   <text x="20" y="270" class="viz-subtitle">
                     After Mitigation (In-Processing)
                   </text>
 
-                  <!-- White Women (after) -->
                   <rect
                     x="20"
                     y="285"
@@ -776,7 +314,6 @@
                     White Women: 91.0%
                   </text>
 
-                  <!-- Black Women (after) -->
                   <rect
                     x="20"
                     y="325"
@@ -786,14 +323,13 @@
                     rx="4"
                   />
                   <text x="265" y="345" class="viz-label">
-                    Black Women: 86.4% (-4.6%)
+                    Black Women: 86.4%
                   </text>
 
-                  <!-- Improvement Arrow -->
                   <g transform="translate(200, 380)">
                     <circle r="40" fill="#FFC043" opacity="0.2" />
                     <text y="8" text-anchor="middle" class="viz-highlight">
-                      63%
+                      64%
                     </text>
                     <text
                       y="25"
@@ -803,589 +339,159 @@
                       improvement
                     </text>
                   </g>
-
-                  <!-- Stats Footer -->
-                  <text x="200" y="460" text-anchor="middle" class="viz-footer">
-                    Dataset: 535,236 videos | Test Set: 107,047
-                  </text>
-                  <text x="200" y="480" text-anchor="middle" class="viz-footer">
-                    Fairness Metric: Demographic Parity Difference
-                  </text>
                 </svg>
-
-                <!-- Key Insight Box -->
-                <div class="insight-box">
-                  <h5>💡 Key Insight</h5>
-                  <p>
-                    By enforcing demographic parity during training, we reduced
-                    the worst-case accuracy gap by 63% while maintaining 91%
-                    overall accuracy. The cost? A 5-point accuracy drop — a
-                    price worth paying for fairness.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Additional Data Visualizations -->
-            <!-- Visualization 1: Harm Categories Breakdown -->
-            <div
-              class="data-viz-section"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div class="viz-card">
-                <h3 class="viz-card-title">Stereotype Categories by Group</h3>
-                <p class="viz-card-subtitle">
-                  Percentage of content tagged with harmful stereotype markers
-                  across racial/ethnic groups
-                </p>
-
-                <svg
-                  class="harm-viz"
-                  viewBox="0 0 800 450"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <!-- Title -->
-                  <text x="400" y="30" text-anchor="middle" class="viz-title">
-                    Sexualization Rates Are Astronomical
-                  </text>
-
-                  <!-- Legend -->
-                  <g transform="translate(550, 60)">
-                    <rect x="0" y="0" width="15" height="15" fill="#DC2626" />
-                    <text x="20" y="12" class="viz-legend">Sexualization</text>
-
-                    <rect x="0" y="25" width="15" height="15" fill="#F59E0B" />
-                    <text x="20" y="37" class="viz-legend">Animalization</text>
-
-                    <rect x="0" y="50" width="15" height="15" fill="#7B3DB8" />
-                    <text x="20" y="62" class="viz-legend">
-                      Relationship Stereotypes
-                    </text>
-                  </g>
-
-                  <!-- Asian Women -->
-                  <g transform="translate(80, 100)">
-                    <text x="0" y="0" class="viz-group-label">Asian Women</text>
-
-                    <!-- Sexualization: 99.5% -->
-                    <rect
-                      x="0"
-                      y="10"
-                      width="398"
-                      height="35"
-                      fill="#DC2626"
-                      rx="4"
-                    />
-                    <text x="405" y="32" class="viz-bar-label">99.5%</text>
-
-                    <!-- Animalization: 32.9% -->
-                    <rect
-                      x="0"
-                      y="50"
-                      width="132"
-                      height="25"
-                      fill="#F59E0B"
-                      rx="4"
-                    />
-                    <text x="138" y="67" class="viz-bar-label-sm">32.9%</text>
-
-                    <!-- Relationship: 13.8% -->
-                    <rect
-                      x="0"
-                      y="80"
-                      width="55"
-                      height="25"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text x="61" y="97" class="viz-bar-label-sm">13.8%</text>
-                  </g>
-
-                  <!-- Black Women -->
-                  <g transform="translate(80, 220)">
-                    <text x="0" y="0" class="viz-group-label">Black Women</text>
-
-                    <!-- Sexualization: 77.6% -->
-                    <rect
-                      x="0"
-                      y="10"
-                      width="310"
-                      height="35"
-                      fill="#DC2626"
-                      rx="4"
-                    />
-                    <text x="317" y="32" class="viz-bar-label">77.6%</text>
-
-                    <!-- Animalization: 54.2% -->
-                    <rect
-                      x="0"
-                      y="50"
-                      width="217"
-                      height="25"
-                      fill="#F59E0B"
-                      rx="4"
-                    />
-                    <text x="223" y="67" class="viz-bar-label-sm">54.2%</text>
-
-                    <!-- Relationship: 14.1% -->
-                    <rect
-                      x="0"
-                      y="80"
-                      width="56"
-                      height="25"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text x="62" y="97" class="viz-bar-label-sm">14.1%</text>
-                  </g>
-
-                  <!-- White Women -->
-                  <g transform="translate(80, 340)">
-                    <text x="0" y="0" class="viz-group-label">White Women</text>
-
-                    <!-- Sexualization: 95.7% -->
-                    <rect
-                      x="0"
-                      y="10"
-                      width="383"
-                      height="35"
-                      fill="#DC2626"
-                      rx="4"
-                    />
-                    <text x="390" y="32" class="viz-bar-label">95.7%</text>
-
-                    <!-- Animalization: 55.0% -->
-                    <rect
-                      x="0"
-                      y="50"
-                      width="220"
-                      height="25"
-                      fill="#F59E0B"
-                      rx="4"
-                    />
-                    <text x="226" y="67" class="viz-bar-label-sm">55.0%</text>
-
-                    <!-- Relationship: 15.7% -->
-                    <rect
-                      x="0"
-                      y="80"
-                      width="63"
-                      height="25"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text x="69" y="97" class="viz-bar-label-sm">15.7%</text>
-                  </g>
-                </svg>
-
-                <div class="viz-insight">
-                  <strong>Critical Finding:</strong> Asian women's content is
-                  sexualized 99.5% of the time. Black women face the highest
-                  animalization rates at 54.2%. These aren't edge cases —
-                  they're systematic patterns of dehumanization.
-                </div>
-              </div>
-            </div>
-
-            <!-- Visualization 2: Engagement Disparities -->
-            <div
-              class="data-viz-section"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <div class="viz-card">
-                <h3 class="viz-card-title">
-                  Algorithmic Suppression is Measurable
-                </h3>
-                <p class="viz-card-subtitle">
-                  Average views and ratings show systematic disadvantages for
-                  marginalized creators
-                </p>
-
-                <svg
-                  class="engagement-viz"
-                  viewBox="0 0 700 400"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <!-- Title -->
-                  <text x="350" y="30" text-anchor="middle" class="viz-title">
-                    Views Gap: Asian vs. Non-Asian Creators
-                  </text>
-
-                  <!-- Non-Asian Creators Bar -->
-                  <g transform="translate(100, 80)">
-                    <text x="0" y="0" class="viz-group-label">
-                      Non-Asian Creators
-                    </text>
-                    <rect
-                      x="0"
-                      y="10"
-                      width="500"
-                      height="50"
-                      fill="#14B8A6"
-                      rx="4"
-                    />
-                    <text
-                      x="250"
-                      y="42"
-                      text-anchor="middle"
-                      class="viz-bar-text"
-                    >
-                      85,630 avg views
-                    </text>
-                  </g>
-
-                  <!-- Asian Creators Bar -->
-                  <g transform="translate(100, 180)">
-                    <text x="0" y="0" class="viz-group-label">
-                      Asian Creators
-                    </text>
-                    <rect
-                      x="0"
-                      y="10"
-                      width="255"
-                      height="50"
-                      fill="#DC2626"
-                      rx="4"
-                    />
-                    <text
-                      x="127"
-                      y="42"
-                      text-anchor="middle"
-                      class="viz-bar-text"
-                    >
-                      43,597 avg views
-                    </text>
-                  </g>
-
-                  <!-- Gap Indicator -->
-                  <g transform="translate(350, 280)">
-                    <circle r="60" fill="#FFC043" opacity="0.2" />
-                    <text
-                      y="-10"
-                      text-anchor="middle"
-                      class="viz-highlight"
-                      style="font-size: 36px"
-                    >
-                      -49%
-                    </text>
-                    <text
-                      y="15"
-                      text-anchor="middle"
-                      class="viz-highlight-small"
-                      style="font-size: 14px"
-                    >
-                      DISPARITY
-                    </text>
-                  </g>
-
-                  <!-- Footer note -->
-                  <text x="350" y="380" text-anchor="middle" class="viz-footer">
-                    This isn't audience preference — it's algorithmic ranking
-                    bias
-                  </text>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Visualization 3: Model Performance Comparison -->
-            <div
-              class="data-viz-section"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="viz-card">
-                <h3 class="viz-card-title">
-                  Machine Learning Models Can Do Better
-                </h3>
-                <p class="viz-card-subtitle">
-                  Comparing baseline Random Forest vs. BERT transformer
-                  performance across groups
-                </p>
-
-                <svg
-                  class="model-comparison-viz"
-                  viewBox="0 0 800 500"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <!-- Title -->
-                  <text x="400" y="30" text-anchor="middle" class="viz-title">
-                    Classification Accuracy by Model
-                  </text>
-
-                  <!-- Legend -->
-                  <g transform="translate(250, 60)">
-                    <rect x="0" y="0" width="20" height="20" fill="#7B3DB8" />
-                    <text x="28" y="15" class="viz-legend">
-                      Random Forest (Baseline)
-                    </text>
-
-                    <rect x="220" y="0" width="20" height="20" fill="#10B981" />
-                    <text x="248" y="15" class="viz-legend">
-                      BERT Transformer
-                    </text>
-                  </g>
-
-                  <!-- Asian Women -->
-                  <g transform="translate(100, 120)">
-                    <text x="0" y="20" class="viz-group-label">
-                      Asian Women
-                    </text>
-                    <!-- RF: 79.5% -->
-                    <rect
-                      x="200"
-                      y="5"
-                      width="159"
-                      height="30"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text
-                      x="285"
-                      y="26"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      79.5%
-                    </text>
-                    <!-- BERT: 91.6% -->
-                    <rect
-                      x="200"
-                      y="40"
-                      width="183"
-                      height="30"
-                      fill="#10B981"
-                      rx="4"
-                    />
-                    <text
-                      x="295"
-                      y="61"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      91.6%
-                    </text>
-                  </g>
-
-                  <!-- Black Women -->
-                  <g transform="translate(100, 220)">
-                    <text x="0" y="20" class="viz-group-label">
-                      Black Women
-                    </text>
-                    <!-- RF: 83.3% -->
-                    <rect
-                      x="200"
-                      y="5"
-                      width="167"
-                      height="30"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text
-                      x="285"
-                      y="26"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      83.3%
-                    </text>
-                    <!-- BERT: 96.0% -->
-                    <rect
-                      x="200"
-                      y="40"
-                      width="192"
-                      height="30"
-                      fill="#10B981"
-                      rx="4"
-                    />
-                    <text
-                      x="300"
-                      y="61"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      96.0%
-                    </text>
-                  </g>
-
-                  <!-- Latina Women -->
-                  <g transform="translate(100, 320)">
-                    <text x="0" y="20" class="viz-group-label">
-                      Latina Women
-                    </text>
-                    <!-- RF: 73.9% -->
-                    <rect
-                      x="200"
-                      y="5"
-                      width="148"
-                      height="30"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text
-                      x="275"
-                      y="26"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      73.9%
-                    </text>
-                    <!-- BERT: 86.7% -->
-                    <rect
-                      x="200"
-                      y="40"
-                      width="173"
-                      height="30"
-                      fill="#10B981"
-                      rx="4"
-                    />
-                    <text
-                      x="290"
-                      y="61"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      86.7%
-                    </text>
-                  </g>
-
-                  <!-- White Women -->
-                  <g transform="translate(100, 420)">
-                    <text x="0" y="20" class="viz-group-label">
-                      White Women
-                    </text>
-                    <!-- RF: 70.7% -->
-                    <rect
-                      x="200"
-                      y="5"
-                      width="141"
-                      height="30"
-                      fill="#7B3DB8"
-                      rx="4"
-                    />
-                    <text
-                      x="272"
-                      y="26"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      70.7%
-                    </text>
-                    <!-- BERT: 91.0% -->
-                    <rect
-                      x="200"
-                      y="40"
-                      width="182"
-                      height="30"
-                      fill="#10B981"
-                      rx="4"
-                    />
-                    <text
-                      x="295"
-                      y="61"
-                      text-anchor="middle"
-                      class="viz-bar-text-white"
-                    >
-                      91.0%
-                    </text>
-                  </g>
-
-                  <!-- Scale reference line -->
-                  <line
-                    x1="200"
-                    y1="100"
-                    x2="200"
-                    y2="480"
-                    stroke="#94A3B8"
-                    stroke-width="1"
-                    stroke-dasharray="4,4"
-                  />
-                </svg>
-
-                <div class="viz-insight">
-                  <strong>Key Takeaway:</strong> BERT dramatically outperforms
-                  Random Forest across all groups, with Black women seeing the
-                  biggest improvement (83.3% → 96.0%). Better models = fairer
-                  outcomes.
-                </div>
-              </div>
-            </div>
-
-            <!-- Visualization 4: Intersectional Analysis -->
-            <div
-              class="data-viz-section"
-              data-aos="fade-up"
-              data-aos-delay="600"
-            >
-              <div class="viz-card">
-                <h3 class="viz-card-title">Intersectionality Matters</h3>
-                <p class="viz-card-subtitle">
-                  Black women at the intersection of race and gender face
-                  compounded discrimination
-                </p>
-
-                <div class="intersectional-grid">
-                  <!-- Stat 1 -->
-                  <div class="intersect-stat">
-                    <div class="intersect-number">4,360</div>
-                    <div class="intersect-label">
-                      Intersectional Black Women in Dataset
-                    </div>
-                    <div class="intersect-percent">
-                      8.1% of protected group content
-                    </div>
-                  </div>
-
-                  <!-- Stat 2 -->
-                  <div class="intersect-stat critical">
-                    <div class="intersect-number">81.4%</div>
-                    <div class="intersect-label">Sexualization Rate</div>
-                    <div class="intersect-note">
-                      Higher than Black men (77.6%) or women overall (10.2%)
-                    </div>
-                  </div>
-
-                  <!-- Stat 3 -->
-                  <div class="intersect-stat">
-                    <div class="intersect-number">54.1%</div>
-                    <div class="intersect-label">Animalization Markers</div>
-                    <div class="intersect-note">
-                      Dehumanizing stereotypes in metadata
-                    </div>
-                  </div>
-
-                  <!-- Stat 4 -->
-                  <div class="intersect-stat warning">
-                    <div class="intersect-number">-12.6%</div>
-                    <div class="intersect-label">
-                      Accuracy Gap (Baseline Model)
-                    </div>
-                    <div class="intersect-note">
-                      Worst performance disparity across all groups
-                    </div>
-                  </div>
-                </div>
-
-                <div class="viz-insight">
-                  <strong>This is Why Intersectionality Matters:</strong> You
-                  can't understand algorithmic bias by looking at race OR gender
-                  alone. Black women face unique patterns of discrimination that
-                  emerge specifically at the intersection — and our fairness
-                  interventions reduced their accuracy gap from -12.6% to -4.6%.
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================================================
-         PROJECT GRID
-         ========================================================================== -->
       <section class="projects-grid section section-alt">
         <div class="container">
-          <!-- Project Card: Cinema Analysis - DETAILED VERSION -->
+          <article
+            class="project-card"
+            data-category="fairness tools nlp"
+            data-aos="fade-up"
+          >
+            <div class="project-card-header">
+              <div class="project-meta">
+                <span class="project-type">AI Governance • NLP Audit</span>
+                <span class="project-year">2025</span>
+              </div>
+              <div
+                class="award-badge prestigious"
+                style="margin-bottom: 1rem; display: inline-block"
+              >
+                🏆 MIT Policy Hackathon 2025
+              </div>
+              <h3 class="project-card-title">DocScope Copilot</h3>
+              <p class="project-card-tagline">
+                An automated auditing tool for AI documentation governance and
+                policy analysis
+              </p>
+            </div>
+
+            <div class="project-card-body">
+              <div class="executive-summary" style="margin-bottom: 2rem">
+                <p>
+                  <strong>The Crisis:</strong> Voluntary AI documentation
+                  standards are failing. My analysis of 22 major AI model cards
+                  (including GPT-4o) revealed a systematic lack of substantive
+                  governance data.
+                </p>
+                <p>
+                  <strong>The Solution:</strong> DocScope Copilot is an
+                  automated auditing tool that processes technical documentation
+                  to reveal the gap between "framework recommendations" and
+                  "actual industry practice."
+                </p>
+              </div>
+
+              <h4>Key Audit Metrics</h4>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <span class="stat-num">22</span>
+                  <span class="stat-label">Documents Audited</span>
+                </div>
+                <div class="project-stat">
+                  <span class="stat-num">1,303</span>
+                  <span class="stat-label">Text Chunks NLP-Scored</span>
+                </div>
+                <div class="project-stat highlight">
+                  <span class="stat-num">81%</span>
+                  <span class="stat-label">Disclosure Gap</span>
+                </div>
+                <div class="project-stat">
+                  <span class="stat-num">0.537</span>
+                  <span class="stat-label">Avg. Quality Score</span>
+                </div>
+              </div>
+
+              <div class="research-section">
+                <h4>The Framework-Practice Gap</h4>
+                <p>
+                  There is a massive divergence between what governance
+                  frameworks recommend and what companies actually disclose.
+                </p>
+
+                <div
+                  class="mitigation-comparison"
+                  style="margin-top: 1rem; padding: 1.5rem"
+                >
+                  <div class="comparison-item">
+                    <div class="comparison-label">
+                      Equity & Bias (Recommended vs. Actual)
+                    </div>
+                    <div class="comparison-bar">
+                      <div class="bar-segment bad" style="width: 82%">
+                        <span>2.2% Gap (Critical Failure 🔴)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-item">
+                    <div class="comparison-label">Governance Oversight</div>
+                    <div class="comparison-bar">
+                      <div class="bar-segment warning" style="width: 65%">
+                        <span>1.7% Gap (High Risk 🟡)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-item">
+                    <div class="comparison-label">
+                      Training Data Transparency
+                    </div>
+                    <div class="comparison-bar">
+                      <div class="bar-segment warning" style="width: 60%">
+                        <span>1.6% Gap (High Risk 🟡)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h4>Critical Findings</h4>
+              <ul class="responsibility-list">
+                <li>
+                  <strong>Equity Coverage Failure:</strong> Only 54.5% of
+                  documents contained <em>any</em> equity coverage. Nearly half
+                  the industry is ignoring it entirely.
+                </li>
+                <li>
+                  <strong>Quantitative Gap:</strong> Only 9 of 22 documents
+                  provided disaggregated performance metrics.
+                </li>
+                <li>
+                  <strong>"PR Speak" Detection:</strong> The tool successfully
+                  distinguished between promotional language (HuggingFace
+                  Whisper: 0.101 score) and substantive technical reporting
+                  (Qwen3: 0.049 score).
+                </li>
+              </ul>
+
+              <div class="tech-stack">
+                <h4>Tech Stack</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">NLP (Spacy/NLTK)</span>
+                  <span class="tech-tag">JSON Schema</span>
+                  <span class="tech-tag">Markdown Parsing</span>
+                  <span class="tech-tag">Automated Auditing</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <a
+                href="https://github.com/louiseluli/docscope-copilot"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Project on GitHub →
+              </a>
+            </div>
+          </article>
+
           <article
             class="project-card"
             data-category="ml nlp"
@@ -1410,185 +516,36 @@
                 What can 140,000 old movies tell you about culture,
                 representation, and power dynamics? I built a full-stack data
                 product to find out — from scraping IMDb datasets to training ML
-                models that actually understand film. This wasn't just an
-                academic exercise; it's a production-grade system with an 800+
-                line Streamlit app that lets you explore decades of cinema data.
+                models that actually understand film.
               </p>
 
               <h4>The Scale</h4>
               <div class="project-stats">
                 <div class="project-stat">
                   <span class="stat-num">140,000+</span>
-                  <span class="stat-label">Unique film titles processed</span>
+                  <span class="stat-label">Titles Processed</span>
                 </div>
                 <div class="project-stat">
                   <span class="stat-num">77,000</span>
-                  <span class="stat-label">Graph nodes (people, films)</span>
+                  <span class="stat-label">Graph Nodes</span>
                 </div>
                 <div class="project-stat">
                   <span class="stat-num">313,000</span>
-                  <span class="stat-label">Graph edges (relationships)</span>
+                  <span class="stat-label">Graph Edges</span>
                 </div>
                 <div class="project-stat highlight">
                   <span class="stat-num">98.71%</span>
-                  <span class="stat-label"
-                    >Final model accuracy (LightGBM)</span
-                  >
+                  <span class="stat-label">Model Accuracy</span>
                 </div>
               </div>
 
-              <h4>Data Engineering Pipeline</h4>
-              <ul>
-                <li>
-                  <strong>ETL Process:</strong> Processed 6 IMDb non-commercial
-                  datasets using memory-efficient Python pipelines with custom
-                  chunked data loaders. Normalized schema into SQLite database
-                  with proper foreign key relationships
-                </li>
-                <li>
-                  <strong>Data Enrichment:</strong> Integrated IMDb, TMDB API,
-                  OMDB API, and Wikidata for comprehensive film metadata — plot
-                  summaries, cast, crew, ratings, box office
-                </li>
-                <li>
-                  <strong>Graph Construction:</strong> Built bipartite network
-                  connecting films to people (actors, directors, writers) with
-                  77k nodes and 313k edges. Used NetworkX for graph metrics and
-                  community detection
-                </li>
-                <li>
-                  <strong>Text Processing:</strong> Applied TF-IDF vectorization
-                  on plot summaries, titles, and genres. Created custom
-                  tokenization pipeline handling historical language and
-                  spelling variations
-                </li>
-              </ul>
-
-              <h4>Machine Learning Implementation</h4>
-              <ul>
-                <li>
-                  <strong>Hybrid Recommender System:</strong> Combined
-                  collaborative filtering (user-item matrices), content-based
-                  filtering (TF-IDF similarity), and graph-based approaches
-                  (PageRank, betweenness centrality). Ensemble model weights
-                  learned via hyperparameter tuning
-                </li>
-                <li>
-                  <strong>Deep Learning Embeddings:</strong> Trained autoencoder
-                  neural network to compress 32,677 films into 128-dimensional
-                  dense representations. Used embeddings for similarity search
-                  via FAISS indexing (nearest neighbor queries in &lt; 10ms)
-                </li>
-                <li>
-                  <strong>Clustering Analysis:</strong> Implemented K-Means,
-                  DBSCAN, and Agglomerative clustering with silhouette analysis.
-                  Discovered meaningful film genre groupings and temporal
-                  patterns across decades
-                </li>
-                <li>
-                  <strong>Classification Pipeline:</strong> Built LightGBM model
-                  combining text features (TF-IDF), numeric features (ratings,
-                  runtime), and graph features (centrality metrics). Achieved
-                  98.71% test accuracy with proper train/validation/test splits
-                </li>
-              </ul>
-
-              <h4>Innovation: Cross-Lingual Title Mapping</h4>
-              <p>
-                Created a novel title mapping system for robust cross-lingual
-                film identification. Because "La Dolce Vita" and "The Sweet
-                Life" should be recognized as the same movie, right? System
-                handles:
-              </p>
-              <ul>
-                <li>Translation variations across 30+ languages</li>
-                <li>Title changes across regions and time periods</li>
-                <li>
-                  Fuzzy matching with edit distance and phonetic algorithms
-                </li>
-                <li>Disambiguation using year, director, and cast metadata</li>
-              </ul>
-
-              <h4>Production Application</h4>
-              <ul>
-                <li>
-                  <strong>Streamlit UI:</strong> Built 800+ line interactive web
-                  application with multiple views — film search, recommendation
-                  engine, network visualization, statistical dashboards
-                </li>
-                <li>
-                  <strong>Real-Time Queries:</strong> Optimized SQLite queries
-                  with proper indexing. Average search response time &lt; 100ms
-                  for full-text queries across 140k records
-                </li>
-                <li>
-                  <strong>Visualization Suite:</strong> Interactive plots with
-                  Plotly — temporal trends, genre evolution, collaboration
-                  networks, rating distributions
-                </li>
-                <li>
-                  <strong>Export Functionality:</strong> Users can download
-                  filtered datasets, recommendation lists, and generated
-                  embeddings in CSV/JSON formats
-                </li>
-              </ul>
-
-              <h4>Technical Challenges Solved</h4>
-              <ul>
-                <li>
-                  <strong>Memory Efficiency:</strong> IMDb datasets exceed 4GB.
-                  Implemented chunked processing with generators to handle data
-                  100x larger than RAM
-                </li>
-                <li>
-                  <strong>Data Quality:</strong> Historical film data is messy —
-                  missing values, encoding errors, duplicate entries. Built
-                  robust cleaning pipeline with validation rules and manual
-                  spot-checks
-                </li>
-                <li>
-                  <strong>Scalability:</strong> Graph algorithms (PageRank,
-                  community detection) don't scale well. Used approximate
-                  algorithms and sampling for graphs &gt; 100k edges
-                </li>
-                <li>
-                  <strong>API Rate Limits:</strong> TMDB and OMDB APIs have
-                  strict rate limits. Implemented caching, exponential backoff,
-                  and prioritized enrichment for high-value films (classics,
-                  popular titles)
-                </li>
-              </ul>
-
-              <div class="project-impact">
-                <h4>Why This Matters</h4>
-                <p>
-                  This project demonstrates end-to-end data product development
-                  — from raw data acquisition to production ML system. It
-                  combines data engineering, machine learning, NLP, graph
-                  analysis, and full-stack development. The result? A system
-                  that makes 100 years of film history queryable, explorable,
-                  and understandable through data.
-                </p>
-              </div>
-
-              <div class="tech-stack">
-                <h4>Full Tech Stack</h4>
-                <div class="tech-tags">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Pandas</span>
-                  <span class="tech-tag">NumPy</span>
-                  <span class="tech-tag">Scikit-learn</span>
-                  <span class="tech-tag">LightGBM</span>
-                  <span class="tech-tag">TensorFlow</span>
-                  <span class="tech-tag">Keras</span>
-                  <span class="tech-tag">FAISS</span>
-                  <span class="tech-tag">NetworkX</span>
-                  <span class="tech-tag">SQLite</span>
-                  <span class="tech-tag">Streamlit</span>
-                  <span class="tech-tag">Plotly</span>
-                  <span class="tech-tag">NLTK</span>
-                  <span class="tech-tag">Requests</span>
-                </div>
+              <h4>Tech Stack</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">NetworkX</span>
+                <span class="tech-tag">LightGBM</span>
+                <span class="tech-tag">Streamlit</span>
+                <span class="tech-tag">TensorFlow</span>
               </div>
             </div>
 
@@ -1604,12 +561,10 @@
             </div>
           </article>
 
-          <!-- Project Card: IDB Chatbot -->
           <article
             class="project-card"
             data-category="nlp tools"
             data-aos="fade-up"
-            data-aos-delay="100"
           >
             <div class="project-card-header">
               <div class="project-meta">
@@ -1631,44 +586,26 @@
                 understands what you're asking and finds the right documents.
               </p>
 
-              <h4>Technical Highlights</h4>
-              <ul>
-                <li>
-                  <strong>Document Pipeline:</strong> Automated PDF ingestion
-                  using PyPDF2/PyPDFLoader with metadata extraction
-                </li>
-                <li>
-                  <strong>AI Integration:</strong> Azure OpenAI GPT-4o for
-                  semantic parsing and smart metadata generation
-                </li>
+              <ul class="responsibility-list">
                 <li>
                   <strong>Hybrid Search:</strong> Combined Hugging Face
-                  embeddings (all-MiniLM-L6-v2) + FAISS for semantic search with
-                  BM25 for keyword matching
+                  embeddings with FAISS for semantic search.
                 </li>
                 <li>
-                  <strong>Backend:</strong> C#/SQL RESTful API for real-time
-                  queries and enterprise data integration
+                  <strong>Smart Caching:</strong> Implemented versioned JSON
+                  metadata cache to optimize LLM usage.
                 </li>
                 <li>
-                  <strong>Smart Caching:</strong> Versioned JSON metadata cache
-                  to optimize costs and LLM usage
+                  <strong>Impact:</strong> Reduced document retrieval time from
+                  minutes to seconds.
                 </li>
               </ul>
-
-              <p>
-                Result? Lightning-fast, accurate document retrieval that
-                actually helps people find what they need instead of drowning in
-                enterprise bureaucracy.
-              </p>
 
               <div class="tech-stack">
                 <div class="tech-tags">
                   <span class="tech-tag">Python</span>
                   <span class="tech-tag">C#</span>
-                  <span class="tech-tag">SQL</span>
                   <span class="tech-tag">Azure OpenAI</span>
-                  <span class="tech-tag">Hugging Face</span>
                   <span class="tech-tag">FAISS</span>
                   <span class="tech-tag">PyPDF2</span>
                 </div>
@@ -1680,13 +617,7 @@
             </div>
           </article>
 
-          <!-- Project Card: Search Engine Evaluation -->
-          <article
-            class="project-card"
-            data-category="nlp"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
+          <article class="project-card" data-category="nlp" data-aos="fade-up">
             <div class="project-card-header">
               <div class="project-meta">
                 <span class="project-type">Information Retrieval</span>
@@ -1702,30 +633,9 @@
 
             <div class="project-card-body">
               <p>
-                Ever notice how search engines sometimes completely miss the
-                point of your query? I built a framework to measure exactly how
-                badly they're failing — and where they can improve.
-              </p>
-
-              <h4>What I Did</h4>
-              <ul>
-                <li>
-                  Created gold-standard evaluation dataset with 20 complex
-                  queries across multiple formulation styles
-                </li>
-                <li>
-                  Developed Python automation for precision/recall calculation
-                  at various cutoffs (n=5, n=10)
-                </li>
-                <li>Identified systematic patterns in query performance</li>
-                <li>
-                  Provided actionable insights for search algorithm optimization
-                </li>
-              </ul>
-
-              <p>
-                The boring-but-important work of making sure people can actually
-                find what they're looking for.
+                Built a framework to measure exactly how search engines fail to
+                understand complex queries. Created gold-standard evaluation
+                datasets and Python automation for precision/recall calculation.
               </p>
 
               <div class="tech-stack">
@@ -1751,9 +661,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================================
-         CALL TO ACTION
-         ========================================================================== -->
       <section class="cta-section section">
         <div class="container text-center">
           <h2 class="cta-title" data-aos="fade-up">Want to See More?</h2>
@@ -1779,9 +686,6 @@
       </section>
     </main>
 
-    <!-- ============================================================================
-       FOOTER
-       ============================================================================ -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-content">
@@ -1855,14 +759,10 @@
       </div>
     </footer>
 
-    <!-- ============================================================================
-       SCRIPTS
-       ============================================================================ -->
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/project-filter.js"></script>
 
-    <!-- AOS (Animate On Scroll) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       if (typeof AOS !== "undefined") {
@@ -1874,7 +774,6 @@
         });
       }
     </script>
-    <!-- THEME TOGGLE BUTTON -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       <svg
         class="sun-icon"

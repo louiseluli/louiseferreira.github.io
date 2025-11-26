@@ -1,3 +1,4 @@
+/* FILE: assets/css/experience.css (UPDATED FULL VERSION) */
 /* =============================================================================
    WORK EXPERIENCE PAGE STYLES
    Professional timeline, role highlights, company cards, achievement badges
@@ -89,6 +90,10 @@
   border-left: 6px solid var(--primary-color);
 }
 
+body.dark-mode .experience-highlight {
+  background-color: var(--gray-100);
+}
+
 .company-logo {
   width: 100px;
   height: 100px;
@@ -98,22 +103,18 @@
 .logo-placeholder {
   width: 100%;
   height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: linear-gradient(
     135deg,
     var(--primary-color),
     var(--secondary-color)
   );
   color: var(--white);
-
   font-family: var(--font-heading);
   font-size: var(--text-3xl);
   font-weight: 700;
-
   border-radius: var(--radius-md);
 }
 
@@ -145,7 +146,6 @@
 .role-period::before {
   content: "📅";
 }
-
 .role-location::before {
   content: "📍";
 }
@@ -204,6 +204,10 @@
   border-radius: var(--radius-md);
 }
 
+body.dark-mode .tech-used {
+  background-color: var(--gray-200);
+}
+
 .tech-used h4 {
   font-size: var(--text-base);
   font-weight: 600;
@@ -222,16 +226,13 @@
 .tech-tag {
   display: inline-block;
   padding: var(--space-2) var(--space-3);
-
   font-size: var(--text-sm);
   font-weight: 500;
   font-family: var(--font-mono);
-
   background-color: var(--white);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: var(--radius-sm);
-
   transition: all var(--transition-fast);
 }
 
@@ -262,7 +263,6 @@
   top: 0;
   bottom: 0;
   width: 3px;
-
   background: linear-gradient(
     to bottom,
     var(--primary-color) 0%,
@@ -286,10 +286,8 @@
   position: absolute;
   left: 20px;
   top: 8px;
-
   width: 24px;
   height: 24px;
-
   background: linear-gradient(
     135deg,
     var(--primary-color),
@@ -297,9 +295,13 @@
   );
   border: 4px solid var(--background-light);
   border-radius: 50%;
-
   box-shadow: 0 0 0 4px rgba(108, 46, 185, 0.2);
   z-index: 2;
+}
+
+body.dark-mode .timeline-marker {
+  border-color: var(--background-light); /* Matches dark bg */
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
 }
 
 .timeline-item:hover .timeline-marker {
@@ -322,7 +324,6 @@
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   box-shadow: var(--shadow-md);
-
   transition: all var(--transition-base);
 }
 
@@ -341,14 +342,11 @@
 .timeline-period {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
-
   font-size: var(--text-sm);
   font-weight: 600;
-
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border-radius: var(--radius-sm);
-
   margin-bottom: var(--space-3);
 }
 
@@ -439,7 +437,6 @@
     rgba(217, 119, 6, 0.1)
   );
   border-left: 4px solid #f59e0b;
-
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
@@ -486,7 +483,6 @@
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   text-align: center;
-
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
 }

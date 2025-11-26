@@ -1,40 +1,45 @@
+/* FILE: assets/css/main.css */
 /* =============================================================================
-   MAIN STYLES - IMPROVED TYPOGRAPHY & VISUAL DESIGN
-   Design system, typography, spacing, components, utilities
+   MAIN STYLES - DESIGN SYSTEM & CORE UTILITIES
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
    CSS CUSTOM PROPERTIES (DESIGN TOKENS)
    ----------------------------------------------------------------------------- */
 :root {
-  /* Colors - Purple palette with better contrast */
-  --primary-color: #5a1f99; /* Darker purple for better readability */
-  --primary-light: #7b3db8; /* Medium purple for hover states */
-  --secondary-color: #9b6fcc; /* Adjusted secondary for better contrast */
+  /* Core Palette - Purple Theme */
+  /* Primary: Used for headings, strong links, active states */
+  --primary-color: #5a1f99;
+  /* Primary Light: Used for gradients, hover states */
+  --primary-light: #7b3db8;
+  /* Secondary: Used for accents, decorative elements */
+  --secondary-color: #9b6fcc;
+
+  /* Functional Colors */
+  --highlight-color: #ffc043; /* Gold/Yellow for emphasis */
+  --error-color: #dc2626; /* Red for critical issues/warnings */
+  --success-color: #059669; /* Green for positive metrics */
+  --warning-color: #f59e0b; /* Amber for notices */
+  --accent-teal: #14b8a6;
+  --accent-rose: #f43f5e;
+
+  /* Neutrals & Backgrounds (Light Mode Default) */
   --background-light: #fafafa;
   --white: #ffffff;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-300: #d1d5db;
-  --gray-600: #4b5563; /* Added for better text hierarchy */
+  --gray-600: #4b5563;
   --gray-700: #374151;
-  --text-dark: #0f172a; /* Darker for better readability */
-  --highlight-color: #ffc043; /* Warmer yellow for better contrast */
-  --error-color: #dc2626;
-  --success-color: #059669; /* For positive metrics */
+  --text-dark: #0f172a; /* Almost black for main text */
 
-  /* Additional theme colors */
-  --accent-teal: #14b8a6;
-  --accent-rose: #f43f5e;
-  --warning-color: #f59e0b;
-
-  /* Typography  */
+  /* Typography */
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
   --font-mono: "Courier New", Courier, monospace;
 
-  /* Font sizes - Fluid typography scale */
+  /* Fluid Font Scale */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
   --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
@@ -44,17 +49,7 @@
   --text-3xl: clamp(1.875rem, 1.65rem + 1vw, 2.25rem);
   --text-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 3rem);
 
-  /* Line heights */
-  --leading-tight: 1.25;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.7;
-
-  /* Letter spacing */
-  --tracking-tight: -0.025em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-
-  /* Spacing scale */
+  /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -65,19 +60,15 @@
   --space-16: 4rem;
   --space-24: 6rem;
 
-  /* Border radius */
+  /* UI Elements */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
 
-  /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --shadow-purple: 0 10px 30px -5px rgba(108, 46, 185, 0.3);
 
   /* Transitions */
@@ -85,7 +76,7 @@
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
 
-  /* Background patterns */
+  /* Background Patterns */
   --pattern-dots: radial-gradient(
     circle,
     rgba(108, 46, 185, 0.08) 1px,
@@ -96,7 +87,7 @@
 }
 
 /* -----------------------------------------------------------------------------
-   RESET & BASE STYLES
+   RESET & GLOBAL STYLES
    ----------------------------------------------------------------------------- */
 * {
   margin: 0;
@@ -107,26 +98,31 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Accounts for fixed navbar */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
+  line-height: 1.7;
   color: var(--text-dark);
   background-color: var(--background-light);
-
-  /* Subtle background pattern */
   background-image: var(--pattern-dots);
   background-size: 24px 24px;
   background-attachment: fixed;
-
-  transition: background-color var(--transition-base);
+  transition: background-color var(--transition-base),
+    color var(--transition-base);
 }
 
-/* Heading styles */
+/* Prevent transitions on page load (handled by JS) */
+body.no-transition * {
+  transition: none !important;
+}
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY
+   ----------------------------------------------------------------------------- */
 h1,
 h2,
 h3,
@@ -135,8 +131,7 @@ h5,
 h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
   color: var(--text-dark);
   margin-bottom: var(--space-4);
 }
@@ -153,124 +148,32 @@ h3 {
 h4 {
   font-size: var(--text-xl);
 }
-h5 {
-  font-size: var(--text-lg);
-}
-h6 {
-  font-size: var(--text-base);
-}
 
-/* Paragraph styles */
 p {
   margin-bottom: var(--space-4);
-  line-height: var(--leading-relaxed);
 }
 
-/* Link styles */
 a {
   color: var(--primary-color);
   text-decoration: underline;
-  text-decoration-color: rgba(108, 46, 185, 0.3);
-  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(90, 31, 153, 0.3);
   text-underline-offset: 3px;
   transition: all var(--transition-fast);
 }
 
 a:hover {
-  color: var(--secondary-color);
-  text-decoration-color: var(--secondary-color);
+  color: var(--primary-light);
+  text-decoration-color: var(--primary-light);
 }
 
 a:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 4px;
-  border-radius: var(--radius-sm);
-}
-
-/* -----------------------------------------------------------------------------
-   SECTION BACKGROUNDS
-   ----------------------------------------------------------------------------- */
-.section {
-  padding: var(--space-16) 0;
-  position: relative;
-}
-
-/* Alternating section backgrounds */
-.section-alt {
-  background-color: var(--white);
-  background-image: var(--pattern-grid);
-  background-size: 40px 40px;
-}
-
-/* Decorative section dividers */
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
   border-radius: 2px;
 }
 
 /* -----------------------------------------------------------------------------
-   TYPOGRAPHY UTILITIES
-   ----------------------------------------------------------------------------- */
-.text-center {
-  text-align: center;
-}
-
-.section-title {
-  font-size: var(--text-3xl);
-  font-weight: 700;
-  margin-bottom: var(--space-8);
-  color: var(--text-dark);
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  border-radius: 2px;
-}
-
-.text-center .section-title::after {
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-}
-
-.section-intro {
-  font-size: var(--text-lg);
-  color: var(--gray-700);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-8);
-  max-width: 700px;
-}
-
-.text-center .section-intro {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* -----------------------------------------------------------------------------
-   LAYOUT CONTAINERS
+   LAYOUT & UTILITIES
    ----------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -282,54 +185,52 @@ a:focus-visible {
 .container-narrow {
   max-width: 800px;
 }
-
 .container-wide {
   max-width: 1400px;
 }
 
+.section {
+  padding: var(--space-16) 0;
+  position: relative;
+}
+
+.section-alt {
+  background-color: var(--white);
+  background-image: var(--pattern-grid);
+  background-size: 40px 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* -----------------------------------------------------------------------------
-   BUTTON STYLES
+   COMPONENTS: BUTTONS
    ----------------------------------------------------------------------------- */
 .btn {
   display: inline-block;
   padding: var(--space-4) var(--space-8);
-
   font-family: var(--font-body);
-  font-size: var(--text-base);
   font-weight: 600;
-  text-align: center;
   text-decoration: none;
-  letter-spacing: var(--tracking-wide);
-
+  text-align: center;
   border-radius: var(--radius-md);
   border: 2px solid transparent;
-
   cursor: pointer;
   transition: all var(--transition-base);
-
   position: relative;
   overflow: hidden;
-}
-
-/* Button hover shine effect */
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.btn:hover::before {
-  left: 100%;
 }
 
 .btn-primary {
@@ -344,53 +245,33 @@ a:focus-visible {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -5px rgba(90, 31, 153, 0.4);
+  box-shadow: 0 8px 20px -4px rgba(90, 31, 153, 0.4);
+  color: var(--white);
   text-decoration: none;
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background: transparent;
   color: var(--primary-color);
   border-color: var(--primary-color);
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   color: var(--white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
   text-decoration: none;
+  transform: translateY(-2px);
 }
 
 /* -----------------------------------------------------------------------------
-   CARD COMPONENT
+   COMPONENTS: CARDS
    ----------------------------------------------------------------------------- */
 .card {
-  background-color: var(--white);
-  border-radius: var(--radius-lg);
+  background: var(--white);
   padding: var(--space-8);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Card hover effect */
-.card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-base);
 }
 
 .card:hover {
@@ -398,43 +279,27 @@ a:focus-visible {
   box-shadow: var(--shadow-lg);
 }
 
-.card:hover::after {
-  transform: scaleX(1);
-}
-
 /* -----------------------------------------------------------------------------
-   ACCESSIBILITY
+   ACCESSIBILITY SKIP LINK
    ----------------------------------------------------------------------------- */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -100px;
   left: 0;
   background: var(--primary-color);
   color: var(--white);
   padding: var(--space-2) var(--space-4);
+  z-index: 9999;
   text-decoration: none;
-  z-index: 100;
-  border-radius: 0 0 var(--radius-sm) 0;
+  transition: top 0.3s;
 }
 
 .skip-link:focus {
   top: 0;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 /* -----------------------------------------------------------------------------
-   RESPONSIVE DESIGN
+   RESPONSIVE
    ----------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   :root {
@@ -442,59 +307,11 @@ a:focus-visible {
     --space-24: 4rem;
   }
 
-  .container {
-    padding: 0 var(--space-4);
-  }
-
   .section {
     padding: var(--space-12) 0;
   }
-}
 
-@media (max-width: 480px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
-}
-
-/* -----------------------------------------------------------------------------
-   UTILITIES
-   ----------------------------------------------------------------------------- */
-.mt-0 {
-  margin-top: 0;
-}
-.mt-4 {
-  margin-top: var(--space-4);
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-0 {
-  margin-bottom: 0;
-}
-.mb-4 {
-  margin-bottom: var(--space-4);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-
-.hidden {
-  display: none;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
 }

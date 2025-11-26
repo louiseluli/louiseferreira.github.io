@@ -1,3 +1,4 @@
+/* FILE: assets/css/about.css (UPDATED FULL VERSION) */
 /* =============================================================================
    ABOUT PAGE STYLES
    Personal story, timeline, identity sections
@@ -48,6 +49,7 @@ body.dark-mode .page-header {
 .intro-image {
   position: sticky;
   top: calc(72px + var(--space-6)); /* Stick below navbar */
+  z-index: 10;
 }
 
 .profile-photo-wrapper {
@@ -63,7 +65,7 @@ body.dark-mode .page-header {
   display: block;
 }
 
-/* Photo placeholder (remove when you add real photo) */
+/* Photo placeholder (fallback) */
 .photo-placeholder {
   width: 100%;
   aspect-ratio: 1;

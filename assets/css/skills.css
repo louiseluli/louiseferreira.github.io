@@ -1,3 +1,4 @@
+/* FILE: assets/css/skills.css (UPDATED FULL VERSION) */
 /* =============================================================================
    SKILLS PAGE STYLES
    Skill categories, progress bars, language cards, certifications
@@ -100,17 +101,14 @@ body.dark-mode .skill-category {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 56px;
   height: 56px;
-
   background: linear-gradient(
     135deg,
     var(--primary-color),
     var(--secondary-color)
   );
   border-radius: 50%;
-
   flex-shrink: 0;
 }
 
@@ -132,10 +130,6 @@ body.dark-mode .skill-category {
 }
 
 /* Individual skill item */
-.skill-item {
-  /* Container for each skill */
-}
-
 .skill-header {
   display: flex;
   justify-content: space-between;
@@ -174,10 +168,7 @@ body.dark-mode .skill-category {
     var(--secondary-color)
   );
   border-radius: 10px;
-
   transition: width 1s ease-out;
-
-  /* Animated shimmer effect */
   position: relative;
   overflow: hidden;
 }
@@ -189,14 +180,12 @@ body.dark-mode .skill-category {
   left: -100%;
   width: 100%;
   height: 100%;
-
   background: linear-gradient(
     90deg,
     transparent,
     rgba(255, 255, 255, 0.3),
     transparent
   );
-
   animation: shimmer 2s infinite;
 }
 
@@ -236,7 +225,6 @@ body.dark-mode .skill-category {
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   text-align: center;
-
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
 }
@@ -265,16 +253,13 @@ body.dark-mode .language-card {
 .language-level {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
-
   font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-
   background-color: var(--secondary-color);
   color: var(--primary-color);
   border-radius: var(--radius-sm);
-
   margin-bottom: var(--space-3);
 }
 
@@ -304,12 +289,10 @@ body.dark-mode .language-card {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-
   padding: var(--space-4);
   background-color: var(--white);
   border-radius: var(--radius-md);
   border-left: 3px solid var(--primary-color);
-
   transition: all var(--transition-fast);
 }
 
@@ -354,12 +337,28 @@ body.dark-mode .cert-item:hover {
   padding: var(--space-16) 0;
   background: linear-gradient(135deg, var(--primary-color) 0%, #5a2599 100%);
   color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--pattern-grid);
+  background-size: 50px 50px;
+  opacity: 0.05;
 }
 
 .cta-title {
   font-size: var(--text-4xl);
   color: var(--white);
   margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 1;
 }
 
 .cta-text {
@@ -368,6 +367,8 @@ body.dark-mode .cert-item:hover {
   margin: 0 auto var(--space-8);
   opacity: 0.95;
   line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-buttons {
@@ -375,6 +376,8 @@ body.dark-mode .cert-item:hover {
   justify-content: center;
   flex-wrap: wrap;
   gap: var(--space-4);
+  position: relative;
+  z-index: 1;
 }
 
 .cta-section .btn {

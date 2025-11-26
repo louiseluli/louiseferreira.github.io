@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ============================================================================
-       META TAGS
-       ============================================================================ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -16,7 +13,6 @@
     />
     <meta name="author" content="Louise Ferreira" />
 
-    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -27,9 +23,6 @@
       content="Intersectional AI researcher focused on algorithmic fairness and ethical technology"
     />
     <meta property="og:url" content="https://louiseluli.github.io" />
-    <!-- <meta property="og:image" content="assets/img/social-preview.jpg"> -->
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Louise Ferreira - AI Researcher" />
     <meta
@@ -39,14 +32,6 @@
 
     <title>Louise Ferreira - AI Researcher & Cybersecurity Professional</title>
 
-    <!-- ============================================================================
-       FAVICON (add your favicon files later)
-       ============================================================================ -->
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png"> -->
-
-    <!-- ============================================================================
-       FONTS
-       ============================================================================ -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -54,46 +39,33 @@
       rel="stylesheet"
     />
 
-    <!-- ============================================================================
-       STYLESHEETS
-       ============================================================================ -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/theme.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/home.css" />
+    <link rel="stylesheet" href="assets/css/visual_enhancements.css" />
   </head>
 
   <body>
-    <!-- ============================================================================
-       SKIP LINK (Accessibility)
-       ============================================================================ -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- ============================================================================
-       NAVIGATION BAR
-       ============================================================================ -->
     <header class="site-header">
       <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <!-- Logo / Site Title -->
         <a href="index.html" class="navbar-brand">
-          <!-- Optional: Add your LF monogram SVG here -->
-          <!-- <img src="assets/img/logo.svg" alt="" class="navbar-brand-logo"> -->
           <span>Louise Ferreira</span>
         </a>
 
-        <!-- Desktop & Mobile Menu -->
         <ul class="navbar-menu" role="list">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="skills.html">Skills</a></li>
           <li><a href="awards.html">Awards</a></li>
           <li><a href="personal.html">Personal</a></li>
           <li><a href="contact.html">Contact</a></li>
 
-          <!-- Social icons (inside mobile menu) -->
           <li class="navbar-social">
-            <!-- GitHub -->
             <a
               href="https://github.com/louiseluli"
               target="_blank"
@@ -115,7 +87,6 @@
               </svg>
             </a>
 
-            <!-- LinkedIn -->
             <a
               href="https://www.linkedin.com/in/louisesfer/"
               target="_blank"
@@ -138,20 +109,9 @@
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-
-            <!-- Google Scholar (optional - add your URL when available) -->
-            <!-- <a href="https://scholar.google.com/citations?user=YOUR_ID" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             aria-label="Google Scholar profile (opens in new tab)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
-            </svg>
-          </a> -->
           </li>
         </ul>
 
-        <!-- Mobile Hamburger Toggle -->
         <button
           class="navbar-toggle"
           aria-label="Toggle navigation menu"
@@ -165,30 +125,35 @@
       </nav>
     </header>
 
-    <!-- ============================================================================
-       MAIN CONTENT
-       ============================================================================ -->
     <main id="main-content" class="main-content">
-      <!-- HERO SECTION -->
       <section class="hero">
+        <div class="hero-background">
+          <div class="wave-pattern"></div>
+        </div>
         <div class="container">
           <div class="hero-content">
             <div class="hero-text" data-aos="fade-right">
-              <div class="hero-badge">
-                <span>🎓 Chevening/Lemann Scholar</span>
+              <div class="hero-greeting">
+                <span class="greeting-emoji">👋</span>
+                <span>Hi, I'm Louise</span>
               </div>
 
-              <h1 class="hero-title">Louise Ferreira</h1>
+              <h1 class="hero-title">
+                Building Algorithms for<br />
+                <span class="highlight-text">Justice, Not Just Efficiency</span>
+              </h1>
 
               <h2 class="hero-subtitle">
-                Machine Learning Engineer • AI Fairness Researcher
+                AI Fairness Researcher • Machine Learning Engineer
               </h2>
 
-              <p class="hero-description">
-                Building algorithms that serve justice, not just efficiency.
-                Currently pursuing an MSc in AI at Essex, researching
-                intersectional bias in content moderation systems. Previously:
-                CloudWalk, IDB, Ernst & Young.
+              <p class="hero-bio">
+                I'm a <strong>Chevening/Lemann Scholar</strong> and researcher
+                at the intersection of technology and social justice. Currently
+                pursuing my MSc in AI at the University of Essex, investigating
+                intersectional bias in content moderation systems. Previously at
+                <strong>CloudWalk</strong>, <strong>IDB</strong>, and
+                <strong>Ernst & Young</strong>.
               </p>
 
               <div class="hero-highlights">
@@ -198,10 +163,10 @@
                 </div>
                 <div class="highlight-item">
                   <span class="highlight-number">92.6%</span>
-                  <span class="highlight-label">Model Accuracy (BERT)</span>
+                  <span class="highlight-label">BERT Accuracy</span>
                 </div>
                 <div class="highlight-item">
-                  <span class="highlight-number">63%</span>
+                  <span class="highlight-number">64%</span>
                   <span class="highlight-label">Bias Reduction</span>
                 </div>
               </div>
@@ -216,7 +181,8 @@
                 <a
                   href="assets/CV_Louise_Ferreira.pdf"
                   class="btn btn-secondary"
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +208,7 @@
                 <div class="stat-circle primary">
                   <div class="circle-content">
                     <span class="circle-num">5+</span>
-                    <span class="circle-label">Years in Tech</span>
+                    <span class="circle-label">Years Exp</span>
                   </div>
                 </div>
                 <div class="stat-circle secondary">
@@ -268,44 +234,58 @@
                 </div>
                 <pre
                   class="snippet-code"
-                ><code><span class="code-comment"># Measuring algorithmic bias</span>
+                ><code><span class="code-comment"># Mitigating intersectional bias</span>
+<span class="code-keyword">from</span> fairlearn.reductions <span class="code-keyword">import</span> ExponentiatedGradient
 <span class="code-keyword">from</span> fairlearn.metrics <span class="code-keyword">import</span> demographic_parity_difference
-<span class="code-keyword">from</span> aif360.algorithms <span class="code-keyword">import</span> ExponentiatedGradient
 
-<span class="code-comment"># Baseline model shows -12.6% accuracy gap</span>
+<span class="code-comment"># Baseline accuracy gap: Black women -12.6%</span>
 baseline_gap = <span class="code-number">-0.126</span>
 
-<span class="code-comment"># After mitigation: -4.6% gap (63% improvement!)</span>
-mitigated_gap = <span class="code-number">-0.046</span>
+<span class="code-comment"># Apply in-processing mitigation</span>
+mitigator = ExponentiatedGradient(
+    estimator=base_model,
+    constraints=DemographicParity()
+)
+mitigator.fit(X, y, sensitive_features=groups)
 
-improvement = (baseline_gap - mitigated_gap) / baseline_gap
-<span class="code-function">print</span>(<span class="code-string">f"Bias reduction: {improvement:.1%}"</span>)
-<span class="code-comment"># Output: Bias reduction: 63.5%</span></code></pre>
+<span class="code-comment"># Result: Gap reduced to -4.6%</span>
+<span class="code-function">print</span>(<span class="code-string">"Bias reduction: 64%"</span>)</code></pre>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="scroll-indicator">
+          <span>Explore Work</span>
+          <svg
+            class="scroll-arrow"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+          </svg>
+        </div>
       </section>
 
-      <!-- ==========================================================================
-         QUICK OVERVIEW SECTION
-         ========================================================================== -->
       <section class="overview section" aria-labelledby="overview-title">
         <div class="container">
           <h2 id="overview-title" class="section-title text-center">
-            Building Equitable AI Systems
+            What I Bring to the Table
           </h2>
           <p class="section-intro text-center">
-            My work centers on ensuring algorithms don't perpetuate harm against
-            marginalized communities. From adult content classification to
-            cultural data mining, I bring intersectional analysis to technical
-            solutions.
+            My work bridges the gap between technical implementation and ethical
+            responsibility. From classifying harmful content to governing
+            enterprise data, I build systems that protect people.
           </p>
 
-          <!-- Feature cards -->
           <div class="grid grid-3">
-            <!-- Card 1: Research Focus -->
-            <article class="card feature-card" data-aos="fade-up">
+            <article class="feature-card card" data-aos="fade-up">
               <div class="feature-icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -322,20 +302,19 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
                   <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                 </svg>
               </div>
-              <h3 class="card-title">Algorithmic Fairness Research</h3>
+              <h3 class="card-title">Fairness Research</h3>
               <p>
-                Investigating bias in NLP models for sensitive content
-                classification, with focus on protecting LGBT and racial
-                minorities from algorithmic harm.
+                Investigating bias in NLP models for sensitive content. My MSc
+                dissertation reduced algorithmic disparity against Black women
+                by 64%.
               </p>
               <a href="projects.html" class="feature-link">
-                Explore projects →
+                Explore projects
               </a>
             </article>
 
-            <!-- Card 2: Technical Expertise -->
             <article
-              class="card feature-card"
+              class="feature-card card"
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -355,18 +334,17 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
                   <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
               </div>
-              <h3 class="card-title">Cybersecurity & Data Governance</h3>
+              <h3 class="card-title">Cybersecurity & Data</h3>
               <p>
-                Professional experience in data loss prevention, compliance
-                (GDPR, LGPD), and AI-powered security solutions at Big Four
-                consulting and fintech.
+                Professional experience in data loss prevention, GDPR/LGPD
+                compliance, and AI security at Big Four firms and global
+                fintechs.
               </p>
-              <a href="skills.html" class="feature-link"> View skills → </a>
+              <a href="skills.html" class="feature-link"> View skills </a>
             </article>
 
-            <!-- Card 3: Leadership -->
             <article
-              class="card feature-card"
+              class="feature-card card"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -388,23 +366,17 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
               </div>
-              <h3 class="card-title">DEI & Community Leadership</h3>
+              <h3 class="card-title">DEI Leadership</h3>
               <p>
-                Chief Diversity Officer at Shaping Horizons, mentor at Negritude
-                no PhD, building pathways for underrepresented groups in tech
-                and academia.
+                Chief Diversity Officer at Shaping Horizons. Building pathways
+                for underrepresented groups in tech through Negritude no PhD.
               </p>
-              <a href="awards.html" class="feature-link">
-                See achievements →
-              </a>
+              <a href="awards.html" class="feature-link"> See achievements </a>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ==========================================================================
-         CURRENT FOCUS SECTION
-         ========================================================================== -->
       <section class="focus section section-alt" aria-labelledby="focus-title">
         <div class="container container-narrow">
           <h2 id="focus-title" class="section-title text-center">
@@ -415,11 +387,11 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
             <div class="focus-item" data-aos="fade-right">
               <span class="focus-number">01</span>
               <div class="focus-text">
-                <h3>Bias in Adult Content Moderation</h3>
+                <h3>Intersectional Bias in Content Moderation</h3>
                 <p>
-                  How do content classification algorithms inadvertently
-                  penalize LGBT and BIPOC creators? Developing fairness
-                  interventions using Fairlearn and custom NLP pipelines.
+                  How do classification algorithms inadvertently penalize LGBT
+                  and BIPOC creators? I'm developing fairness interventions
+                  using Fairlearn and custom NLP pipelines to fix this.
                 </p>
               </div>
             </div>
@@ -427,11 +399,11 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
             <div class="focus-item" data-aos="fade-right" data-aos-delay="100">
               <span class="focus-number">02</span>
               <div class="focus-text">
-                <h3>Cultural Data Mining & NLP</h3>
+                <h3>Cultural Data Mining</h3>
                 <p>
                   Applying computational methods to understand cultural patterns
-                  and power dynamics in digital spaces, with intersectional
-                  analysis at the core.
+                  in digital spaces. My recent work analyzed 140,000+ films to
+                  map historical representation trends.
                 </p>
               </div>
             </div>
@@ -439,9 +411,6 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
         </div>
       </section>
 
-      <!-- ==========================================================================
-         CALL TO ACTION SECTION
-         ========================================================================== -->
       <section class="cta-section section" aria-labelledby="cta-title">
         <div class="container text-center">
           <h2 id="cta-title" class="cta-title" data-aos="fade-up">
@@ -467,20 +436,15 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
       </section>
     </main>
 
-    <!-- ============================================================================
-       FOOTER
-       ============================================================================ -->
     <footer class="site-footer">
       <div class="container">
         <div class="footer-content">
-          <!-- Footer branding -->
           <div class="footer-brand">
             <p class="footer-tagline">
               Building algorithms that serve justice, not just efficiency.
             </p>
           </div>
 
-          <!-- Footer links -->
           <nav class="footer-nav" aria-label="Footer navigation">
             <a href="about.html">About</a>
             <a href="experience.html">Experience</a>
@@ -489,7 +453,6 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
             <a href="contact.html">Contact</a>
           </nav>
 
-          <!-- Footer social -->
           <div class="footer-social">
             <a
               href="https://github.com/louiseluli"
@@ -540,20 +503,15 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
           </div>
         </div>
 
-        <!-- Copyright -->
         <div class="footer-bottom">
           <p>&copy; 2025 Louise Ferreira. Built with purpose and code.</p>
         </div>
       </div>
     </footer>
 
-    <!-- ============================================================================
-       SCRIPTS
-       ============================================================================ -->
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/navbar.js"></script>
 
-    <!-- AOS (Animate On Scroll) Library - Optional but recommended -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       // Initialize animations
@@ -566,40 +524,5 @@ improvement = (baseline_gap - mitigated_gap) / baseline_gap
         });
       }
     </script>
-    <!-- THEME TOGGLE BUTTON -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-      <svg
-        class="sun-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-      <svg
-        class="moon-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    </button>
   </body>
 </html>

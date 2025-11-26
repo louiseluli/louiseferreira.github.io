@@ -1,3 +1,4 @@
+/* FILE: assets/css/theme.css */
 /* =============================================================================
    THEME SYSTEM - DARK MODE
    Light/dark mode with proper contrast and accessibility
@@ -6,34 +7,41 @@
 /* -----------------------------------------------------------------------------
    DARK MODE VARIABLES
    ----------------------------------------------------------------------------- */
-body.dark-mode {
-  /* Dark mode color overrides */
-  --background-light: #0f172a;
-  --white: #1e293b;
-  --gray-100: #1e293b;
-  --gray-200: #334155;
-  --gray-300: #475569;
-  --gray-600: #94a3b8;
-  --gray-700: #cbd5e1;
-  --text-dark: #f1f5f9;
+body.dark-mode,
+[data-theme="dark"] {
+  /* Core Colors - Dark Theme Overrides */
+  --background-light: #0f172a; /* Slate 900 */
+  --white: #1e293b; /* Slate 800 */
+  --gray-100: #1e293b; /* Surface */
+  --gray-200: #334155; /* Borders */
+  --gray-300: #475569; /* Muted text */
+  --gray-600: #94a3b8; /* Secondary text */
+  --gray-700: #cbd5e1; /* Primary text in dark mode */
+  --text-dark: #f1f5f9; /* Headings/High contrast text */
 
-  /* Keep primary colors but adjust for dark backgrounds */
-  --primary-color: #9b6fcc;
-  --primary-light: #b794e3;
-  --secondary-color: #d1b3ff;
-  --highlight-color: #ffd666;
+  /* Theme Colors - Adjusted for Dark Mode Contrast */
+  --primary-color: #a78bfa; /* Lighter purple for dark bg */
+  --primary-light: #c4b5fd; /* Very light purple for hover */
+  --secondary-color: #d8b4fe; /* Lavender accent */
+  --highlight-color: #fcd34d; /* Amber/Gold */
+
+  /* Chart & Component Specifics */
+  --card-bg: #1e293b;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
 
   /* Pattern backgrounds for dark mode */
   --pattern-dots: radial-gradient(
     circle,
-    rgba(155, 111, 204, 0.1) 1px,
+    rgba(167, 139, 250, 0.15) 1px,
     transparent 1px
   );
   --pattern-grid: linear-gradient(
-      rgba(155, 111, 204, 0.05) 1px,
+      rgba(167, 139, 250, 0.05) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(155, 111, 204, 0.05) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(167, 139, 250, 0.05) 1px, transparent 1px);
 }
 
 /* -----------------------------------------------------------------------------
@@ -46,8 +54,8 @@ body.dark-mode {
 
 /* Links in dark mode */
 body.dark-mode a {
-  color: var(--secondary-color);
-  text-decoration-color: rgba(209, 179, 255, 0.3);
+  color: var(--primary-color);
+  text-decoration-color: rgba(167, 139, 250, 0.4);
 }
 
 body.dark-mode a:hover {
@@ -73,7 +81,8 @@ body.dark-mode .navbar-menu a {
 
 body.dark-mode .navbar-menu a:hover,
 body.dark-mode .navbar-menu a.active {
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  background-color: rgba(167, 139, 250, 0.1);
 }
 
 /* -----------------------------------------------------------------------------
@@ -81,13 +90,22 @@ body.dark-mode .navbar-menu a.active {
    ----------------------------------------------------------------------------- */
 body.dark-mode .btn-secondary {
   background-color: transparent;
-  color: var(--secondary-color);
-  border-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 body.dark-mode .btn-secondary:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--background-light);
+}
+
+body.dark-mode .btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: #0f172a; /* Dark text on light button for contrast */
 }
 
 /* -----------------------------------------------------------------------------
@@ -103,12 +121,13 @@ body.dark-mode .contact-card,
 body.dark-mode .status-card,
 body.dark-mode .method-card,
 body.dark-mode .stat-card {
-  background-color: var(--gray-100);
+  background-color: var(--white);
   color: var(--text-dark);
+  border: 1px solid var(--gray-200); /* Subtle border for definition */
 }
 
 body.dark-mode .section-alt {
-  background-color: #1a2332;
+  background-color: #162032; /* Slightly lighter than main bg */
   background-image: var(--pattern-grid);
 }
 
@@ -118,17 +137,17 @@ body.dark-mode .section-alt {
 
 /* Featured Project Section */
 body.dark-mode .featured-project {
-  background: linear-gradient(135deg, #0f172a 0%, #1a2332 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 /* Executive Summary & Content Warnings */
 body.dark-mode .executive-summary {
   background: linear-gradient(
     135deg,
-    rgba(155, 111, 204, 0.15),
-    rgba(209, 179, 255, 0.1)
+    rgba(167, 139, 250, 0.15),
+    rgba(216, 180, 254, 0.1)
   );
-  border-left-color: var(--secondary-color);
+  border-left-color: var(--primary-color);
 }
 
 body.dark-mode .content-warning {
@@ -146,12 +165,12 @@ body.dark-mode .content-warning-title {
 
 /* Stats Cards */
 body.dark-mode .stat-card {
-  background-color: var(--gray-100);
+  background-color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .stat-number {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .stat-label {
@@ -161,11 +180,12 @@ body.dark-mode .stat-label {
 /* Highlighted stat card stays with error color */
 body.dark-mode .stat-card.highlight-stat {
   background: linear-gradient(135deg, #dc2626, #ef4444);
+  border: none;
 }
 
 body.dark-mode .stat-card.highlight-stat .stat-number,
 body.dark-mode .stat-card.highlight-stat .stat-label {
-  color: var(--white);
+  color: #ffffff;
 }
 
 /* Data Breakdown Bars */
@@ -178,31 +198,32 @@ body.dark-mode .breakdown-label {
 }
 
 body.dark-mode .breakdown-item.highlight-breakdown .breakdown-label {
-  color: #fca5a5;
+  color: #fda4af; /* Light rose */
 }
 
 /* Finding Cards */
 body.dark-mode .findings-section {
-  background: linear-gradient(135deg, #1a2332, var(--gray-100));
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid var(--gray-200);
 }
 
 body.dark-mode .finding-card {
-  background-color: var(--gray-100);
+  background-color: var(--white);
   border-left-color: var(--gray-300);
 }
 
 body.dark-mode .finding-card.critical {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), var(--gray-100));
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), var(--white));
   border-left-color: #ef4444;
 }
 
 body.dark-mode .finding-card.warning {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--gray-100));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--white));
   border-left-color: var(--warning-color);
 }
 
 body.dark-mode .finding-card.info {
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), var(--gray-100));
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), var(--white));
   border-left-color: var(--accent-teal);
 }
 
@@ -223,7 +244,7 @@ body.dark-mode .metric-label {
 }
 
 body.dark-mode .metric-value {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .metric-value.critical {
@@ -231,17 +252,17 @@ body.dark-mode .metric-value.critical {
 }
 
 body.dark-mode .metric-value.warning {
-  color: var(--warning-color);
+  color: #fcd34d;
 }
 
 /* Methodology Cards */
 body.dark-mode .method-card {
-  background-color: var(--gray-100);
+  background-color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .method-card h4 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   border-bottom-color: var(--primary-color);
 }
 
@@ -250,17 +271,16 @@ body.dark-mode .method-card li {
 }
 
 body.dark-mode .method-card li::before {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .method-card strong {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 /* Mitigation Comparison */
 body.dark-mode .mitigation-comparison {
-  background-color: var(--gray-100);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--white);
 }
 
 body.dark-mode .comparison-label {
@@ -272,21 +292,21 @@ body.dark-mode .comparison-bar {
 }
 
 body.dark-mode .comparison-item.highlight-comparison .comparison-label {
-  color: #6ee7b7;
+  color: #34d399; /* Light green */
 }
 
 body.dark-mode .mitigation-note {
   background: linear-gradient(
     135deg,
-    rgba(155, 111, 204, 0.15),
-    rgba(209, 179, 255, 0.1)
+    rgba(167, 139, 250, 0.15),
+    rgba(216, 180, 254, 0.1)
   );
-  border-left-color: var(--secondary-color);
+  border-left-color: var(--primary-color);
   color: var(--gray-700);
 }
 
 body.dark-mode .mitigation-note strong {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 /* Tech Stack */
@@ -299,19 +319,19 @@ body.dark-mode .tech-stack-section h4 {
 }
 
 body.dark-mode .tech-tag {
-  background-color: var(--gray-100);
-  color: var(--secondary-color);
-  border-color: var(--secondary-color);
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 body.dark-mode .tech-tag:hover {
-  background-color: var(--secondary-color);
-  color: var(--background-light);
+  background-color: var(--primary-color);
+  color: #0f172a;
 }
 
 /* Visual Container */
 body.dark-mode .visual-container {
-  background-color: var(--gray-100);
+  background-color: var(--white);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -325,15 +345,15 @@ body.dark-mode .viz-highlight {
 body.dark-mode .viz-subtitle,
 body.dark-mode .viz-highlight-small,
 body.dark-mode .viz-footer {
-  fill: var(--gray-700);
+  fill: var(--gray-600);
 }
 
 /* Insight Box */
 body.dark-mode .insight-box {
   background: linear-gradient(
     135deg,
-    rgba(255, 214, 102, 0.15),
-    rgba(255, 192, 67, 0.1)
+    rgba(255, 192, 67, 0.15),
+    rgba(255, 192, 67, 0.05)
   );
   border-left-color: var(--highlight-color);
 }
@@ -352,14 +372,14 @@ body.dark-mode .research-section {
 }
 
 body.dark-mode .research-section h3 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 /* -----------------------------------------------------------------------------
    FILTER BUTTONS DARK MODE
    ----------------------------------------------------------------------------- */
 body.dark-mode .filter-section {
-  background-color: var(--gray-100);
+  background-color: var(--white);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -371,7 +391,7 @@ body.dark-mode .filter-btn {
 
 body.dark-mode .filter-btn:hover {
   background-color: var(--primary-color);
-  color: var(--text-dark);
+  color: #0f172a;
 }
 
 body.dark-mode .filter-btn.active {
@@ -380,7 +400,7 @@ body.dark-mode .filter-btn.active {
     var(--primary-color),
     var(--primary-light)
   );
-  color: var(--white);
+  color: #0f172a;
   border-color: var(--primary-color);
 }
 
@@ -392,7 +412,7 @@ body.dark-mode .project-card-title {
 }
 
 body.dark-mode .project-card-tagline {
-  color: var(--gray-700);
+  color: var(--gray-600);
 }
 
 body.dark-mode .project-card-body p {
@@ -400,11 +420,11 @@ body.dark-mode .project-card-body p {
 }
 
 body.dark-mode .project-card-body h4 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .project-card-body strong {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .project-card-footer {
@@ -412,7 +432,7 @@ body.dark-mode .project-card-footer {
 }
 
 body.dark-mode .project-link {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .project-link:hover {
@@ -420,7 +440,7 @@ body.dark-mode .project-link:hover {
 }
 
 body.dark-mode .project-status {
-  color: var(--gray-700);
+  color: var(--gray-600);
 }
 
 body.dark-mode .tech-stack {
@@ -431,22 +451,27 @@ body.dark-mode .tech-stack {
    ABOUT PAGE DARK MODE
    ----------------------------------------------------------------------------- */
 body.dark-mode .timeline-item::before {
-  border-color: var(--gray-100);
-  box-shadow: 0 0 0 4px rgba(155, 111, 204, 0.2);
+  border-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
 }
 
-body.dark-mode .principle-card {
-  background-color: var(--gray-100);
+body.dark-mode .pullquote {
+  background-color: rgba(167, 139, 250, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+body.dark-mode .pullquote p {
+  color: var(--primary-color);
 }
 
 /* -----------------------------------------------------------------------------
    SKILLS PAGE DARK MODE
    ----------------------------------------------------------------------------- */
 body.dark-mode .skill-item {
-  background-color: var(--gray-100);
+  background-color: var(--white);
 }
 
-body.dark-mode .skill-progress-bg {
+body.dark-mode .skill-bar {
   background-color: var(--gray-200);
 }
 
@@ -454,11 +479,12 @@ body.dark-mode .skill-progress-bg {
    AWARDS PAGE DARK MODE
    ----------------------------------------------------------------------------- */
 body.dark-mode .award-content {
-  background-color: var(--gray-100);
+  background-color: var(--white);
 }
 
 body.dark-mode .award-impact {
-  background-color: rgba(155, 111, 204, 0.1);
+  background-color: rgba(167, 139, 250, 0.1);
+  border-left-color: var(--primary-color);
 }
 
 body.dark-mode .impact-quote {
@@ -467,23 +493,23 @@ body.dark-mode .impact-quote {
     var(--primary-color),
     var(--primary-light)
   );
-  color: var(--white);
+  color: #0f172a;
 }
 
 /* -----------------------------------------------------------------------------
    EXPERIENCE PAGE DARK MODE
    ----------------------------------------------------------------------------- */
 body.dark-mode .experience-highlight {
-  background-color: var(--gray-100);
-  border-left-color: var(--secondary-color);
+  background-color: var(--white);
+  border-left-color: var(--primary-color);
 }
 
 body.dark-mode .company-name {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .role-meta {
-  color: var(--gray-700);
+  color: var(--gray-600);
 }
 
 body.dark-mode .responsibility-list li {
@@ -491,7 +517,7 @@ body.dark-mode .responsibility-list li {
 }
 
 body.dark-mode .responsibility-list li::before {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 body.dark-mode .tech-used {
@@ -519,10 +545,10 @@ body.dark-mode .achievement-highlight {
 body.dark-mode .insight-box {
   background: linear-gradient(
     135deg,
-    rgba(155, 111, 204, 0.15),
-    rgba(209, 179, 255, 0.1)
+    rgba(167, 139, 250, 0.15),
+    rgba(216, 180, 254, 0.1)
   );
-  border-left-color: var(--secondary-color);
+  border-left-color: var(--primary-color);
 }
 
 /* -----------------------------------------------------------------------------
@@ -534,6 +560,7 @@ body.dark-mode .contact-icon {
     var(--primary-color),
     var(--primary-light)
   );
+  color: #0f172a;
 }
 
 body.dark-mode .form-group input,
@@ -547,8 +574,8 @@ body.dark-mode .form-group textarea {
 body.dark-mode .form-group input:focus,
 body.dark-mode .form-group select:focus,
 body.dark-mode .form-group textarea:focus {
-  border-color: var(--secondary-color);
-  box-shadow: 0 0 0 3px rgba(155, 111, 204, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
 }
 
 body.dark-mode .form-group input::placeholder,
@@ -557,32 +584,33 @@ body.dark-mode .form-group textarea::placeholder {
 }
 
 body.dark-mode .preferences-note {
-  background-color: rgba(155, 111, 204, 0.1);
+  background-color: rgba(167, 139, 250, 0.1);
+  border-left-color: var(--primary-color);
 }
 
 body.dark-mode .preferences-note strong {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 /* -----------------------------------------------------------------------------
    FOOTER DARK MODE
    ----------------------------------------------------------------------------- */
 body.dark-mode .site-footer {
-  background-color: #0a0f1a;
+  background-color: #020617; /* Even darker for footer */
   border-top-color: var(--gray-200);
 }
 
 body.dark-mode .footer-tagline,
 body.dark-mode .footer-bottom p {
-  color: var(--gray-700);
+  color: var(--gray-600);
 }
 
 body.dark-mode .footer-nav a {
-  color: var(--gray-700);
+  color: var(--gray-600);
 }
 
 body.dark-mode .footer-nav a:hover {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 /* -----------------------------------------------------------------------------
@@ -592,10 +620,8 @@ body.dark-mode .footer-nav a:hover {
   position: fixed;
   bottom: var(--space-6);
   right: var(--space-6);
-
   width: 60px;
   height: 60px;
-
   background: linear-gradient(
     135deg,
     var(--primary-color),
@@ -604,14 +630,11 @@ body.dark-mode .footer-nav a:hover {
   color: var(--white);
   border: none;
   border-radius: 50%;
-
   cursor: pointer;
   box-shadow: var(--shadow-lg);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: all var(--transition-base);
   z-index: 1000;
 }
@@ -630,7 +653,6 @@ body.dark-mode .footer-nav a:hover {
 .theme-toggle .sun-icon {
   display: none;
 }
-
 .theme-toggle .moon-icon {
   display: block;
 }
@@ -638,14 +660,13 @@ body.dark-mode .footer-nav a:hover {
 body.dark-mode .theme-toggle .sun-icon {
   display: block;
 }
-
 body.dark-mode .theme-toggle .moon-icon {
   display: none;
 }
 
 body.dark-mode .theme-toggle {
-  background: linear-gradient(135deg, var(--highlight-color), #ffd700);
-  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--highlight-color), #fbbf24);
+  color: #0f172a;
 }
 
 /* -----------------------------------------------------------------------------

@@ -1,39 +1,50 @@
+/* FILE: assets/css/navbar.css (UPDATED FULL VERSION) */
 /* =============================================================================
    NAVIGATION BAR
-   Sticky header with mobile hamburger menu, social icons, and active states
+   Fixed, reliable Z-Index stacking to solve click/blur issues
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
-   HEADER CONTAINER
+   HEADER CONTAINER (Layer 2)
    ----------------------------------------------------------------------------- */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  height: 72px;
+
+  /* Critical: Higher than overlay (990), lower than toggle (1002) */
+  z-index: 1000;
 
   background-color: var(--white);
   border-bottom: 1px solid var(--gray-200);
   box-shadow: var(--shadow-sm);
 
-  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
-/* Darker header on scroll (add .scrolled class via JS) */
+/* Scrolled State */
 .site-header.scrolled {
   box-shadow: var(--shadow-md);
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* High opacity for readability */
 }
 
+/* Dark Mode Header */
 body.dark-mode .site-header {
-  background-color: var(--gray-100);
+  background-color: var(--background-light);
   border-bottom-color: var(--gray-200);
 }
 
 body.dark-mode .site-header.scrolled {
-  background-color: rgba(26, 26, 26, 0.95);
+  background-color: rgba(15, 23, 42, 0.95);
 }
 
 /* -----------------------------------------------------------------------------
@@ -43,9 +54,11 @@ body.dark-mode .site-header.scrolled {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-4) var(--space-6);
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 var(--space-6);
+  height: 100%;
 }
 
 /* -----------------------------------------------------------------------------
@@ -55,14 +68,12 @@ body.dark-mode .site-header.scrolled {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-
   font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-dark);
   text-decoration: none;
-
-  transition: color var(--transition-fast);
+  z-index: 1002; /* Ensure clickable */
 }
 
 .navbar-brand:hover {
@@ -70,42 +81,33 @@ body.dark-mode .site-header.scrolled {
   text-decoration: none;
 }
 
-.navbar-brand-logo {
-  width: 40px;
-  height: 40px;
-  /* Optional: Add your LF monogram SVG here */
-}
-
 /* -----------------------------------------------------------------------------
-   NAVIGATION MENU
+   NAVIGATION MENU (DESKTOP)
    ----------------------------------------------------------------------------- */
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navbar-menu a {
-  font-size: var(--text-base);
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--gray-600);
   text-decoration: none;
-  padding: var(--space-2) var(--space-3);
+  padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
-
   position: relative;
   transition: color var(--transition-fast);
 }
 
 .navbar-menu a:hover {
   color: var(--primary-color);
-  text-decoration: none;
 }
 
-/* Active page indicator (underline) */
 .navbar-menu a.active {
   color: var(--primary-color);
   font-weight: 600;
@@ -114,7 +116,7 @@ body.dark-mode .site-header.scrolled {
 .navbar-menu a.active::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 24px;
@@ -123,14 +125,8 @@ body.dark-mode .site-header.scrolled {
   border-radius: 2px;
 }
 
-/* Focus state for keyboard navigation */
-.navbar-menu a:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 4px;
-}
-
 /* -----------------------------------------------------------------------------
-   SOCIAL ICONS (in navbar)
+   SOCIAL ICONS
    ----------------------------------------------------------------------------- */
 .navbar-social {
   display: flex;
@@ -138,7 +134,7 @@ body.dark-mode .site-header.scrolled {
   gap: var(--space-4);
   margin-left: var(--space-4);
   padding-left: var(--space-4);
-  border-left: 1px solid var(--gray-200);
+  border-left: 1px solid var(--gray-300);
 }
 
 .navbar-social a {
@@ -147,15 +143,12 @@ body.dark-mode .site-header.scrolled {
   justify-content: center;
   width: 36px;
   height: 36px;
-
-  color: var(--gray-700);
-  border-radius: 50%;
+  color: var(--gray-600);
   transition: all var(--transition-fast);
 }
 
 .navbar-social a:hover {
   color: var(--primary-color);
-  background-color: var(--gray-100);
   transform: translateY(-2px);
 }
 
@@ -165,165 +158,145 @@ body.dark-mode .site-header.scrolled {
 }
 
 /* -----------------------------------------------------------------------------
-   MOBILE MENU TOGGLE (Hamburger)
+   MOBILE MENU TOGGLE (Layer 4)
    ----------------------------------------------------------------------------- */
 .navbar-toggle {
-  display: none; /* Hidden on desktop */
+  display: none; /* Hidden on Desktop */
   flex-direction: column;
-  justify-content: space-around;
-
-  width: 32px;
-  height: 32px;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-
   background: transparent;
   border: none;
   cursor: pointer;
 
-  z-index: 1001;
+  /* Critical: Highest z-index to ensure it's always clickable */
+  z-index: 1002;
 }
 
-.navbar-toggle:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 4px;
-  border-radius: var(--radius-sm);
-}
-
-/* Hamburger lines */
 .navbar-toggle span {
   display: block;
-  width: 100%;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: var(--text-dark);
   border-radius: 2px;
-  transition: all var(--transition-base);
-  transform-origin: center;
+  transition: all 0.3s ease;
 }
 
-/* Animated hamburger → X transformation */
+/* Hamburger Animation */
 .navbar-toggle.active span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
-
 .navbar-toggle.active span:nth-child(2) {
   opacity: 0;
-  transform: translateX(-20px);
 }
-
 .navbar-toggle.active span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
 /* -----------------------------------------------------------------------------
-   MOBILE RESPONSIVE STYLES
+   MOBILE RESPONSIVE STYLES (Layer 3)
    ----------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* Show hamburger button */
+@media (max-width: 992px) {
   .navbar-toggle {
     display: flex;
   }
 
-  /* Hide desktop menu by default */
+  /* Mobile Menu Drawer */
   .navbar-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* Off-screen */
-
-    width: 280px;
+    right: -100%; /* Hidden off-screen */
+    width: 85%;
+    max-width: 320px;
     height: 100vh;
 
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
+    justify-content: flex-start;
 
     background-color: var(--white);
-    box-shadow: var(--shadow-lg);
-    padding: var(--space-16) var(--space-6);
+    padding: 80px 24px 40px; /* Spacing for header */
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
 
-    transition: right var(--transition-slow);
+    transition: right 0.3s ease-in-out;
+
+    /* Critical: Sits on top of Header (1000) and Overlay (990) */
+    z-index: 1001;
+    overflow-y: auto;
   }
 
-  body.dark-mode .navbar-menu {
-    background-color: var(--gray-100);
-  }
-
-  /* Show menu when active */
   .navbar-menu.active {
-    right: 0;
+    right: 0; /* Slide in */
   }
 
-  /* Menu items stacked vertically */
+  /* Mobile Links */
   .navbar-menu li {
     width: 100%;
-    margin-bottom: var(--space-2);
+    border-bottom: 1px solid var(--gray-200);
   }
 
   .navbar-menu a {
     display: block;
-    padding: var(--space-3) var(--space-4);
-    font-size: var(--text-lg);
-    border-radius: var(--radius-md);
-  }
-
-  .navbar-menu a:hover {
-    background-color: var(--gray-100);
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    width: 100%;
   }
 
   .navbar-menu a.active::after {
-    display: none; /* Remove underline on mobile */
+    display: none;
   }
 
-  .navbar-menu a.active {
-    background-color: var(--secondary-color);
-  }
-
-  /* Social icons move below menu items */
+  /* Mobile Social */
   .navbar-social {
     width: 100%;
-    margin-left: 0;
-    margin-top: var(--space-8);
-    padding-left: 0;
-    padding-top: var(--space-4);
+    margin: 2rem 0 0 0;
+    padding: 1rem 0 0 0;
     border-left: none;
     border-top: 1px solid var(--gray-200);
   }
 
-  /* Overlay when mobile menu is open */
-  .navbar-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-
-    transition: all var(--transition-base);
-    z-index: 998;
-  }
-
-  .navbar-overlay.active {
-    opacity: 1;
-    visibility: visible;
+  /* Dark Mode Fixes */
+  body.dark-mode .navbar-menu {
+    background-color: var(--background-light); /* Ensure solid background */
   }
 }
 
-/* Prevent body scroll when mobile menu is open */
+/* -----------------------------------------------------------------------------
+   MOBILE OVERLAY / BACKDROP (Layer 1)
+   ----------------------------------------------------------------------------- */
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.6); /* Darker dim for visibility */
+  /* Removed backdrop-filter to prevent blur issues on older devices */
+
+  /* Critical: Below Header (1000) but above page content */
+  z-index: 990;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 body.menu-open {
   overflow: hidden;
 }
 
 /* -----------------------------------------------------------------------------
-   MAIN CONTENT OFFSET (for fixed header)
+   MAIN CONTENT OFFSET
    ----------------------------------------------------------------------------- */
 .main-content {
-  padding-top: 72px; /* Height of navbar + buffer */
-}
-
-@media (max-width: 768px) {
-  .main-content {
-    padding-top: 64px;
-  }
+  padding-top: 72px;
 }

@@ -82,10 +82,10 @@
     const isDark = body.classList.toggle(DARK_MODE_CLASS);
     const newTheme = isDark ? "dark" : "light";
 
-    // Save to localStorage
-    localStorage.setItem(STORAGE_KEY, newTheme);
+    // Sync attribute for CSS selectors [data-theme="dark"]
+    body.setAttribute("data-theme", newTheme);
 
-    // Update button aria-label for accessibility
+    localStorage.setItem(STORAGE_KEY, newTheme);
     updateButtonLabel(isDark);
 
     // Optional: Log for debugging

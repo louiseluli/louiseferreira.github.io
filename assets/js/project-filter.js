@@ -1,11 +1,10 @@
+/* FILE: assets/js/project-filter.js (UPDATED FULL VERSION) */
 /**
- * PROJECT FILTER SYSTEM - FIXED VERSION
- *
+ * PROJECT FILTER SYSTEM
  * Features:
  * - Filter projects by category
  * - Smooth animations
- * - Better error handling
- * - Debug logging
+ * - Accessibility announcements
  */
 
 (function () {
@@ -26,8 +25,6 @@
    * Filter projects based on selected category
    */
   function filterProjects(category) {
-    console.log("Filtering by category:", category);
-
     if (category === "all") {
       showAllProjects();
       return;
@@ -51,13 +48,12 @@
       }
     });
 
-    // Filter featured project
+    // Filter featured project (special handling)
     if (featuredProject) {
       const featuredCategory = featuredProject.getAttribute("data-category");
 
       if (featuredCategory) {
         const featuredCategories = featuredCategory.toLowerCase().split(" ");
-
         if (featuredCategories.includes(category.toLowerCase())) {
           showCard(featuredProject);
         } else {
@@ -73,7 +69,6 @@
    * Show all projects
    */
   function showAllProjects() {
-    console.log("Showing all projects");
     projectCards.forEach(card => showCard(card));
     if (featuredProject) {
       showCard(featuredProject);
@@ -85,12 +80,14 @@
    * Show a card with animation
    */
   function showCard(card) {
-    card.style.display = "";
+    card.style.display = ""; // Reset display
     card.classList.remove("hidden");
 
-    // Small delay for animation
+    // Small delay to trigger transition if CSS supports it
     setTimeout(() => {
       card.classList.add("fade-in");
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
     }, 10);
   }
 
@@ -100,6 +97,8 @@
   function hideCard(card) {
     card.classList.remove("fade-in");
     card.classList.add("hidden");
+    // Immediate style override for responsiveness
+    card.style.display = "none";
   }
 
   // ============================================================================
@@ -140,12 +139,11 @@
       totalVisible !== 1 ? "s" : ""
     } in ${categoryName}`;
 
-    console.log(message);
     announceToScreenReader(message);
   }
 
   /**
-   * Announce to screen readers
+   * Helper to append SR-only text
    */
   function announceToScreenReader(message) {
     const announcement = document.createElement("div");
@@ -167,27 +165,11 @@
   // EVENT LISTENERS
   // ============================================================================
 
-  /**
-   * Attach click listeners
-   */
   function attachEventListeners() {
-    console.log(
-      "Attaching event listeners to",
-      filterButtons.length,
-      "buttons"
-    );
-
-    filterButtons.forEach((button, index) => {
-      button.addEventListener("click", e => {
-        console.log("Button clicked:", index);
-
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
         const category = button.getAttribute("data-filter");
-        console.log("Filter category:", category);
-
-        if (!category) {
-          console.error("No data-filter attribute found on button");
-          return;
-        }
+        if (!category) return;
 
         updateButtonStates(button);
         filterProjects(category);
@@ -199,45 +181,13 @@
   // INITIALIZATION
   // ============================================================================
 
-  /**
-   * Initialize the filter system
-   */
   function init() {
-    console.log("🎯 Initializing project filter system...");
-
-    // Wait for DOM
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initFilter);
-    } else {
-      initFilter();
-    }
-  }
-
-  /**
-   * Initialize after DOM ready
-   */
-  function initFilter() {
     // Get DOM elements
     filterButtons = document.querySelectorAll(".filter-btn");
     projectCards = document.querySelectorAll(".project-card");
     featuredProject = document.querySelector(".featured-project");
 
-    console.log("Found elements:");
-    console.log("- Filter buttons:", filterButtons.length);
-    console.log("- Project cards:", projectCards.length);
-    console.log("- Featured project:", featuredProject ? "Yes" : "No");
-
-    // Exit if no buttons found
-    if (!filterButtons.length) {
-      console.error(
-        '❌ No filter buttons found! Make sure elements have class "filter-btn"'
-      );
-      return;
-    }
-
-    if (!projectCards.length) {
-      console.warn("⚠️ No project cards found");
-    }
+    if (!filterButtons.length) return;
 
     // Set initial ARIA attributes
     filterButtons.forEach(btn => {
@@ -246,14 +196,13 @@
       btn.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
 
-    // Attach listeners
     attachEventListeners();
-
-    console.log("✅ Project filter initialized successfully");
+    console.log("✅ Project filter initialized");
   }
 
-  // ============================================================================
-  // RUN
-  // ============================================================================
-  init();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
