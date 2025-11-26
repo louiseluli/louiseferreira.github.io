@@ -1,0 +1,568 @@
+/* =============================================================================
+   AWARDS PAGE STYLES
+   Timeline, leadership cards, impact statement, badges
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   PAGE HEADER
+   ----------------------------------------------------------------------------- */
+.page-header {
+  padding: calc(var(--space-16) + 72px) 0 var(--space-12);
+  background: linear-gradient(135deg, var(--background-light) 0%, #f0e8ff 100%);
+  text-align: center;
+}
+
+body.dark-mode .page-header {
+  background: linear-gradient(135deg, var(--background-light) 0%, #1a0f2e 100%);
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  margin-bottom: var(--space-4);
+  color: var(--text-dark);
+}
+
+.page-subtitle {
+  font-size: var(--text-xl);
+  color: var(--gray-700);
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+   INTRO SECTION
+   ----------------------------------------------------------------------------- */
+.awards-intro {
+  padding: var(--space-12) 0;
+}
+
+.intro-content {
+  text-align: center;
+}
+
+.intro-content p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+/* -----------------------------------------------------------------------------
+   AWARDS TIMELINE
+   ----------------------------------------------------------------------------- */
+.awards-timeline {
+  padding: var(--space-16) 0;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 900px;
+  margin: var(--space-12) auto 0;
+}
+
+/* Vertical connecting line */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 80px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color) 0%,
+    var(--secondary-color) 50%,
+    var(--primary-color) 100%
+  );
+
+  border-radius: 2px;
+}
+
+/* Individual award item */
+.award-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.award-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Year label */
+.award-year {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--primary-color);
+  text-align: right;
+  padding-top: var(--space-2);
+}
+
+/* Timeline dot */
+.award-item::before {
+  content: "";
+  position: absolute;
+  left: 68px;
+  top: 12px;
+
+  width: 28px;
+  height: 28px;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border: 5px solid var(--background-light);
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 4px var(--secondary-color);
+  z-index: 2;
+}
+
+body.dark-mode .award-item::before {
+  border-color: var(--gray-100);
+}
+
+/* Award content card */
+.award-content {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.award-content:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-purple);
+}
+
+body.dark-mode .award-content {
+  background-color: var(--gray-100);
+}
+
+/* Award badges */
+.award-badge {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  border-radius: 50px;
+  margin-bottom: var(--space-4);
+}
+
+.award-badge.prestigious {
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: #8b4513;
+}
+
+.award-badge.community {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--white);
+}
+
+.award-badge.professional {
+  background: linear-gradient(135deg, #4a90e2, #7b68ee);
+  color: var(--white);
+}
+
+.award-badge.leadership {
+  background: linear-gradient(135deg, #e94b3c, #ff6b9d);
+  color: var(--white);
+}
+
+/* Award title and org */
+.award-title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
+  color: var(--text-dark);
+}
+
+.award-org {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  font-weight: 500;
+  margin-bottom: var(--space-6);
+}
+
+/* Award descriptions */
+.award-description {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+.award-impact {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  padding: var(--space-4);
+  background-color: var(--gray-100);
+  border-left: 3px solid var(--primary-color);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-4);
+}
+
+body.dark-mode .award-impact {
+  background-color: rgba(209, 179, 255, 0.05);
+}
+
+.award-impact strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   LEADERSHIP SECTION
+   ----------------------------------------------------------------------------- */
+.leadership {
+  padding: var(--space-16) 0;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+/* Leadership card */
+.leadership-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: all var(--transition-base);
+}
+
+.leadership-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-purple);
+}
+
+body.dark-mode .leadership-card {
+  background-color: var(--gray-100);
+}
+
+/* Leadership icon */
+.leadership-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 80px;
+
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  border-radius: 50%;
+
+  align-self: center;
+}
+
+/* Leadership title */
+.leadership-card h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Organization and period */
+.leadership-org {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--space-1);
+}
+
+.leadership-period {
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+/* Leadership description */
+.leadership-description {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+/* Leadership impact */
+.leadership-impact {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-style: italic;
+
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--gray-200);
+}
+
+/* -----------------------------------------------------------------------------
+   IMPACT STATEMENT SECTION
+   ----------------------------------------------------------------------------- */
+.impact-statement {
+  padding: var(--space-16) 0;
+}
+
+.statement-content {
+  /* Container */
+}
+
+.statement-title {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-8);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.statement-content p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin-bottom: var(--space-6);
+}
+
+/* Impact quote (blockquote) */
+.impact-quote {
+  margin: var(--space-12) 0;
+  padding: var(--space-8);
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--white);
+
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-purple);
+
+  font-size: var(--text-2xl);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+
+  position: relative;
+}
+
+.impact-quote::before {
+  content: '"';
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.impact-quote::after {
+  content: '"';
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  position: absolute;
+  bottom: -40px;
+  right: 20px;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* -----------------------------------------------------------------------------
+   CALL TO ACTION
+   ----------------------------------------------------------------------------- */
+.cta-section {
+  padding: var(--space-16) 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #5a2599 100%);
+  color: var(--white);
+}
+
+.cta-title {
+  font-size: var(--text-4xl);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+
+.cta-text {
+  font-size: var(--text-lg);
+  max-width: 700px;
+  margin: 0 auto var(--space-8);
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.cta-section .btn {
+  font-size: var(--text-lg);
+  padding: var(--space-4) var(--space-8);
+}
+
+.cta-section .btn-primary {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.cta-section .btn-primary:hover {
+  background-color: var(--highlight-color);
+  color: var(--text-dark);
+}
+
+.cta-section .btn-secondary {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.cta-section .btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   ----------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .timeline-container::before {
+    left: 60px;
+  }
+
+  .award-item {
+    grid-template-columns: 100px 1fr;
+    gap: var(--space-6);
+  }
+
+  .award-item::before {
+    left: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px;
+  }
+
+  .award-item {
+    grid-template-columns: 1fr;
+    padding-left: 50px;
+  }
+
+  .award-year {
+    text-align: left;
+    font-size: var(--text-lg);
+  }
+
+  .award-item::before {
+    left: 8px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .award-content {
+    padding: var(--space-6);
+  }
+
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-quote {
+    font-size: var(--text-xl);
+    padding: var(--space-6);
+  }
+
+  .impact-quote::before,
+  .impact-quote::after {
+    font-size: 4rem;
+  }
+
+  .impact-quote::before {
+    top: -10px;
+    left: 10px;
+  }
+
+  .impact-quote::after {
+    bottom: -30px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .award-title {
+    font-size: var(--text-xl);
+  }
+
+  .statement-title {
+    font-size: var(--text-3xl);
+  }
+
+  .leadership-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 2.5rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   ANIMATION ENHANCEMENTS
+   ----------------------------------------------------------------------------- */
+@keyframes pulse-badge {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(108, 46, 185, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(108, 46, 185, 0);
+  }
+}
+
+.award-badge.prestigious {
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+/* Timeline dot pulse on hover */
+.award-item:hover::before {
+  animation: pulse-badge 1.5s ease-in-out infinite;
+}

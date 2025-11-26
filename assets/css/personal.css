@@ -1,0 +1,831 @@
+/* =============================================================================
+   PERSONAL PAGE STYLES
+   Music, cinema, gaming, Brazilian culture, travel sections
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   PAGE HEADER
+   ----------------------------------------------------------------------------- */
+.personal-header {
+  padding: calc(var(--space-16) + 72px) 0 var(--space-12);
+  background: linear-gradient(
+    135deg,
+    #2e0854 0%,
+    var(--primary-color) 50%,
+    #d946ef 100%
+  );
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.personal-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--pattern-dots);
+  background-size: 30px 30px;
+  opacity: 0.15;
+}
+
+.personal-header .page-title {
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.personal-header .page-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  position: relative;
+  z-index: 1;
+}
+
+/* -----------------------------------------------------------------------------
+   INTRO SECTION
+   ----------------------------------------------------------------------------- */
+.personal-intro {
+  padding: var(--space-12) 0;
+}
+
+.intro-content {
+  text-align: center;
+}
+
+.intro-content p {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+.intro-content em {
+  font-style: italic;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   INTEREST SECTIONS
+   ----------------------------------------------------------------------------- */
+.interest-section {
+  padding: var(--space-16) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.section-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.section-title {
+  font-size: var(--text-4xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  color: var(--gray-700);
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+   MUSIC SECTION
+   ----------------------------------------------------------------------------- */
+.music-content {
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.music-text h3,
+.music-text h4 {
+  color: var(--primary-color);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.music-text h3 {
+  font-size: var(--text-2xl);
+}
+
+.music-text h4 {
+  font-size: var(--text-xl);
+}
+
+.music-text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+/* Playlist Card */
+.playlist-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-6);
+}
+
+.playlist-card h4 {
+  font-size: var(--text-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.music-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.music-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.music-item:hover {
+  background-color: var(--gray-100);
+  transform: translateX(4px);
+}
+
+.music-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: var(--text-sm);
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.music-item.grunge .music-icon {
+  background: linear-gradient(135deg, #1f2937, #374151);
+}
+
+.music-item.prog .music-icon {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+}
+
+.music-item.pop .music-icon {
+  background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: var(--text-base);
+}
+
+.music-artist {
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+}
+
+/* Bands Grid */
+.bands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.band-tag {
+  padding: var(--space-2) var(--space-4);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: var(--white);
+  border-radius: 50px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.band-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* -----------------------------------------------------------------------------
+   CINEMA SECTION
+   ----------------------------------------------------------------------------- */
+.cinema-content {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+/* Film Card */
+.film-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-6);
+}
+
+.film-card.featured {
+  border: 3px solid var(--primary-color);
+}
+
+.film-poster {
+  margin-bottom: var(--space-4);
+}
+
+.poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: linear-gradient(135deg, #1f2937, #374151);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-icon {
+  font-size: 4rem;
+}
+
+.film-info h4 {
+  font-size: var(--text-lg);
+  color: var(--primary-color);
+  margin-bottom: var(--space-2);
+}
+
+.film-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: var(--space-3);
+}
+
+.film-note {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  font-style: italic;
+}
+
+/* Eras Grid */
+.eras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.era-card {
+  background-color: var(--white);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.era-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.era-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.era-card h5 {
+  font-size: var(--text-lg);
+  color: var(--primary-color);
+  margin-bottom: var(--space-2);
+}
+
+.era-card p {
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  margin: 0;
+}
+
+/* Cinema Text */
+.cinema-text h3,
+.cinema-text h4 {
+  color: var(--primary-color);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.cinema-text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+.cinema-loves {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+}
+
+.cinema-loves li {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-relaxed);
+}
+
+.cinema-loves li::before {
+  content: "🎬";
+  position: absolute;
+  left: 0;
+}
+
+.cinema-loves strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   GAMING SECTION
+   ----------------------------------------------------------------------------- */
+.gaming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin: var(--space-12) 0;
+}
+
+.gaming-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.gaming-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.gaming-card:hover::before {
+  transform: scaleX(1);
+}
+
+.gaming-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-purple);
+}
+
+.game-icon {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-4);
+  display: inline-block;
+  padding: var(--space-4);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+}
+
+.gaming-card h3 {
+  font-size: var(--text-xl);
+  color: var(--text-dark);
+  margin-bottom: var(--space-3);
+}
+
+.gaming-card p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-700);
+  margin: 0;
+}
+
+.gaming-note {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.1),
+    rgba(220, 38, 38, 0.05)
+  );
+  border-left: 4px solid var(--error-color);
+  border-radius: var(--radius-md);
+}
+
+.gaming-note p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.gaming-note strong {
+  color: var(--error-color);
+  font-weight: 700;
+}
+
+/* -----------------------------------------------------------------------------
+   BRAZILIAN CULTURE SECTION
+   ----------------------------------------------------------------------------- */
+.culture-content {
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.culture-text h3 {
+  font-size: var(--text-2xl);
+  color: var(--primary-color);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.culture-text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+/* Culture Card */
+.culture-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(135deg, rgba(255, 214, 102, 0.1), var(--white));
+  border-left: 4px solid var(--highlight-color);
+}
+
+.culture-card h4 {
+  font-size: var(--text-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-4);
+}
+
+.culture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.culture-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.culture-list li:hover {
+  background-color: rgba(255, 214, 102, 0.1);
+}
+
+.list-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.culture-list strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Saudade Note */
+.saudade-note {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: var(--white);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-purple);
+}
+
+.saudade-note h5 {
+  font-size: var(--text-xl);
+  color: var(--white);
+  margin-bottom: var(--space-3);
+  font-style: italic;
+}
+
+.saudade-note p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   TRAVEL SECTION
+   ----------------------------------------------------------------------------- */
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.travel-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.travel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.travel-card h4 {
+  font-size: var(--text-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-4);
+}
+
+.travel-card p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   CLOSING SECTION
+   ----------------------------------------------------------------------------- */
+.personal-closing {
+  padding: var(--space-16) 0;
+  background: linear-gradient(135deg, #fafafa, var(--gray-100));
+}
+
+.closing-content {
+  text-align: center;
+}
+
+.closing-content h2 {
+  font-size: var(--text-3xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-6);
+}
+
+.closing-content p {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+.closing-content em {
+  font-style: italic;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.closing-cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.closing-cta .btn {
+  font-size: var(--text-lg);
+  padding: var(--space-4) var(--space-8);
+}
+
+/* -----------------------------------------------------------------------------
+   DARK MODE
+   ----------------------------------------------------------------------------- */
+body.dark-mode .playlist-card,
+body.dark-mode .film-card,
+body.dark-mode .era-card,
+body.dark-mode .gaming-card,
+body.dark-mode .culture-card,
+body.dark-mode .travel-card {
+  background-color: var(--gray-100);
+}
+
+body.dark-mode .music-item:hover {
+  background-color: var(--gray-200);
+}
+
+body.dark-mode .music-title,
+body.dark-mode .film-title,
+body.dark-mode .culture-list strong {
+  color: var(--text-dark);
+}
+
+body.dark-mode .music-artist,
+body.dark-mode .film-note,
+body.dark-mode .era-card p,
+body.dark-mode .gaming-card p,
+body.dark-mode .travel-card p {
+  color: var(--gray-700);
+}
+
+body.dark-mode .section-title,
+body.dark-mode .film-info h4,
+body.dark-mode .era-card h5,
+body.dark-mode .gaming-card h3,
+body.dark-mode .culture-card h4,
+body.dark-mode .travel-card h4,
+body.dark-mode .closing-content h2 {
+  color: var(--secondary-color);
+}
+
+body.dark-mode .music-text h3,
+body.dark-mode .music-text h4,
+body.dark-mode .cinema-text h3,
+body.dark-mode .cinema-text h4,
+body.dark-mode .culture-text h3 {
+  color: var(--secondary-color);
+}
+
+body.dark-mode .cinema-loves strong {
+  color: var(--secondary-color);
+}
+
+body.dark-mode .poster-placeholder {
+  background: linear-gradient(135deg, var(--gray-200), var(--gray-300));
+}
+
+body.dark-mode .culture-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 214, 102, 0.1),
+    var(--gray-100)
+  );
+  border-left-color: var(--highlight-color);
+}
+
+body.dark-mode .gaming-note {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.15),
+    rgba(220, 38, 38, 0.1)
+  );
+}
+
+body.dark-mode .personal-closing {
+  background: linear-gradient(135deg, var(--background-light), #1a2332);
+}
+
+body.dark-mode .closing-content em {
+  color: var(--secondary-color);
+}
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   ----------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .music-content,
+  .culture-content {
+    grid-template-columns: 1fr 400px;
+  }
+
+  .cinema-content {
+    grid-template-columns: 400px 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .music-content,
+  .cinema-content,
+  .culture-content {
+    grid-template-columns: 1fr;
+  }
+
+  .music-visual,
+  .cinema-visual,
+  .culture-visual {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-icon {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: var(--text-3xl);
+  }
+
+  .eras-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gaming-grid,
+  .travel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .closing-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .music-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bands-grid {
+    justify-content: center;
+  }
+
+  .poster-icon {
+    font-size: 3rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   PRINT STYLES
+   ----------------------------------------------------------------------------- */
+@media print {
+  .interest-section {
+    page-break-inside: avoid;
+  }
+
+  .gaming-card,
+  .travel-card,
+  .era-card {
+    page-break-inside: avoid;
+  }
+}

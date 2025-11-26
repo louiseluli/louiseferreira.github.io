@@ -609,3 +609,192 @@ body.dark-mode .hero-title {
     display: none; /* Hide on very small screens */
   }
 }
+
+/* -----------------------------------------------------------------------------
+   Hero Highlights and Visuals (added per request)
+   ----------------------------------------------------------------------------- */
+.hero-highlights {
+  display: flex;
+  gap: var(--space-8);
+  margin: var(--space-8) 0;
+  flex-wrap: wrap;
+}
+
+.highlight-item {
+  text-align: center;
+}
+
+.highlight-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: var(--space-2);
+}
+
+.highlight-label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Visual Stats Circles */
+.visual-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.stat-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+}
+
+.stat-circle:hover {
+  transform: translateY(-8px) rotate(5deg);
+  box-shadow: var(--shadow-xl);
+}
+
+.stat-circle.primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+}
+
+.stat-circle.secondary {
+  background: linear-gradient(135deg, var(--accent-teal), #2dd4bf);
+}
+
+.stat-circle.tertiary {
+  background: linear-gradient(
+    135deg,
+    var(--warning-color),
+    var(--highlight-color)
+  );
+}
+
+.circle-content {
+  text-align: center;
+  color: var(--white);
+}
+
+.circle-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.circle-label {
+  display: block;
+  font-size: var(--text-xs);
+  opacity: 0.9;
+}
+
+/* Code Snippet */
+.code-snippet {
+  background-color: #1e293b;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  margin-top: var(--space-6);
+}
+
+.snippet-header {
+  background-color: #0f172a;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.snippet-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.snippet-dot.red {
+  background-color: #ef4444;
+}
+.snippet-dot.yellow {
+  background-color: #f59e0b;
+}
+.snippet-dot.green {
+  background-color: #10b981;
+}
+
+.snippet-title {
+  margin-left: auto;
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  font-family: var(--font-mono);
+}
+
+.snippet-code {
+  padding: var(--space-6);
+  margin: 0;
+  overflow-x: auto;
+}
+
+.snippet-code code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.code-comment {
+  color: #64748b;
+}
+.code-keyword {
+  color: #c084fc;
+}
+.code-function {
+  color: #60a5fa;
+}
+.code-string {
+  color: #34d399;
+}
+.code-number {
+  color: #f472b6;
+}
+
+/* Download CV button */
+.hero-cta .btn svg {
+  vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-highlights {
+    justify-content: center;
+  }
+
+  .visual-stats {
+    gap: var(--space-2);
+  }
+
+  .stat-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle-num {
+    font-size: var(--text-2xl);
+  }
+}

@@ -1,0 +1,660 @@
+/* =============================================================================
+   WORK EXPERIENCE PAGE STYLES
+   Professional timeline, role highlights, company cards, achievement badges
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   PAGE HEADER
+   ----------------------------------------------------------------------------- */
+.page-header {
+  padding: calc(var(--space-16) + 72px) 0 var(--space-12);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #5a2599 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--pattern-dots);
+  background-size: 30px 30px;
+  opacity: 0.1;
+}
+
+.page-title {
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+}
+
+/* -----------------------------------------------------------------------------
+   CURRENT ROLE SECTION
+   ----------------------------------------------------------------------------- */
+.current-role {
+  padding: var(--space-16) 0;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-8);
+
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: var(--white);
+  border-radius: 50px;
+
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+/* Experience highlight card */
+.experience-highlight {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-xl);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-8);
+
+  border-left: 6px solid var(--primary-color);
+}
+
+.company-logo {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.logo-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--white);
+
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+
+  border-radius: var(--radius-md);
+}
+
+.role-header h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-2);
+  color: var(--text-dark);
+}
+
+.company-name {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: var(--space-2);
+}
+
+.role-meta {
+  display: flex;
+  gap: var(--space-6);
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  margin-bottom: var(--space-6);
+}
+
+.role-meta span::before {
+  margin-right: var(--space-2);
+}
+
+.role-period::before {
+  content: "📅";
+}
+
+.role-location::before {
+  content: "📍";
+}
+
+.role-description {
+  grid-column: 1 / -1;
+}
+
+.role-description p {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-6);
+}
+
+.role-description h3 {
+  font-size: var(--text-xl);
+  color: var(--primary-color);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.responsibility-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+}
+
+.responsibility-list li {
+  position: relative;
+  padding-left: var(--space-8);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+}
+
+.responsibility-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: var(--text-lg);
+}
+
+.responsibility-list strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Tech tags */
+.tech-used {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background-color: var(--gray-100);
+  border-radius: var(--radius-md);
+}
+
+.tech-used h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-700);
+  margin-bottom: var(--space-4);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+  font-family: var(--font-mono);
+
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius-sm);
+
+  transition: all var(--transition-fast);
+}
+
+.tech-tag:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------------------------------
+   WORK TIMELINE
+   ----------------------------------------------------------------------------- */
+.work-timeline {
+  padding: var(--space-16) 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: var(--space-12) auto 0;
+}
+
+/* Vertical connecting line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color) 0%,
+    var(--secondary-color) 50%,
+    var(--primary-color) 100%
+  );
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: var(--space-16);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline marker */
+.timeline-marker {
+  position: absolute;
+  left: 20px;
+  top: 8px;
+
+  width: 24px;
+  height: 24px;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border: 4px solid var(--background-light);
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 4px rgba(108, 46, 185, 0.2);
+  z-index: 2;
+}
+
+.timeline-item:hover .timeline-marker {
+  animation: pulse-marker 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-marker {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(108, 46, 185, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(108, 46, 185, 0);
+  }
+}
+
+/* Timeline content card */
+.timeline-content {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+
+  transition: all var(--transition-base);
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-purple);
+}
+
+/* Timeline header */
+.timeline-header {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.timeline-period {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+
+  font-size: var(--text-sm);
+  font-weight: 600;
+
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: var(--radius-sm);
+
+  margin-bottom: var(--space-3);
+}
+
+.timeline-header h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
+  color: var(--text-dark);
+}
+
+.timeline-company {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: var(--space-1);
+}
+
+.timeline-location {
+  font-size: var(--text-base);
+  color: var(--gray-700);
+  font-style: italic;
+}
+
+/* Timeline body */
+.timeline-body p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+  margin-bottom: var(--space-4);
+}
+
+.timeline-body h4 {
+  font-size: var(--text-lg);
+  color: var(--primary-color);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+}
+
+.timeline-body ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+}
+
+.timeline-body li {
+  position: relative;
+  padding-left: var(--space-8);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-relaxed);
+  color: var(--text-dark);
+}
+
+.timeline-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: var(--text-lg);
+}
+
+.timeline-body strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Special boxes */
+.impact-metric,
+.achievement-highlight,
+.insight-box {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.impact-metric {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(5, 150, 105, 0.1)
+  );
+  border-left: 4px solid #10b981;
+}
+
+.achievement-highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.1),
+    rgba(217, 119, 6, 0.1)
+  );
+  border-left: 4px solid #f59e0b;
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.achievement-highlight svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.insight-box {
+  background: linear-gradient(
+    135deg,
+    rgba(108, 46, 185, 0.1),
+    rgba(209, 179, 255, 0.1)
+  );
+  border-left: 4px solid var(--primary-color);
+}
+
+.impact-metric strong,
+.achievement-highlight strong,
+.insight-box strong {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+/* -----------------------------------------------------------------------------
+   SKILLS DEVELOPED SECTION
+   ----------------------------------------------------------------------------- */
+.skills-developed {
+  padding: var(--space-16) 0;
+}
+
+.skills-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.skill-category-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.skill-category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-purple);
+}
+
+.category-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.skill-category-card h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-4);
+  color: var(--text-dark);
+}
+
+.skill-category-card p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-700);
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   CTA SECTION
+   ----------------------------------------------------------------------------- */
+.cta-section {
+  padding: var(--space-16) 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #5a2599 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--pattern-grid);
+  background-size: 50px 50px;
+  opacity: 0.05;
+}
+
+.cta-title {
+  font-size: var(--text-4xl);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-text {
+  font-size: var(--text-lg);
+  max-width: 700px;
+  margin: 0 auto var(--space-8);
+  opacity: 0.95;
+  line-height: var(--leading-relaxed);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section .btn {
+  font-size: var(--text-lg);
+  padding: var(--space-4) var(--space-8);
+}
+
+.cta-section .btn-primary {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.cta-section .btn-primary:hover {
+  background-color: var(--highlight-color);
+  color: var(--text-dark);
+}
+
+.cta-section .btn-secondary {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.cta-section .btn-secondary:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   ----------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .experience-highlight {
+    grid-template-columns: 1fr;
+  }
+
+  .company-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .role-header {
+    text-align: center;
+  }
+
+  .role-meta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+  }
+
+  .timeline-marker {
+    left: 10px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .skills-matrix {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-highlight {
+    padding: var(--space-6);
+  }
+
+  .timeline-content {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .role-header h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .company-logo {
+    width: 64px;
+    height: 64px;
+  }
+
+  .logo-placeholder {
+    font-size: var(--text-2xl);
+  }
+}
