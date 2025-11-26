@@ -347,7 +347,52 @@
 
 /* Specific styling for Venom Mob image if used as background */
 .era-card.martial-arts {
-  /* Optional: You could add a background image here if desired */
+  background: linear-gradient(135deg, #1f1f2e 0%, #2d2d44 50%, #1f1f2e 100%);
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 8px 32px rgba(239, 68, 68, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.era-card.martial-arts::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(239, 68, 68, 0.1) 100%
+  );
+  border-radius: var(--radius-md);
+  pointer-events: none;
+}
+
+.era-card.martial-arts:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(239, 68, 68, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: #ff6b6b;
+}
+
+.era-card.martial-arts .era-icon {
+  font-size: 3.5rem;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 2px 8px rgba(239, 68, 68, 0.4));
+}
+
+.era-card.martial-arts h5 {
+  color: #ff6b6b;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.era-card.martial-arts p {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
 }
 
 .era-card h5 {

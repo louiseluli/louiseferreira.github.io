@@ -32,8 +32,8 @@ body.dark-mode .hero {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  opacity: 0.4;
+  z-index: -1;
+  opacity: 0.15;
   overflow: hidden;
   pointer-events: none;
 }
@@ -149,6 +149,7 @@ body.dark-mode .hero {
 body.dark-mode .highlight-text {
   background: linear-gradient(135deg, #a77fdb 0%, #d1b3ff 100%);
   -webkit-background-clip: text;
+  background-clip: border-box;
   -webkit-text-fill-color: transparent;
 }
 

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cinema Analysis Project - An ML-powered recommender system analyzing 140k+ films for thematic connections in movie recommendations."
+    />
+    <meta name="author" content="Louise Ferreira" />
+    <title>Cinema Analysis - Project Case Study</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/projects.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="navbar-brand">
+          <span>Louise Ferreira</span>
+        </a>
+        <ul class="navbar-menu" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="navbar-social">
+            <a
+              href="https://github.com/louiseluli"
+              target="_blank"
+              aria-label="GitHub"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path></svg
+            ></a>
+          </li>
+        </ul>
+        <button
+          class="navbar-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title" data-aos="fade-up">Cinema Analysis</h1>
+          <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Finding hidden thematic connections across 140,000+ films using NLP,
+            graph theory, and machine learning
+          </p>
+        </div>
+      </section>
+
+      <!-- EXECUTIVE SUMMARY -->
+      <section class="section">
+        <div class="container container-narrow">
+          <div class="executive-summary" data-aos="fade-up">
+            <h2>The Challenge</h2>
+            <p>
+              Mainstream movie recommendation algorithms prioritize popularity
+              and user ratings — but they systematically miss niche masterpieces
+              and thematic deep cuts. I built a data-driven alternative that
+              surfaces films based on hidden thematic and stylistic patterns,
+              discovering that some of cinema's most beloved works sit in
+              algorithmically invisible clusters.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">140,000+</div>
+                <div class="stat-label">Films Analyzed</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">77,432</div>
+                <div class="stat-label">Graph Nodes (Crew)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">98.71%</div>
+                <div class="stat-label">Model Accuracy</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Thematic Clusters</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECHNICAL APPROACH -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="section-title text-center" data-aos="fade-up">
+            Technical Stack
+          </h2>
+
+          <div class="research-section" data-aos="fade-up">
+            <h3>1. Data Pipeline & Feature Engineering</h3>
+            <p>
+              Built normalized SQLite database ingesting IMDb datasets.
+              Extracted text features (plot summaries, genres) and engineered
+              graph-based features from crew networks.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">import</span> sqlite3
+<span style="color: #0066cc;">import</span> pandas <span style="color: #0066cc;">as</span> pd
+<span style="color: #0066cc;">from</span> sklearn.feature_extraction.text <span style="color: #0066cc;">import</span> TfidfVectorizer
+
+<span style="color: #999;"># Load IMDb data into normalized SQLite</span>
+conn = sqlite3.connect(<span style="color: #0099cc;">'cinema.db'</span>)
+
+<span style="color: #999;"># Query processed films</span>
+df_films = pd.read_sql_query(
+    <span style="color: #0099cc;">"""SELECT tconst, primaryTitle, genres, plotSummary 
+       FROM films WHERE isAdult = 0"""</span>,
+    conn
+)
+
+<span style="color: #999;"># TF-IDF vectorization on plot summaries</span>
+tfidf = TfidfVectorizer(max_features=500, stop_words=<span style="color: #0099cc;">'english'</span>)
+tfidf_matrix = tfidf.fit_transform(df_films[<span style="color: #0099cc;">'plotSummary'</span>].fillna(<span style="color: #0099cc;">''</span>))
+
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"TF-IDF Matrix: {tfidf_matrix.shape}"</span>)
+<span style="color: #999;"># Output: TF-IDF Matrix: (140000, 500)</span></code></pre>
+            </div>
+          </div>
+
+          <div class="research-section" data-aos="fade-up" data-aos-delay="100">
+            <h3>2. Graph-Based Centrality Analysis</h3>
+            <p>
+              Modeled crew networks as a graph: nodes = films and people, edges
+              = collaborations. Computed degree and betweenness centrality to
+              identify influential figures and well-connected films.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">import</span> networkx <span style="color: #0066cc;">as</span> nx
+
+<span style="color: #999;"># Build crew network graph</span>
+G = nx.Graph()
+
+<span style="color: #0066cc;">for</span> _, row <span style="color: #0066cc;">in</span> df_crew.iterrows():
+    G.add_node(row[<span style="color: #0099cc;">'tconst'</span>], type=<span style="color: #0099cc;">'film'</span>)
+    G.add_node(row[<span style="color: #0099cc;">'nconst'</span>], type=<span style="color: #0099cc;">'person'</span>)
+    G.add_edge(row[<span style="color: #0099cc;">'tconst'</span>], row[<span style="color: #0099cc;">'nconst'</span>], 
+               role=row[<span style="color: #0099cc;">'category'</span>])
+
+<span style="color: #999;"># Calculate centrality metrics</span>
+degree_centrality = nx.degree_centrality(G)
+betweenness = nx.betweenness_centrality(G, k=1000) 
+
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"Nodes: {G.number_of_nodes()}, Edges: {G.number_of_edges()}"</span>)
+<span style="color: #999;"># Output: Nodes: 77432, Edges: 313201</span></code></pre>
+            </div>
+          </div>
+
+          <div class="research-section" data-aos="fade-up" data-aos-delay="200">
+            <h3>3. Predictive Modeling with LightGBM</h3>
+            <p>
+              Trained gradient boosting classifier combining TF-IDF text
+              features with graph metrics. LightGBM chosen for speed and
+              interpretability. Final model: 98.71% accuracy.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">import</span> lightgbm <span style="color: #0066cc;">as</span> lgb
+<span style="color: #0066cc;">from</span> scipy.sparse <span style="color: #0066cc;">import</span> hstack
+<span style="color: #0066cc;">from</span> sklearn.metrics <span style="color: #0066cc;">import</span> accuracy_score
+
+<span style="color: #999;"># Combine features</span>
+X = hstack([tfidf_matrix, graph_features])
+
+<span style="color: #999;"># Train LightGBM</span>
+clf = lgb.LGBMClassifier(
+    n_estimators=200,
+    learning_rate=0.05,
+    num_leaves=31
+)
+clf.fit(X_train, y_train)
+
+<span style="color: #999;"># Evaluate</span>
+y_pred = clf.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"Accuracy: {acc:.4f}"</span>)
+<span style="color: #999;"># Output: Accuracy: 0.9871</span></code></pre>
+            </div>
+          </div>
+
+          <div class="research-section" data-aos="fade-up" data-aos-delay="300">
+            <h3>4. Fairness & Bias Audit</h3>
+            <p>
+              Analyzed recommendation bias across demographic groups. Found that
+              mainstream algorithms systematically underrepresent international
+              cinema and female-directed films. Our thematic approach reduces
+              this bias.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">from</span> fairlearn.metrics <span style="color: #0066cc;">import</span> demographic_parity_difference
+
+<span style="color: #999;"># Audit bias</span>
+bias_gap = demographic_parity_difference(
+    y_test, baseline_preds, 
+    sensitive_features=df_test[<span style="color: #0099cc;">'director_gender'</span>]
+)
+
+<span style="color: #999;"># Apply fairness constraints</span>
+<span style="color: #0066cc;">from</span> fairlearn.reductions <span style="color: #0066cc;">import</span> ExponentiatedGradient
+fair_clf = ExponentiatedGradient(
+    estimator=lgb.LGBMClassifier(),
+    constraints=DemographicParity()
+)
+fair_clf.fit(X_train, y_train, 
+             sensitive_features=df_train[<span style="color: #0099cc;">'director_gender'</span>])
+
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"Baseline Bias: {bias_gap:.4f}"</span>)
+<span style="color: #999;"># Output: Baseline Bias: -0.142</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRY THE DEMO -->
+      <section class="section">
+        <div class="container container-narrow">
+          <h2 class="section-title text-center" data-aos="fade-up">
+            Interactive Demo
+          </h2>
+          <p
+            class="text-center"
+            style="margin-bottom: 2rem; color: var(--text-dark)"
+          >
+            Search for a film theme or director to discover recommendations
+          </p>
+
+          <div
+            class="interactive-demo"
+            data-aos="fade-up"
+            style="
+              background: var(--gray-50);
+              padding: 2rem;
+              border-radius: var(--radius-lg);
+            "
+          >
+            <input
+              type="text"
+              id="cinemaSearchInput"
+              placeholder="e.g., 'revenge', 'Vincent Price', 'atmospheric horror'"
+              style="
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+                border: 2px solid var(--primary-color);
+                border-radius: var(--radius-md);
+                margin-bottom: 1rem;
+              "
+            />
+            <button
+              id="cinemaSearchBtn"
+              style="
+                padding: 0.75rem 2rem;
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-color),
+                  var(--primary-light)
+                );
+                color: white;
+                border: none;
+                border-radius: var(--radius-md);
+                font-weight: 600;
+                cursor: pointer;
+                transition: all var(--transition-fast);
+              "
+              onmouseover="this.style.transform='translateY(-2px)'"
+              onmouseout="this.style.transform='translateY(0)'"
+            >
+              Search
+            </button>
+
+            <div id="cinemaResults" style="margin-top: 2rem"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOMMENDATION ENGINE -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title text-center" data-aos="fade-up">
+            Building the Recommendation Engine
+          </h2>
+
+          <div class="research-section" data-aos="fade-up">
+            <h3>5. Collaborative Filtering with Embeddings</h3>
+            <p>
+              Beyond content-based features, I built a collaborative filtering
+              layer using matrix factorization. This captures latent user
+              preferences by learning low-dimensional embeddings of both films
+              and user viewing patterns.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">from</span> sklearn.decomposition <span style="color: #0066cc;">import</span> NMF
+<span style="color: #0066cc;">import</span> numpy <span style="color: #0066cc;">as</span> np
+
+<span style="color: #999;"># Build user-film interaction matrix</span>
+user_film_matrix = pd.pivot_table(
+    df_ratings,
+    values=<span style="color: #0099cc;">'rating'</span>,
+    index=<span style="color: #0099cc;">'user_id'</span>,
+    columns=<span style="color: #0099cc;">'film_id'</span>,
+    fill_value=0
+)
+
+<span style="color: #999;"># Non-negative Matrix Factorization</span>
+nmf = NMF(n_components=50, random_state=42, max_iter=200)
+user_features = nmf.fit_transform(user_film_matrix)
+film_features = nmf.components_.T
+
+<span style="color: #999;"># Generate recommendations via dot product</span>
+<span style="color: #0066cc;">def</span> recommend(user_id, n_recs=5):
+    user_vec = user_features[user_id]
+    scores = film_features @ user_vec
+    top_films = np.argsort(scores)[::-1][:n_recs]
+    <span style="color: #0066cc;">return</span> [film_id_map[i] <span style="color: #0066cc;">for</span> i <span style="color: #0066cc;">in</span> top_films]
+
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"Top 5 recommendations for user 42: {recommend(42)}"</span>)</code></pre>
+            </div>
+          </div>
+
+          <div class="research-section" data-aos="fade-up" data-aos-delay="100">
+            <h3>6. Hybrid Recommendation System</h3>
+            <p>
+              The final system combines three recommendation strategies:
+              content-based (thematic similarity), collaborative filtering (user
+              behavior), and graph-based (crew network influence). Weighted
+              ensemble captures multiple signals.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">class</span> HybridRecommender:
+    <span style="color: #0066cc;">def</span> __init__(self, content_model, collab_model, graph_model):
+        self.content = content_model
+        self.collab = collab_model
+        self.graph = graph_model
+    
+    <span style="color: #0066cc;">def</span> recommend(self, user_id, film_id, n=5):
+        <span style="color: #999;"># Get recommendations from each source</span>
+        content_recs = self.content.similar_films(film_id)  <span style="color: #999;"># Thematic match</span>
+        collab_recs = self.collab.recommend(user_id)        <span style="color: #999;"># User behavior</span>
+        graph_recs = self.graph.recommend(film_id)          <span style="color: #999;"># Crew connections</span>
+        
+        <span style="color: #999;"># Weighted ensemble (tuned via cross-validation)</span>
+        combined = (
+            0.4 * content_recs.scores +
+            0.35 * collab_recs.scores +
+            0.25 * graph_recs.scores
+        )
+        
+        top_recommendations = combined.nlargest(n)
+        <span style="color: #0066cc;">return</span> top_recommendations
+
+<span style="color: #999;"># Usage</span>
+hybrid = HybridRecommender(content_model, collab_model, graph_model)
+recommendations = hybrid.recommend(user_id=123, film_id=<span style="color: #0099cc;">'tt0068646'</span>)
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"Recommended: {recommendations}"</span>)</code></pre>
+            </div>
+          </div>
+
+          <div class="research-section" data-aos="fade-up" data-aos-delay="200">
+            <h3>7. Ranking & Personalization</h3>
+            <p>
+              After generating initial recommendations, a learning-to-rank model
+              refines the order based on user context: watch history, genre
+              preferences, discovery ratio (avoid over-recommending popular
+              films), and cultural diversity signals.
+            </p>
+
+            <div
+              style="
+                background: var(--gray-100);
+                padding: 1.5rem;
+                border-radius: var(--radius-md);
+                margin: 1.5rem 0;
+                overflow-x: auto;
+              "
+            >
+              <pre
+                style="margin: 0; font-size: 0.875rem"
+              ><code><span style="color: #0066cc;">from</span> sklearn.ensemble <span style="color: #0066cc;">import</span> GradientBoostingRanker
+
+<span style="color: #999;"># Ranking features: diversity, popularity deviation, crew overlap</span>
+ranking_features = pd.DataFrame({
+    <span style="color: #0099cc;">'diversity_score'</span>: [calc_diversity(f) <span style="color: #0066cc;">for</span> f <span style="color: #0066cc;">in</span> candidates],
+    <span style="color: #0099cc;">'popularity_deviation'</span>: [abs(rating - user_avg) <span style="color: #0066cc;">for</span> rating <span style="color: #0066cc;">in</span> ratings],
+    <span style="color: #0099cc;">'crew_familiarity'</span>: [crew_overlap(user_history, film) <span style="color: #0066cc;">for</span> film <span style="color: #0066cc;">in</span> candidates],
+    <span style="color: #0099cc;">'genre_alignment'</span>: [genre_sim(user_prefs, film) <span style="color: #0066cc;">for</span> film <span style="color: #0066cc;">in</span> candidates]
+})
+
+<span style="color: #999;"># Train ranking model</span>
+ranker = GradientBoostingRanker(n_estimators=100, random_state=42)
+ranker.fit(ranking_features, pairwise_labels)
+
+<span style="color: #999;"># Re-rank recommendations</span>
+final_scores = ranker.predict(ranking_features)
+ranked_recommendations = final_scores.argsort()[::-1]
+
+<span style="color: #0066cc;">print</span>(<span style="color: #0099cc;">f"Final ranked list: {ranked_recommendations}"</span>)</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPACT -->
+      <section class="section section-alt">
+        <div class="container container-narrow">
+          <h2 class="section-title text-center" data-aos="fade-up">
+            Impact & Applications
+          </h2>
+
+          <div class="impact-content" data-aos="fade-up">
+            <h3>Key Findings</h3>
+            <ul
+              style="
+                margin-left: 1.5rem;
+                color: var(--text-dark);
+                line-height: 1.8;
+              "
+            >
+              <li>
+                <strong>12 Thematic Clusters:</strong> Revenge narratives,
+                female-centered thrillers, atmospheric horror, dialogue-heavy
+                dramas
+              </li>
+              <li>
+                <strong>Popularity Bias:</strong> Mainstream algorithms surface
+                same ~200 films repeatedly; we democratize discovery
+              </li>
+              <li>
+                <strong>Director as Hub:</strong> Certain directors (Spielberg,
+                Kurosawa, PTA) connect multiple thematic clusters globally
+              </li>
+              <li>
+                <strong>International Invisibility:</strong> 60% of films
+                non-English, yet mainstream platforms recommend them &lt;2%
+              </li>
+            </ul>
+
+            <h3 style="margin-top: 2rem">Real-World Applications</h3>
+            <ul
+              style="
+                margin-left: 1.5rem;
+                color: var(--text-dark);
+                line-height: 1.8;
+              "
+            >
+              <li>
+                <strong>Streaming Platforms:</strong> Reduce algorithmic bias,
+                surface underrated international cinema
+              </li>
+              <li>
+                <strong>Film Festivals:</strong> Use cluster analysis for
+                thematic programming
+              </li>
+              <li>
+                <strong>Academic Research:</strong> Evidence of how algorithms
+                shape cultural visibility
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section section">
+        <div class="container text-center">
+          <h2 class="cta-title" data-aos="fade-up">
+            Building Fair & Transparent Algorithms
+          </h2>
+          <p class="cta-text" data-aos="fade-up" data-aos-delay="100">
+            Let's talk about recommendation systems that don't just work — they
+            work fairly for everyone.
+          </p>
+          <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+            <a href="projects.html" class="btn btn-primary">Back to Projects</a>
+            <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <p class="footer-tagline">
+              Building algorithms that serve justice, not just efficiency.
+            </p>
+          </div>
+          <nav class="footer-nav">
+            <a href="projects.html">Back to Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Louise Ferreira.</p></div>
+      </div>
+    </footer>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/cinema-search.js"></script>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </body>
+</html>

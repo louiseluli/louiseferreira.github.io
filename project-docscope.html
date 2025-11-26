@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Case Study: DocScope Copilot - An automated AI governance auditing tool developed for the MIT Policy Hackathon 2025."
+    />
+    <meta name="author" content="Louise Ferreira" />
+    <title>DocScope Copilot - Project Case Study</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/projects.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="navbar-brand">
+          <span>Louise Ferreira</span>
+        </a>
+        <ul class="navbar-menu" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="navbar-social">
+            <a
+              href="https://github.com/louiseluli"
+              target="_blank"
+              aria-label="GitHub"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path></svg
+            ></a>
+          </li>
+        </ul>
+        <button
+          class="navbar-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section class="page-header">
+        <div class="container">
+          <div
+            class="featured-badge"
+            style="
+              background: linear-gradient(135deg, #ffd700, #ffa500);
+              color: #000;
+            "
+          >
+            🏆 MIT Policy Hackathon Winner (2025)
+          </div>
+          <h1 class="page-title" data-aos="fade-up">DocScope Copilot</h1>
+          <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Automated auditing for AI documentation governance
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">22</div>
+              <div class="stat-label">Frameworks Audited</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">1,303</div>
+              <div class="stat-label">Chunks Processed</div>
+            </div>
+            <div class="stat-card highlight-stat">
+              <div class="stat-number">81%</div>
+              <div class="stat-label">Governance Gap Detected</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">0.537</div>
+              <div class="stat-label">Avg. Quality Score</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container container-narrow">
+          <div class="project-card-body">
+            <h2>The Challenge: An Opaque Industry</h2>
+            <p>
+              Voluntary AI documentation standards are currently failing. While
+              frameworks like the NIST AI RMF exist, my analysis of 22 major
+              model cards (including GPT-4o) revealed a systematic lack of
+              substantive governance data.
+            </p>
+            <p>
+              We call this the <strong>"Framework-Practice Gap"</strong>: the
+              massive divergence between what governance frameworks recommend
+              (e.g., detailed equity audits) and what companies actually
+              disclose (marketing fluff).
+            </p>
+
+            <h2>The Solution: DocScope Copilot</h2>
+            <p>
+              I built DocScope Copilot, an automated auditing tool that ingests
+              technical documentation (PDF/Markdown) and scores it against 8
+              weighted governance pillars.
+            </p>
+
+            <div class="mitigation-comparison">
+              <h3>Critical Findings</h3>
+              <div class="comparison-item">
+                <div class="comparison-label">Equity & Bias Disclosure</div>
+                <div class="comparison-bar">
+                  <div class="bar-segment bad" style="width: 18%">
+                    <span>0.5% (Actual) vs 2.7% (Rec.)</span>
+                  </div>
+                </div>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    margin-top: 0.5rem;
+                    color: var(--error-color);
+                  "
+                >
+                  <strong>Critical Gap:</strong> Only 54.5% of documents
+                  contained <em>any</em> equity coverage.
+                </p>
+              </div>
+
+              <div class="comparison-item">
+                <div class="comparison-label">Governance & Oversight</div>
+                <div class="comparison-bar">
+                  <div class="bar-segment warning" style="width: 35%">
+                    <span>0.3% (Actual) vs 1.9% (Rec.)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2>Technical Implementation</h2>
+            <p>The tool uses a three-stage pipeline:</p>
+            <ul>
+              <li>
+                <strong>Ingestion:</strong> Section-aware extraction using
+                <code>PyPDF2</code> and Regex, separating text from tables
+                (tables weighted 1.3x for quantitative value).
+              </li>
+              <li>
+                <strong>NLP Analysis:</strong> Custom keyword scoring (343
+                keywords) combined with Negation Detection to distinguish "we
+                tested for bias" from "no bias testing was performed."
+              </li>
+              <li>
+                <strong>Scoring Engine:</strong> Calculates an "Artifact Quality
+                Score" (0-1.0) based on density of substantive technical
+                disclosures vs. promotional language.
+              </li>
+            </ul>
+
+            <div class="tech-stack">
+              <h4>Built With</h4>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">NLP (Spacy)</span>
+                <span class="tech-tag">Regex</span>
+                <span class="tech-tag">JSON Schema</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+            </div>
+
+            <div
+              class="project-links"
+              style="margin-top: 3rem; text-align: center"
+            >
+              <a
+                href="https://github.com/louiseluli/docscope-copilot"
+                class="btn btn-primary"
+                target="_blank"
+              >
+                View Project on GitHub
+              </a>
+              <a href="projects.html" class="btn btn-secondary">
+                ← Back to Projects
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <p class="footer-tagline">
+              Building algorithms that serve justice, not just efficiency.
+            </p>
+          </div>
+          <nav class="footer-nav">
+            <a href="projects.html">Back to Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Louise Ferreira.</p></div>
+      </div>
+    </footer>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </body>
+</html>

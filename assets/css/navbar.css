@@ -1,12 +1,10 @@
 /* FILE: assets/css/navbar.css (UPDATED FULL VERSION) */
 /* =============================================================================
    NAVIGATION BAR
-   Fixed, reliable Z-Index stacking to solve click/blur issues
+   Fixed Z-Index Stacking to prevent "Blurry/Unclickable" menu
    ============================================================================= */
 
-/* -----------------------------------------------------------------------------
-   HEADER CONTAINER (Layer 2)
-   ----------------------------------------------------------------------------- */
+/* 1. HEADER (Container) */
 .site-header {
   position: fixed;
   top: 0;
@@ -14,7 +12,7 @@
   right: 0;
   height: 72px;
 
-  /* Critical: Higher than overlay (990), lower than toggle (1002) */
+  /* Layer 2: Above content and overlay */
   z-index: 1000;
 
   background-color: var(--white);
@@ -26,15 +24,9 @@
   transition: all 0.3s ease;
 }
 
-/* Scrolled State */
 .site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow-md);
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.95
-  ); /* High opacity for readability */
 }
 
 /* Dark Mode Header */
@@ -61,9 +53,7 @@ body.dark-mode .site-header.scrolled {
   height: 100%;
 }
 
-/* -----------------------------------------------------------------------------
-   LOGO / SITE TITLE
-   ----------------------------------------------------------------------------- */
+/* Logo */
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -73,17 +63,14 @@ body.dark-mode .site-header.scrolled {
   font-weight: 700;
   color: var(--text-dark);
   text-decoration: none;
-  z-index: 1002; /* Ensure clickable */
+  z-index: 1002;
 }
 
 .navbar-brand:hover {
   color: var(--primary-color);
-  text-decoration: none;
 }
 
-/* -----------------------------------------------------------------------------
-   NAVIGATION MENU (DESKTOP)
-   ----------------------------------------------------------------------------- */
+/* Desktop Menu */
 .navbar-menu {
   display: flex;
   align-items: center;
@@ -100,34 +87,135 @@ body.dark-mode .site-header.scrolled {
   text-decoration: none;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
-  position: relative;
   transition: color var(--transition-fast);
 }
 
 .navbar-menu a:hover {
   color: var(--primary-color);
 }
-
 .navbar-menu a.active {
   color: var(--primary-color);
   font-weight: 600;
 }
 
-.navbar-menu a.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 24px;
-  height: 3px;
-  background-color: var(--primary-color);
-  border-radius: 2px;
+/* 2. MOBILE MENU OVERLAY (Backdrop) - Sits BEHIND the header */
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Layer 1: Above page content, but BELOW header/menu */
+  z-index: 900;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Removing backdrop-filter fixed the "blurry non-clickable" bug on some devices */
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-/* -----------------------------------------------------------------------------
-   SOCIAL ICONS
-   ----------------------------------------------------------------------------- */
+.navbar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 3. MOBILE MENU TOGGLE (Layer 4 - Topmost) */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* 4. MOBILE DRAWER (Layer 3) */
+@media (max-width: 992px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    background-color: var(--white);
+    padding: 80px 24px 40px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+
+    transition: right 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1001; /* Above header base, below toggle */
+    overflow-y: auto;
+  }
+
+  .navbar-menu.active {
+    right: 0;
+  }
+
+  .navbar-menu li {
+    width: 100%;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .navbar-menu a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  /* Social Icons Mobile */
+  .navbar-social {
+    width: 100%;
+    margin: 2rem 0 0 0;
+    padding: 1rem 0 0 0;
+    border-left: none;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  body.dark-mode .navbar-menu {
+    background-color: var(--background-light);
+  }
+}
+
+/* Social Icons Desktop */
 .navbar-social {
   display: flex;
   align-items: center;
@@ -156,147 +244,6 @@ body.dark-mode .site-header.scrolled {
   width: 20px;
   height: 20px;
 }
-
-/* -----------------------------------------------------------------------------
-   MOBILE MENU TOGGLE (Layer 4)
-   ----------------------------------------------------------------------------- */
-.navbar-toggle {
-  display: none; /* Hidden on Desktop */
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-
-  /* Critical: Highest z-index to ensure it's always clickable */
-  z-index: 1002;
-}
-
-.navbar-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-dark);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Hamburger Animation */
-.navbar-toggle.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.navbar-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.navbar-toggle.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* -----------------------------------------------------------------------------
-   MOBILE RESPONSIVE STYLES (Layer 3)
-   ----------------------------------------------------------------------------- */
-@media (max-width: 992px) {
-  .navbar-toggle {
-    display: flex;
-  }
-
-  /* Mobile Menu Drawer */
-  .navbar-menu {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Hidden off-screen */
-    width: 85%;
-    max-width: 320px;
-    height: 100vh;
-
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
-    background-color: var(--white);
-    padding: 80px 24px 40px; /* Spacing for header */
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
-
-    transition: right 0.3s ease-in-out;
-
-    /* Critical: Sits on top of Header (1000) and Overlay (990) */
-    z-index: 1001;
-    overflow-y: auto;
-  }
-
-  .navbar-menu.active {
-    right: 0; /* Slide in */
-  }
-
-  /* Mobile Links */
-  .navbar-menu li {
-    width: 100%;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .navbar-menu a {
-    display: block;
-    padding: 1rem 0;
-    font-size: 1.1rem;
-    width: 100%;
-  }
-
-  .navbar-menu a.active::after {
-    display: none;
-  }
-
-  /* Mobile Social */
-  .navbar-social {
-    width: 100%;
-    margin: 2rem 0 0 0;
-    padding: 1rem 0 0 0;
-    border-left: none;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  /* Dark Mode Fixes */
-  body.dark-mode .navbar-menu {
-    background-color: var(--background-light); /* Ensure solid background */
-  }
-}
-
-/* -----------------------------------------------------------------------------
-   MOBILE OVERLAY / BACKDROP (Layer 1)
-   ----------------------------------------------------------------------------- */
-.navbar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(0, 0, 0, 0.6); /* Darker dim for visibility */
-  /* Removed backdrop-filter to prevent blur issues on older devices */
-
-  /* Critical: Below Header (1000) but above page content */
-  z-index: 990;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-}
-
-.navbar-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
 body.menu-open {
   overflow: hidden;
-}
-
-/* -----------------------------------------------------------------------------
-   MAIN CONTENT OFFSET
-   ----------------------------------------------------------------------------- */
-.main-content {
-  padding-top: 72px;
 }
