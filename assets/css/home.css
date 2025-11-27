@@ -1,7 +1,10 @@
-/* FILE: assets/css/home.css (UPDATED FULL VERSION) */
+/* FILE: assets/css/home.css (FIXED VERSION) */
 /* =============================================================================
    HOME PAGE STYLES
    Hero section, feature cards, and landing page specific components
+   
+   FIXES:
+   - Line 149: Changed background-clip: border-box → text (purple box fix)
    ============================================================================= */
 
 /* Add AOS library CSS for animations */
@@ -18,6 +21,7 @@
   justify-content: center;
   overflow: hidden;
   padding: var(--space-16) 0;
+  padding-top: calc(72px + var(--space-8)); /* Account for fixed navbar */
   background: linear-gradient(135deg, var(--background-light) 0%, #f0e8ff 100%);
 }
 
@@ -32,7 +36,7 @@ body.dark-mode .hero {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
   opacity: 0.15;
   overflow: hidden;
   pointer-events: none;
@@ -80,7 +84,7 @@ body.dark-mode .hero {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Updated to 2 columns for visual balance */
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
   align-items: center;
 }
@@ -103,8 +107,13 @@ body.dark-mode .hero {
   border-radius: 50px;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+body.dark-mode .hero-greeting {
+  background-color: rgba(155, 111, 204, 0.3);
+  color: var(--secondary-color);
 }
 
 .greeting-emoji {
@@ -139,18 +148,44 @@ body.dark-mode .hero {
   color: var(--text-dark);
 }
 
+/* =============================================================================
+   HIGHLIGHT TEXT - GRADIENT TEXT EFFECT
+   
+   FIX APPLIED: Changed background-clip: border-box → text
+   This was causing the purple box to appear behind the text in dark mode.
+   ============================================================================= */
 .highlight-text {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  color: var(--primary-color); /* Fallback for unsupported browsers */
   background: linear-gradient(135deg, var(--primary-color) 0%, #9d6fd8 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
+/* FIXED: Was "border-box", now correctly "text" */
 body.dark-mode .highlight-text {
   background: linear-gradient(135deg, #a77fdb 0%, #d1b3ff 100%);
   -webkit-background-clip: text;
-  background-clip: border-box;
+  background-clip: text; /* ← THIS WAS THE BUG: was "border-box" */
   -webkit-text-fill-color: transparent;
+}
+
+/* Fallback for browsers that don't support background-clip: text */
+@supports not (-webkit-background-clip: text) {
+  .highlight-text {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: var(--primary-color);
+  }
+
+  body.dark-mode .highlight-text {
+    color: #d1b3ff;
+  }
 }
 
 /* Subtitle/tagline */
@@ -162,6 +197,10 @@ body.dark-mode .highlight-text {
   line-height: 1.4;
 }
 
+body.dark-mode .hero-subtitle {
+  color: var(--gray-300);
+}
+
 /* Bio paragraph */
 .hero-bio {
   font-size: var(--text-lg);
@@ -171,9 +210,17 @@ body.dark-mode .highlight-text {
   max-width: 60ch;
 }
 
+body.dark-mode .hero-bio {
+  color: var(--gray-200);
+}
+
 .hero-bio strong {
   color: var(--primary-color);
   font-weight: 600;
+}
+
+body.dark-mode .hero-bio strong {
+  color: var(--secondary-color);
 }
 
 /* Hero Highlights (Stats) */
@@ -237,6 +284,10 @@ body.dark-mode .highlight-text {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
+}
+
+body.dark-mode .highlight-label {
+  color: var(--gray-400);
 }
 
 /* Call-to-action buttons */
@@ -366,7 +417,7 @@ body.dark-mode .highlight-text {
 
 /* Code Snippet Card */
 .code-snippet {
-  background-color: #1e293b; /* Slate 800 */
+  background-color: #1e293b;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
@@ -382,7 +433,7 @@ body.dark-mode .highlight-text {
 }
 
 .snippet-header {
-  background-color: #0f172a; /* Slate 900 */
+  background-color: #0f172a;
   padding: var(--space-3) var(--space-4);
   display: flex;
   align-items: center;
@@ -434,16 +485,16 @@ body.dark-mode .highlight-text {
 .code-keyword {
   color: #c084fc;
   font-weight: bold;
-} /* Purple */
+}
 .code-function {
   color: #60a5fa;
-} /* Blue */
+}
 .code-string {
   color: #34d399;
-} /* Green */
+}
 .code-number {
   color: #f472b6;
-} /* Pink */
+}
 
 /* -----------------------------------------------------------------------------
    RESPONSIVE ADJUSTMENTS
@@ -465,21 +516,21 @@ body.dark-mode .highlight-text {
   }
 
   .visual-stats {
-    display: none; /* Hide floating circles on smaller screens to save space */
+    display: none;
   }
 
   .code-snippet {
-    transform: none; /* Remove 3D effect on mobile */
+    transform: none;
     margin: 0 auto;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .highlight-number {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .scroll-indicator {

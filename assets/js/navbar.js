@@ -1,207 +1,195 @@
-/* FILE: assets/js/theme-toggle.js (UPDATED FULL VERSION) */
+/* FILE: assets/js/navbar.js */
 /**
- * THEME TOGGLE SYSTEM
- * Handles Dark/Light mode switching with persistence and accessibility.
+ * NAVIGATION SYSTEM
+ * Handles mobile menu toggle, scroll effects, and active link highlighting.
  */
 
 (function () {
   "use strict";
 
   // ============================================================================
-  // CONFIGURATION
-  // ============================================================================
-  const STORAGE_KEY = "louise-portfolio-theme";
-  const DARK_MODE_CLASS = "dark-mode";
-  const DATA_THEME_ATTR = "data-theme";
-  const NO_TRANSITION_CLASS = "no-transition";
-
-  // ============================================================================
   // DOM ELEMENTS
   // ============================================================================
-  const body = document.body;
-  let toggleButton = null;
+  let navbarToggle = null;
+  let navbarMenu = null;
+  let navbarOverlay = null;
+  let siteHeader = null;
 
   // ============================================================================
-  // THEME LOGIC
+  // MOBILE MENU FUNCTIONS
   // ============================================================================
 
   /**
-   * Determine preferred theme from storage or system settings
-   * @returns {string} 'dark' or 'light'
+   * Toggle mobile menu open/closed state
    */
-  function getInitialTheme() {
-    const savedTheme = localStorage.getItem(STORAGE_KEY);
-    if (savedTheme) {
-      return savedTheme;
-    }
+  function toggleMobileMenu() {
+    const isOpen = navbarMenu.classList.contains("active");
 
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "dark";
-    }
-
-    return "light";
-  }
-
-  /**
-   * Apply the theme state to the DOM
-   * @param {string} theme - 'dark' or 'light'
-   * @param {boolean} disableTransition - prevent flash of styles
-   */
-  function applyTheme(theme, disableTransition = false) {
-    if (disableTransition) {
-      body.classList.add(NO_TRANSITION_CLASS);
-    }
-
-    if (theme === "dark") {
-      body.classList.add(DARK_MODE_CLASS);
-      body.setAttribute(DATA_THEME_ATTR, "dark");
+    if (isOpen) {
+      closeMobileMenu();
     } else {
-      body.classList.remove(DARK_MODE_CLASS);
-      body.setAttribute(DATA_THEME_ATTR, "light");
-    }
-
-    if (disableTransition) {
-      setTimeout(() => {
-        body.classList.remove(NO_TRANSITION_CLASS);
-      }, 50);
+      openMobileMenu();
     }
   }
 
   /**
-   * Toggle the current theme state
+   * Open the mobile menu
    */
-  function toggleTheme() {
-    const isDark = body.classList.contains(DARK_MODE_CLASS);
-    const newTheme = isDark ? "light" : "dark"; // Toggle inverse
+  function openMobileMenu() {
+    navbarMenu.classList.add("active");
+    navbarToggle.classList.add("active");
+    navbarToggle.setAttribute("aria-expanded", "true");
 
-    applyTheme(newTheme, false);
-    localStorage.setItem(STORAGE_KEY, newTheme);
-    updateButtonLabel(newTheme === "dark");
+    if (navbarOverlay) {
+      navbarOverlay.classList.add("active");
+    }
 
-    console.log(`Theme toggled to: ${newTheme}`);
+    // Prevent body scroll when menu is open
+    document.body.classList.add("menu-open");
+
+    console.log("Menu opened");
   }
 
   /**
-   * Update button accessibility label
+   * Close the mobile menu
    */
-  function updateButtonLabel(isDark) {
-    if (toggleButton) {
-      const label = isDark ? "Switch to light mode" : "Switch to dark mode";
-      toggleButton.setAttribute("aria-label", label);
+  function closeMobileMenu() {
+    navbarMenu.classList.remove("active");
+    navbarToggle.classList.remove("active");
+    navbarToggle.setAttribute("aria-expanded", "false");
+
+    if (navbarOverlay) {
+      navbarOverlay.classList.remove("active");
     }
+
+    // Re-enable body scroll
+    document.body.classList.remove("menu-open");
+
+    console.log("Menu closed");
   }
 
   // ============================================================================
-  // COMPONENT SETUP
+  // SCROLL EFFECTS
   // ============================================================================
 
   /**
-   * Find existing button or create a new one
+   * Handle header style changes on scroll
    */
-  function setupToggleButton() {
-    // Check if button already exists in HTML (priority)
-    toggleButton = document.getElementById("themeToggle");
+  function handleScroll() {
+    if (!siteHeader) return;
 
-    if (!toggleButton) {
-      createToggleButton();
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    if (scrollY > 50) {
+      siteHeader.classList.add("scrolled");
     } else {
-      // Attach listener to existing button
-      toggleButton.addEventListener("click", toggleTheme);
+      siteHeader.classList.remove("scrolled");
+    }
+  }
+
+  // ============================================================================
+  // OVERLAY CREATION
+  // ============================================================================
+
+  /**
+   * Create overlay element if it doesn't exist
+   */
+  function ensureOverlayExists() {
+    navbarOverlay = document.querySelector(".navbar-overlay");
+
+    if (!navbarOverlay) {
+      navbarOverlay = document.createElement("div");
+      navbarOverlay.className = "navbar-overlay";
+      navbarOverlay.setAttribute("aria-hidden", "true");
+
+      // Insert after header
+      const header = document.querySelector(".site-header");
+      if (header && header.parentNode) {
+        header.parentNode.insertBefore(navbarOverlay, header.nextSibling);
+      } else {
+        document.body.appendChild(navbarOverlay);
+      }
+
+      console.log("Overlay created");
     }
 
-    const isDark = body.classList.contains(DARK_MODE_CLASS);
-    updateButtonLabel(isDark);
-  }
-
-  /**
-   * Create button DOM elements if missing (Fallback)
-   */
-  function createToggleButton() {
-    toggleButton = document.createElement("button");
-    toggleButton.id = "themeToggle";
-    toggleButton.className = "theme-toggle";
-    toggleButton.setAttribute("type", "button");
-
-    // SVG Icons (Inline to ensure they exist if JS creates the button)
-    toggleButton.innerHTML = `
-      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-    `;
-
-    document.body.appendChild(toggleButton);
-    toggleButton.addEventListener("click", toggleTheme);
-  }
-
-  // ============================================================================
-  // EVENT LISTENERS
-  // ============================================================================
-
-  /**
-   * System preference listener
-   */
-  function watchSystemPreference() {
-    if (!window.matchMedia) return;
-
-    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    darkModeQuery.addEventListener("change", e => {
-      // Only override if user hasn't set a specific preference
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        applyTheme(e.matches ? "dark" : "light", false);
-        updateButtonLabel(e.matches);
-      }
-    });
-  }
-
-  /**
-   * Keyboard shortcut (Ctrl+Shift+D)
-   */
-  function enableKeyboardShortcut() {
-    document.addEventListener("keydown", e => {
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === "D") {
-        e.preventDefault();
-        toggleTheme();
-      }
-    });
+    // Click overlay to close menu
+    navbarOverlay.addEventListener("click", closeMobileMenu);
   }
 
   // ============================================================================
   // INITIALIZATION
   // ============================================================================
 
+  /**
+   * Initialize all navbar functionality
+   */
   function init() {
-    // 1. Apply theme immediately to avoid flash
-    const initialTheme = getInitialTheme();
-    applyTheme(initialTheme, true);
+    // Cache DOM elements
+    navbarToggle = document.querySelector(".navbar-toggle");
+    navbarMenu = document.querySelector(".navbar-menu");
+    siteHeader = document.querySelector(".site-header");
 
-    // 2. Setup UI when DOM is ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => {
-        setupToggleButton();
-        watchSystemPreference();
-        enableKeyboardShortcut();
-      });
-    } else {
-      setupToggleButton();
-      watchSystemPreference();
-      enableKeyboardShortcut();
+    // Debug: Check if elements exist
+    console.log("Navbar Toggle found:", !!navbarToggle);
+    console.log("Navbar Menu found:", !!navbarMenu);
+    console.log("Site Header found:", !!siteHeader);
+
+    if (!navbarToggle) {
+      console.error("ERROR: .navbar-toggle button not found!");
+      return;
     }
+
+    if (!navbarMenu) {
+      console.error("ERROR: .navbar-menu not found!");
+      return;
+    }
+
+    // Ensure overlay exists
+    ensureOverlayExists();
+
+    // CRITICAL: Attach click event to burger button
+    navbarToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMobileMenu();
+    });
+
+    // Close menu when clicking on a link
+    const navLinks = navbarMenu.querySelectorAll("a");
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (window.innerWidth <= 992) {
+          closeMobileMenu();
+        }
+      });
+    });
+
+    // Scroll effects
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Run once on load
+
+    // Keyboard: Close on Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navbarMenu.classList.contains("active")) {
+        closeMobileMenu();
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 992 && navbarMenu.classList.contains("active")) {
+        closeMobileMenu();
+      }
+    });
+
+    console.log("✅ Navbar initialized successfully");
   }
 
-  init();
+  // Run when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
