@@ -263,80 +263,67 @@
               <div class="visual-container">
                 <svg
                   class="data-viz"
-                  viewBox="0 0 400 500"
+                  viewBox="0 0 420 450"
                   xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
                 >
-                  <text x="200" y="30" text-anchor="middle" class="viz-title">
+                  <!-- Title -->
+                  <text x="210" y="35" text-anchor="middle" class="viz-title" font-size="18" font-weight="600" fill="currentColor">
                     Accuracy by Demographic Group
                   </text>
 
-                  <text x="20" y="70" class="viz-subtitle">
+                  <!-- Baseline Section -->
+                  <text x="25" y="75" class="viz-subtitle" font-size="13" font-weight="500" fill="#94a3b8">
                     Baseline Model (Random Forest)
                   </text>
 
-                  <rect
-                    x="20"
-                    y="85"
-                    width="240"
-                    height="30"
-                    fill="#14B8A6"
-                    rx="4"
-                  />
-                  <text x="270" y="105" class="viz-label">
+                  <rect x="25" y="95" width="220" height="28" fill="#14B8A6" rx="6" />
+                  <text x="255" y="114" class="viz-label" font-size="13" fill="currentColor">
                     White Women: 70.7%
                   </text>
 
-                  <rect
-                    x="20"
-                    y="125"
-                    width="200"
-                    height="30"
-                    fill="#DC2626"
-                    rx="4"
-                  />
-                  <text x="230" y="145" class="viz-label">
+                  <rect x="25" y="135" width="180" height="28" fill="#ef4444" rx="6" />
+                  <text x="215" y="154" class="viz-label" font-size="13" fill="currentColor">
                     Black Women: 58.1%
                   </text>
 
-                  <text x="20" y="270" class="viz-subtitle">
+                  <!-- Gap indicator -->
+                  <text x="25" y="185" font-size="12" fill="#ef4444" font-weight="500">
+                    ⚠ -12.6% accuracy gap
+                  </text>
+
+                  <!-- Divider -->
+                  <line x1="25" y1="210" x2="395" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="4" />
+
+                  <!-- After Mitigation Section -->
+                  <text x="25" y="245" class="viz-subtitle" font-size="13" font-weight="500" fill="#94a3b8">
                     After Mitigation (In-Processing)
                   </text>
 
-                  <rect
-                    x="20"
-                    y="285"
-                    width="240"
-                    height="30"
-                    fill="#14B8A6"
-                    rx="4"
-                  />
-                  <text x="270" y="305" class="viz-label">
+                  <rect x="25" y="265" width="260" height="28" fill="#14B8A6" rx="6" />
+                  <text x="295" y="284" class="viz-label" font-size="13" fill="currentColor">
                     White Women: 91.0%
                   </text>
 
-                  <rect
-                    x="20"
-                    y="325"
-                    width="235"
-                    height="30"
-                    fill="#059669"
-                    rx="4"
-                  />
-                  <text x="265" y="345" class="viz-label">
+                  <rect x="25" y="305" width="248" height="28" fill="#10b981" rx="6" />
+                  <text x="283" y="324" class="viz-label" font-size="13" fill="currentColor">
                     Black Women: 86.4%
                   </text>
 
-                  <g transform="translate(200, 380)">
-                    <circle r="40" fill="#FFC043" opacity="0.2" />
-                    <text y="8" text-anchor="middle" class="viz-highlight">
+                  <!-- Success indicator -->
+                  <text x="25" y="355" font-size="12" fill="#10b981" font-weight="500">
+                    ✓ -4.6% gap (64% improvement)
+                  </text>
+
+                  <!-- Improvement badge -->
+                  <g transform="translate(330, 400)">
+                    <circle r="38" fill="#fbbf24" opacity="0.15" />
+                    <circle r="30" fill="#fbbf24" opacity="0.25" />
+                    <text y="5" text-anchor="middle" class="viz-highlight" font-size="20" font-weight="700" fill="#fbbf24">
                       64%
                     </text>
-                    <text
-                      y="25"
-                      text-anchor="middle"
-                      class="viz-highlight-small"
-                    >
-                      improvement
+                    <text y="22" text-anchor="middle" class="viz-highlight-small" font-size="10" fill="#94a3b8">
+                      bias reduced
                     </text>
                   </g>
                 </svg>

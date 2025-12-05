@@ -409,6 +409,51 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* -----------------------------------------------------------------------------
+   FEATURED PROJECT VISUALIZATION
+   ----------------------------------------------------------------------------- */
+.featured-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-container {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-xl);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.data-viz {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  color: #e2e8f0;
+}
+
+.data-viz .viz-title {
+  fill: #f8fafc;
+}
+
+.data-viz .viz-subtitle {
+  fill: #94a3b8;
+}
+
+.data-viz .viz-label {
+  fill: #e2e8f0;
+}
+
+.data-viz .viz-highlight {
+  fill: #fbbf24;
+}
+
+.data-viz .viz-highlight-small {
+  fill: #94a3b8;
+}
+
 .code-header {
   background-color: #0f172a; /* Slate 900 */
   padding: var(--space-3) var(--space-4);

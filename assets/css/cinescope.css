@@ -218,12 +218,20 @@ body.dark-mode .visual-grid figure:hover {
   line-height: 1.6;
   color: var(--text-dark);
   border-top: 1px solid rgba(148, 163, 184, 0.2);
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.05) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
   flex-grow: 1;
 }
 
 body.dark-mode .visual-grid figcaption {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(30, 41, 59, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(30, 41, 59, 0.8) 100%
+  );
   border-top-color: rgba(148, 163, 184, 0.1);
 }
 
@@ -249,8 +257,12 @@ body.dark-mode .visual-grid figcaption {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lightbox-content {
@@ -340,7 +352,7 @@ body.dark-mode .visual-grid figcaption {
   .hero-collage {
     order: -1;
   }
-  
+
   .visual-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
@@ -359,16 +371,16 @@ body.dark-mode .visual-grid figcaption {
     min-width: 0;
     flex: 1 1 calc(50% - 0.5rem);
   }
-  
+
   .visual-grid figure::after {
     display: none;
   }
-  
+
   .lightbox-nav {
     font-size: 2rem;
     padding: 0.5rem;
   }
-  
+
   .lightbox-close {
     font-size: 2rem;
     top: 10px;

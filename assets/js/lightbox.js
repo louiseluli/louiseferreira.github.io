@@ -33,10 +33,16 @@
     lightboxCaption = lightbox.querySelector(".lightbox-caption");
 
     // Event listeners
-    lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-    lightbox.querySelector(".lightbox-prev").addEventListener("click", showPrev);
-    lightbox.querySelector(".lightbox-next").addEventListener("click", showNext);
-    
+    lightbox
+      .querySelector(".lightbox-close")
+      .addEventListener("click", closeLightbox);
+    lightbox
+      .querySelector(".lightbox-prev")
+      .addEventListener("click", showPrev);
+    lightbox
+      .querySelector(".lightbox-next")
+      .addEventListener("click", showNext);
+
     // Close on background click
     lightbox.addEventListener("click", function (e) {
       if (e.target === lightbox) {
@@ -47,7 +53,7 @@
     // Keyboard navigation
     document.addEventListener("keydown", function (e) {
       if (!lightbox.classList.contains("active")) return;
-      
+
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowLeft") showPrev();
       if (e.key === "ArrowRight") showNext();
@@ -60,14 +66,14 @@
   function openLightbox(img, caption, images, index) {
     currentImages = images;
     currentIndex = index;
-    
+
     lightboxImg.src = img;
     lightboxImg.alt = caption;
     lightboxCaption.textContent = caption;
-    
+
     lightbox.classList.add("active");
     document.body.style.overflow = "hidden";
-    
+
     // Update nav visibility
     updateNavVisibility();
   }
@@ -117,12 +123,14 @@
   function updateNavVisibility() {
     const prevBtn = lightbox.querySelector(".lightbox-prev");
     const nextBtn = lightbox.querySelector(".lightbox-next");
-    
+
     prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
     prevBtn.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
-    
-    nextBtn.style.opacity = currentIndex === currentImages.length - 1 ? "0.3" : "1";
-    nextBtn.style.pointerEvents = currentIndex === currentImages.length - 1 ? "none" : "auto";
+
+    nextBtn.style.opacity =
+      currentIndex === currentImages.length - 1 ? "0.3" : "1";
+    nextBtn.style.pointerEvents =
+      currentIndex === currentImages.length - 1 ? "none" : "auto";
   }
 
   /**
@@ -132,23 +140,30 @@
     createLightbox();
 
     // Collect all figures with images
-    const figures = document.querySelectorAll(".visual-grid figure, .hero-collage figure");
-    
+    const figures = document.querySelectorAll(
+      ".visual-grid figure, .hero-collage figure"
+    );
+
     // Build image array
     const allImages = [];
     figures.forEach((figure, index) => {
       const img = figure.querySelector("img");
       const caption = figure.querySelector("figcaption");
-      
+
       if (img) {
         allImages.push({
           src: img.src,
-          caption: caption ? caption.textContent : ""
+          caption: caption ? caption.textContent : "",
         });
 
         // Click handler
         figure.addEventListener("click", function () {
-          openLightbox(img.src, caption ? caption.textContent : "", allImages, index);
+          openLightbox(
+            img.src,
+            caption ? caption.textContent : "",
+            allImages,
+            index
+          );
         });
       }
     });
