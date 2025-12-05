@@ -219,7 +219,9 @@
 .bands-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  justify-content: center;
+  margin-top: var(--space-6);
 }
 
 .band-tag {
@@ -234,11 +236,26 @@
   font-size: var(--text-sm);
   font-weight: 600;
   transition: all var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .band-tag:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Dark mode band tags */
+body.dark-mode .band-tag {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: #0f172a;
 }
 
 /* -----------------------------------------------------------------------------
@@ -319,8 +336,11 @@
 /* Eras Grid */
 .eras-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-4);
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .era-card {
@@ -454,6 +474,10 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-8);
   margin: var(--space-12) 0;
+  justify-content: center;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gaming-card {
@@ -662,6 +686,10 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-8);
   margin-top: var(--space-12);
+  justify-content: center;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .travel-card {

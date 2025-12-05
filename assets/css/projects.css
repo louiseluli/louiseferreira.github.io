@@ -562,6 +562,78 @@ body.dark-mode .filter-btn {
 }
 
 /* -----------------------------------------------------------------------------
+   STATS GRID & RESEARCH NUMBERS
+   ----------------------------------------------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--white), var(--gray-100));
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-purple);
+  border-color: var(--primary-light);
+}
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.stat-card.highlight-stat {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  border-color: #dc2626;
+}
+
+.stat-card.highlight-stat .stat-number {
+  background: none;
+  -webkit-text-fill-color: #ffffff;
+  color: #ffffff;
+}
+
+.stat-card.highlight-stat .stat-label {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark mode stat cards */
+body.dark-mode .stat-card {
+  background: linear-gradient(135deg, var(--gray-100), var(--white));
+  border-color: var(--gray-300);
+}
+
+body.dark-mode .stat-number {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* -----------------------------------------------------------------------------
    RESPONSIVE
    ----------------------------------------------------------------------------- */
 @media (max-width: 768px) {
@@ -576,5 +648,9 @@ body.dark-mode .filter-btn {
 
   .page-title {
     font-size: 2.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

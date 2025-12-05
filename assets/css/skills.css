@@ -235,7 +235,21 @@ body.dark-mode .skill-category {
 }
 
 body.dark-mode .language-card {
-  background-color: var(--gray-100);
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+}
+
+body.dark-mode .language-card h3 {
+  color: var(--text-dark);
+}
+
+body.dark-mode .language-level {
+  background-color: rgba(196, 181, 253, 0.2);
+  color: var(--primary-color);
+}
+
+body.dark-mode .language-note {
+  color: var(--gray-600);
 }
 
 .language-flag {

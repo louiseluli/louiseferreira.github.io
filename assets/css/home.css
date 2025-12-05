@@ -428,6 +428,11 @@ body.dark-mode .highlight-label {
   transition: transform 0.5s ease;
 }
 
+/* Light mode - darker code snippet for contrast */
+.code-snippet {
+  background-color: #0f172a;
+}
+
 .code-snippet:hover {
   transform: perspective(1000px) rotateY(0) rotateX(0);
 }
