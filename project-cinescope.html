@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>CineScope – Personal Cinema Analytics | Louise Ferreira</title>
+    <title>CineScope - Personal Cinema Analytics | Louise Ferreira</title>
     <meta
       name="description"
       content="CineScope is a personal cinema analytics project where years of curated watchlists and a physical collection become a full data pipeline: enrichment, visualisation and pattern discovery on my own film life."
@@ -113,7 +113,7 @@
       <section class="project-hero">
         <div class="container hero-layout">
           <div class="hero-text">
-            <p class="hero-kicker">Personal Data • Cinema • ML Pipeline</p>
+            <p class="hero-kicker">Personal Data &bull; Cinema &bull; ML Pipeline</p>
             <h1>CineScope: Personal Cinema Analytics</h1>
             <p class="hero-subtitle">
               Years of curated watchlists and a carefully built movie
@@ -121,7 +121,7 @@
               cinematic patterns.
             </p>
             <p>
-              I’ve been exporting IMDb lists, maintaining spreadsheets, and
+              I have been exporting IMDb lists, maintaining spreadsheets, and
               building databases of my films for years. CineScope is where I
               turned that private obsession into a structured analytics
               pipeline: who I watch, which stories I return to, how my taste
@@ -152,8 +152,7 @@
                 alt="Rating distribution of my watched movies"
               />
               <figcaption>
-                Rating distribution: how generous, harsh, or simply consistent I
-                really am.
+                Rating distribution: consistency and bias patterns revealed.
               </figcaption>
             </figure>
             <figure>
@@ -162,7 +161,7 @@
                 alt="Decade vs genre heatmap"
               />
               <figcaption>
-                Decades × genres: where my watching habits truly live.
+                Decades by genres: where watching habits concentrate.
               </figcaption>
             </figure>
             <figure>
@@ -171,7 +170,7 @@
                 alt="Top actors in my collection"
               />
               <figcaption>
-                The actors who silently dominate my nights at the movies.
+                The actors who appear most frequently across my collection.
               </figcaption>
             </figure>
             <figure>
@@ -180,8 +179,7 @@
                 alt="Pattern overview in my collection"
               />
               <figcaption>
-                High-level patterns that emerge once everything is centralized
-                and enriched.
+                High-level patterns emerging from centralized, enriched data.
               </figcaption>
             </figure>
           </div>
@@ -195,19 +193,17 @@
           <p>
             CineScope is built on top of
             <strong>years of curated lists</strong>: personal watch history,
-            IMDb exports, local collection databases, and quiet notes about what
+            IMDb exports, local collection databases, and notes about what
             I love. I pulled all of this together, enriched it with external
             sources (IMDb, TMDb, OMDb, DoesTheDogDie, Wikidata), and created a
             pipeline that treats my own film life like a research dataset.
           </p>
           <p>
-            Instead of asking “what should I watch?”, this project asks deeper
+            Instead of asking "what should I watch?", this project asks deeper
             questions:
-            <em
-              >What do I actually watch? Where are my biases? Which genres and
-              eras define my taste? Who shows up over and over again when I’m
-              not paying attention?</em
-            >
+            <em>What do I actually watch? Where are my biases? Which genres and
+            eras define my taste? Who shows up over and over again when I am
+            not paying attention?</em>
           </p>
         </div>
       </section>
@@ -218,8 +214,8 @@
           <h2>My Taste, Over Time</h2>
           <p>
             The first layer of CineScope looks at ratings, decades, and
-            runtimes. It turns vague intuition (&ldquo;I like classic
-            films&rdquo;, &ldquo;I’m not into very long movies&rdquo;) into
+            runtimes. It turns vague intuition ("I like classic
+            films", "I am not into very long movies") into
             measurable patterns.
           </p>
 
@@ -231,7 +227,7 @@
               />
               <figcaption>
                 Decade distribution: which eras dominate my watch history and
-                where I’m surprisingly sparse.
+                where I am surprisingly sparse.
               </figcaption>
             </figure>
 
@@ -242,7 +238,7 @@
               />
               <figcaption>
                 Runtime sweet spot: the lengths where I consistently rate films
-                higher – a data-driven comfort zone.
+                higher - a data-driven comfort zone.
               </figcaption>
             </figure>
 
@@ -253,7 +249,7 @@
               />
               <figcaption>
                 Popularity vs my ratings: where I agree with the crowd and where
-                I quietly rebel.
+                I diverge.
               </figcaption>
             </figure>
 
@@ -263,7 +259,7 @@
                 alt="Rating vs runtime scatterplot"
               />
               <figcaption>
-                Rating × runtime scatter: every single film as a dot – revealing
+                Rating by runtime scatter: every single film as a dot - revealing
                 clusters of comfort films and rare outliers.
               </figcaption>
             </figure>
@@ -271,14 +267,276 @@
         </div>
       </section>
 
-      <!-- SECTION: GENRES & HYBRIDITY -->
+      <!-- SECTION 1: GENRE HYBRIDITY ANALYSIS -->
       <section class="project-section section">
         <div class="container">
-          <h2>Genres, Hybrids & Evolution</h2>
-          <p>
-            I’ve always said I love specific genres – horror, noir, thrillers,
-            classic Hollywood. CineScope translates that into concrete
-            distributions and hybrid genre patterns.
+          <h2>1. Single-Genre vs Hybrid Films</h2>
+          <p class="section-intro">
+            One of the most revealing patterns in my collection: the overwhelming preference for genre-blending over purity.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
+              <img
+                src="assets/img/cinescope/pure-vs-hybrid.png"
+                alt="Pure vs hybrid genres analysis"
+              />
+            </figure>
+            <div class="interpretation">
+              <h3>Key Finding: 91.7% Hybrid Preference</h3>
+              <p>
+                Only <strong>189 films (8.3%)</strong> in my collection are "pure" single-genre entries. 
+                The remaining ~92% combine two or more genres.
+              </p>
+              <div class="example-grid">
+                <div class="example-category">
+                  <h4>Pure Drama</h4>
+                  <p>The Shawshank Redemption, Bicycle Thieves, All About Eve, Magnolia, Rebel Without a Cause</p>
+                </div>
+                <div class="example-category">
+                  <h4>Pure Comedy</h4>
+                  <p>Bringing Up Baby, One Two Three, The Birdcage, Ferris Bueller's Day Off, Death at a Funeral</p>
+                </div>
+                <div class="example-category">
+                  <h4>Pure Thriller</h4>
+                  <p>Wait Until Dark</p>
+                </div>
+              </div>
+              <h4>Distribution Peak: 2-3 Genres</h4>
+              <p>
+                The bar chart shows the peak at <strong>2-3 genres</strong> (~750 films with 2 genres, 800+ with 3).
+                This represents my comfort zone:
+              </p>
+              <ul class="film-examples">
+                <li><strong>2 genres:</strong> Forrest Gump (Drama/Romance), V for Vendetta (Action/Sci-Fi)</li>
+                <li><strong>3 genres:</strong> Se7en (Crime/Drama/Mystery), Gremlins (Comedy/Fantasy/Horror)</li>
+              </ul>
+              <h4>Long Tail: 6-8 Genre Films</h4>
+              <p>
+                The collection includes several "genre soup" films where marketing applies every possible tag:
+              </p>
+              <ul class="film-examples">
+                <li>Xuxa Abracadabra: Action/Adventure/Family/Fantasy/Romance/Sci-Fi</li>
+                <li>The VelociPastor: Action/Adventure/Comedy/Fantasy/Horror/Sci-Fi</li>
+                <li>What Happened to Monday: Action/Crime/Fantasy/Mystery/Sci-Fi/Thriller</li>
+                <li>Annihilation: Adventure/Drama/Horror/Mystery/Sci-Fi</li>
+              </ul>
+              <p class="insight">
+                <strong>Interpretation:</strong> This distribution suggests a preference for films that mix tones - 
+                funny but sad, romantic but tense, scary but playful. Pure single-genre films are the exception rather than the rule.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: GENRE EVOLUTION -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>2. Genre Evolution Across Decades</h2>
+          <p class="section-intro">
+            A stacked-area timeline showing how different genres rise and fall throughout cinema history as reflected in my viewing patterns.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
+              <img
+                src="assets/img/cinescope/genre-evolution-decades.png"
+                alt="Genre evolution across decades"
+              />
+            </figure>
+            <div class="interpretation">
+              <h3>Temporal Genre Distribution</h3>
+              
+              <div class="era-breakdown">
+                <div class="era">
+                  <h4>Classic Era (1930s-1950s): Drama &amp; Romance Rule</h4>
+                  <p>Drama, Romance, and Comedy form the dominant stripes. Horror, Action, and Sci-Fi remain small.</p>
+                  <ul class="film-examples">
+                    <li><strong>1930s:</strong> City Lights, Modern Times, Bringing Up Baby, Gone with the Wind</li>
+                    <li><strong>1940s:</strong> Casablanca, It's a Wonderful Life, The Philadelphia Story, His Girl Friday, Double Indemnity</li>
+                    <li><strong>1950s:</strong> All About Eve, Sunset Blvd., Rebel Without a Cause</li>
+                  </ul>
+                </div>
+                
+                <div class="era">
+                  <h4>1960s-1970s: Tension and Horror Enter</h4>
+                  <p>Drama and Romance stay strong, but Thriller, Crime, and Horror start gaining thickness.</p>
+                  <ul class="film-examples">
+                    <li>Psycho, The Exorcist, Wait Until Dark, Taxi Driver, The Godfather, The Texas Chain Saw Massacre</li>
+                  </ul>
+                </div>
+                
+                <div class="era">
+                  <h4>1980s: Genre Cinema Boom</h4>
+                  <p>Significant expansion in Horror, Action, and Sci-Fi - video-store energy meets classic sensibilities.</p>
+                  <ul class="film-examples">
+                    <li>Gremlins, The Lost Boys, Hellraiser, Back to the Future, The Terminator, Ghostbusters</li>
+                  </ul>
+                </div>
+                
+                <div class="era">
+                  <h4>1990s-2010s: Maximum Volume</h4>
+                  <p>The tallest part of the graph. Drama and Comedy both reach 170-180 titles per decade. Thriller and Crime explode.</p>
+                  <ul class="film-examples">
+                    <li><strong>Drama/Comedy:</strong> Forrest Gump, Fight Club, Magnolia, American Pie 2, Muriel's Wedding, Amelie</li>
+                    <li><strong>Thriller/Crime:</strong> Se7en, Fargo, Reservoir Dogs, Run Lola Run, V for Vendetta, The Usual Suspects, Memento</li>
+                    <li><strong>Horror:</strong> Hellraiser, The Lost Boys, Saw, The Ring, Annabelle, Annihilation</li>
+                  </ul>
+                </div>
+                
+                <div class="era">
+                  <h4>2020s: Still Building</h4>
+                  <p>Early decade with lower numbers across all genres - the streaming era continues to accumulate.</p>
+                </div>
+              </div>
+              
+              <p class="insight">
+                <strong>Interpretation:</strong> Classic decades provide foundational dramas, romances, and comedies. 
+                More recent decades layer thriller, horror, and action onto that emotional base - 
+                but without abandoning the core genres.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: DECADE-GENRE HEATMAP -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>3. Decade by Genre Heatmap Analysis</h2>
+          <p class="section-intro">
+            Granular view of genre distribution by decade, revealing specific comfort zones and exploration patterns.
+          </p>
+
+          <div class="visual-grid visual-grid-2col">
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-decade-deep-dive.png"
+                alt="Genre by decade deep dive"
+              />
+              <figcaption>
+                Detailed breakdown of genre counts per decade
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="assets/img/cinescope/decade-genre-heatmap.png"
+                alt="Decade vs genre heatmap"
+              />
+              <figcaption>
+                Heat intensity showing viewing concentration
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="interpretation standalone">
+            <h3>Notable Patterns by Decade</h3>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <span class="stat-decade">1930s-1950s</span>
+                <span class="stat-highlight">Classic Foundation</span>
+                <p>Drama, Comedy, Romance dominate (40-60 titles each). Horror present but small (Cat People, early creature features).</p>
+                <p class="examples">City Lights, Modern Times, Casablanca, Double Indemnity, All About Eve</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-decade">1980s</span>
+                <span class="stat-highlight">Comedy Surge (73 titles)</span>
+                <p>Brightest comedy spot. Horror, Action, Sci-Fi gain significant space.</p>
+                <p class="examples">Ferris Bueller's Day Off, Hellraiser, Back to the Future, The Terminator, Firestarter</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-decade">1990s</span>
+                <span class="stat-highlight">Quality Core</span>
+                <p>Drama and Comedy ~170-180 titles each. Thriller and Crime grow sharply.</p>
+                <p class="examples">The Shawshank Redemption, Forrest Gump, Magnolia, Se7en, Fight Club, Fargo, Heat</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-decade">2000s</span>
+                <span class="stat-highlight">Peak Activity</span>
+                <p>Drama (318), Comedy (329), Romance (286), Thriller (168). Widest viewing decade - every genre represented.</p>
+                <p class="examples">City of God, V for Vendetta, The Ring, Saw, Enchanted</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-decade">2010s</span>
+                <span class="stat-highlight">Sustained Volume</span>
+                <p>Drama (252), Comedy (278), Romance (233), Thriller (205). Modern genre blends dominate.</p>
+                <p class="examples">Inception, Black Swan, Annihilation, What Happened to Monday, The VelociPastor, Elle</p>
+              </div>
+              <div class="stat-card">
+                <span class="stat-decade">2020s</span>
+                <span class="stat-highlight">Early Decade</span>
+                <p>Thriller (91) and Action (61) already stand out. The streaming/exploration era.</p>
+              </div>
+            </div>
+            <p class="insight">
+              <strong>Vertical Spine:</strong> Drama, Comedy, and Romance form consistent pillars across all decades. 
+              From the 1980s onward, Thriller, Horror, Action, and Sci-Fi layer additional dimensions onto this foundation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: CLASSIC VS MODERN ACTORS -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>4. Actor Eras: Classic vs Modern</h2>
+          <p class="section-intro">
+            Distribution of actors by their primary active era, revealing the temporal composition of my viewing network.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
+              <img
+                src="assets/img/cinescope/classic-vs-modern.png"
+                alt="Classic vs modern actor comparison"
+              />
+            </figure>
+            <div class="interpretation">
+              <h3>Actor Era Distribution</h3>
+              
+              <div class="stats-grid stats-grid-horizontal">
+                <div class="stat-card">
+                  <span class="stat-number">~8,000</span>
+                  <span class="stat-label">2000+ Actors</span>
+                  <p>Dominates the count. Modern films have large ensembles and many credited roles. 
+                  Includes casts from Inception, Annihilation, What Happened to Monday, and more.</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">~3,500</span>
+                  <span class="stat-label">1980-1999 Actors</span>
+                  <p>Stars and character actors from The Lost Boys, Gremlins, Fight Club, Se7en, Forrest Gump, Magnolia.</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">~2,000</span>
+                  <span class="stat-label">Pre-1960 Actors</span>
+                  <p>Foundational cinema faces: casts of City Lights, Modern Times, Casablanca, 
+                  It's a Wonderful Life, Bicycle Thieves, Double Indemnity, Bringing Up Baby.</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-number">~1,000+</span>
+                  <span class="stat-label">1960-1979 Actors</span>
+                  <p>Performers from Psycho, The Exorcist, Taxi Driver, The Godfather, Kramer vs. Kramer.</p>
+                </div>
+              </div>
+              
+              <p class="insight">
+                <strong>Interpretation:</strong> On the film side, the collection is fairly balanced between classic and modern. 
+                On the actor side, the network skews heavily modern because: (1) more films are from 1980s onward, and 
+                (2) recent productions have bigger, more international casts. The viewing connects Charlie Chaplin and 
+                Ingrid Bergman-era figures through to modern ensembles, but numerically, most screen time is with post-2000 performers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: ADDITIONAL GENRE ANALYTICS -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>Supporting Genre Analytics</h2>
+          <p class="section-intro">
+            Additional visualizations exploring genre ratings, combinations, and runtime correlations.
           </p>
 
           <div class="visual-grid">
@@ -288,8 +546,7 @@
                 alt="Genre distribution"
               />
               <figcaption>
-                Genre distribution: the backbone of my collection, from
-                mainstream to niche categories.
+                Genre distribution: the backbone of my collection, from mainstream to niche categories.
               </figcaption>
             </figure>
 
@@ -299,8 +556,7 @@
                 alt="Genre rating distribution"
               />
               <figcaption>
-                Genre × rating distribution: which genres I am consistently
-                generous to, and which ones I judge more harshly.
+                Genre by rating distribution: which genres receive consistently higher ratings.
               </figcaption>
             </figure>
 
@@ -310,8 +566,7 @@
                 alt="Genre combination heatmap"
               />
               <figcaption>
-                Genre combinations: where horror meets comedy, noir meets
-                thriller, or sci-fi meets drama.
+                Genre combinations: mapping where horror meets comedy, noir meets thriller.
               </figcaption>
             </figure>
 
@@ -321,8 +576,7 @@
                 alt="Multi-genre analysis"
               />
               <figcaption>
-                Multi-genre analysis: how multi-labeled films behave differently
-                from &ldquo;pure&rdquo; genre films.
+                Multi-genre analysis: behavioral differences between multi-labeled and pure genre films.
               </figcaption>
             </figure>
 
@@ -332,41 +586,7 @@
                 alt="Genres and quality across runtime"
               />
               <figcaption>
-                Genres × runtime × quality: which types of stories stay tight
-                and which need longer runtimes to shine.
-              </figcaption>
-            </figure>
-
-            <figure>
-              <img
-                src="assets/img/cinescope/pure-vs-hybrid.png"
-                alt="Pure vs hybrid genres"
-              />
-              <figcaption>
-                Pure vs hybrid genres: how single-genre films compare to hybrids
-                in terms of ratings and frequency.
-              </figcaption>
-            </figure>
-
-            <figure>
-              <img
-                src="assets/img/cinescope/genre-evolution-decades.png"
-                alt="Genre evolution across decades"
-              />
-              <figcaption>
-                Genre evolution: how my favourite genres travel across decades –
-                which ones stay, which ones fade.
-              </figcaption>
-            </figure>
-
-            <figure>
-              <img
-                src="assets/img/cinescope/genre-decade-deep-dive.png"
-                alt="Genre by decade deep dive"
-              />
-              <figcaption>
-                Genre × decade deep dive: a closer look at specific combinations
-                that define different phases of my viewing life.
+                Genres by runtime by quality: which story types benefit from longer runtimes.
               </figcaption>
             </figure>
           </div>
@@ -376,10 +596,9 @@
       <!-- SECTION: PEOPLE & REPRESENTATION -->
       <section class="project-section section section-alt">
         <div class="container">
-          <h2>Who I Watch: People & Representation</h2>
+          <h2>Who I Watch: People &amp; Representation</h2>
           <p>
-            One of the aims of this project is to move beyond &ldquo;what
-            films&rdquo; into &ldquo;who&rdquo;: which performers, ensembles,
+            Moving beyond "what films" into "who": which performers, ensembles,
             and patterns of representation are actually present in my viewing.
           </p>
 
@@ -434,7 +653,7 @@
       <!-- SECTION: CAREERS & LONGEVITY -->
       <section class="project-section section">
         <div class="container">
-          <h2>Careers, Longevity & Trajectories</h2>
+          <h2>Careers, Longevity &amp; Trajectories</h2>
           <p>
             Because the dataset is enriched with years and filmographies, I can
             look at careers instead of just isolated performances: how long
@@ -450,7 +669,7 @@
               />
               <figcaption>
                 Career evolution: arcs of actors across time and quality, inside
-                the films I’ve chosen to watch.
+                the films I have chosen to watch.
               </figcaption>
             </figure>
 
@@ -465,17 +684,6 @@
                 collection.
               </figcaption>
             </figure>
-
-            <figure>
-              <img
-                src="assets/img/cinescope/classic-vs-modern.png"
-                alt="Classic vs modern comparison"
-              />
-              <figcaption>
-                Classic vs modern: how my ratings shift between older films and
-                more contemporary ones, including the performers in the middle.
-              </figcaption>
-            </figure>
           </div>
         </div>
       </section>
@@ -483,7 +691,7 @@
       <!-- SECTION: BEHIND THE CAMERA & AWARDS -->
       <section class="project-section section section-alt">
         <div class="container">
-          <h2>Behind the Camera & Awards</h2>
+          <h2>Behind the Camera &amp; Awards</h2>
           <p>
             CineScope also tracks the ecosystem behind the films: directors,
             studios, awards, and how critical recognition overlaps with my own
@@ -520,7 +728,7 @@
               />
               <figcaption>
                 Director evolution: changes in how I rate specific directors
-                across the decades – who improves, who stagnates, who surprises.
+                across the decades - who improves, who stagnates, who surprises.
               </figcaption>
             </figure>
 
@@ -599,7 +807,7 @@
                 alt="Rotten Tomatoes analysis"
               />
               <figcaption>
-                Rotten Tomatoes vs me: patterns in how I align—or clash—with
+                Rotten Tomatoes vs me: patterns in how I align - or clash - with
                 aggregated scores.
               </figcaption>
             </figure>
@@ -610,8 +818,8 @@
                 alt="Metacritic analysis"
               />
               <figcaption>
-                Metacritic vs me: another lens on how &ldquo;critical
-                consensus&rdquo; compares with my ratings.
+                Metacritic vs me: another lens on how "critical
+                consensus" compares with my ratings.
               </figcaption>
             </figure>
           </div>
@@ -621,7 +829,7 @@
       <!-- SECTION: PATTERNS, GAPS & RECOMMENDATIONS -->
       <section class="project-section section section-alt">
         <div class="container">
-          <h2>Patterns, Gaps & What Comes Next</h2>
+          <h2>Patterns, Gaps &amp; What Comes Next</h2>
           <p>
             At the final stage, CineScope uses patterns in the enriched data to
             suggest what I might want to watch next, and to highlight where my
@@ -636,7 +844,7 @@
               />
               <figcaption>
                 Similar films recommendations: using my historical patterns to
-                surface unwatched titles I’m likely to enjoy.
+                surface unwatched titles I am likely to enjoy.
               </figcaption>
             </figure>
 
@@ -668,8 +876,8 @@
                 alt="Outlier detection in my collection"
               />
               <figcaption>
-                Outlier detection: the strange, rare titles that don’t fit any
-                obvious pattern – and often become new favourites.
+                Outlier detection: the strange, rare titles that do not fit any
+                obvious pattern - and often become new favourites.
               </figcaption>
             </figure>
           </div>
