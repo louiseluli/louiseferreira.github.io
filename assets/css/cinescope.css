@@ -383,14 +383,22 @@ body.dark-mode .visual-featured {
 }
 
 .interpretation {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(255, 255, 255, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.03) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
   border: 1px solid rgba(139, 92, 246, 0.15);
   border-radius: var(--radius-lg);
   padding: 2rem;
 }
 
 body.dark-mode .interpretation {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(30, 41, 59, 0.9) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.08) 0%,
+    rgba(30, 41, 59, 0.9) 100%
+  );
   border-color: rgba(139, 92, 246, 0.25);
 }
 
@@ -583,6 +591,70 @@ body.dark-mode .insight {
   color: var(--primary-color);
 }
 
+/* Actor Tables */
+
+.actor-table {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.actor-table.compact {
+  gap: 0.35rem;
+}
+
+.actor-row {
+  display: grid;
+  grid-template-columns: 180px auto 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-sm);
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .actor-row {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.actor-table.compact .actor-row {
+  grid-template-columns: 160px 1fr;
+  padding: 0.5rem 0.75rem;
+}
+
+.actor-name {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.actor-count {
+  font-weight: 500;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+}
+
+.actor-films {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Metadata Note */
+
+.metadata-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+
+body.dark-mode .metadata-note {
+  background: rgba(148, 163, 184, 0.15);
+}
+
 /* Two Column Visual Grid */
 
 .visual-grid-2col {
@@ -652,5 +724,18 @@ body.dark-mode .insight {
 
   .example-grid {
     grid-template-columns: 1fr;
+  }
+
+  .actor-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .actor-table.compact .actor-row {
+    grid-template-columns: 1fr;
+  }
+
+  .actor-count {
+    font-size: 0.8rem;
   }
 }
