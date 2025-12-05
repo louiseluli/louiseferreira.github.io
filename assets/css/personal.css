@@ -171,32 +171,21 @@
   transform: translateX(4px);
 }
 
-.music-icon {
+.music-number {
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--white);
+  font-weight: 600;
+  color: var(--gray-600);
   flex-shrink: 0;
 }
 
-.music-item.grunge .music-icon {
-  background: linear-gradient(135deg, #1f2937, #374151);
-}
-
-.music-item.prog .music-icon {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--primary-light)
-  );
-}
-
-.music-item.pop .music-icon {
-  background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+body.dark-mode .music-number {
+  color: var(--gray-400);
 }
 
 .music-info {
@@ -210,9 +199,17 @@
   font-size: var(--text-base);
 }
 
+body.dark-mode .music-title {
+  color: #e2e8f0;
+}
+
 .music-artist {
   font-size: var(--text-sm);
   color: var(--gray-700);
+}
+
+body.dark-mode .music-artist {
+  color: var(--gray-400);
 }
 
 /* Bands Grid */
@@ -225,16 +222,13 @@
 }
 
 .band-tag {
-  padding: var(--space-2) var(--space-4);
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--primary-light)
-  );
-  color: var(--white);
-  border-radius: 50px;
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 500;
   transition: all var(--transition-fast);
   text-decoration: none;
   display: inline-block;
@@ -242,19 +236,22 @@
 }
 
 .band-tag:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
   color: var(--white);
   text-decoration: none;
 }
 
 /* Dark mode band tags */
 body.dark-mode .band-tag {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--primary-light)
-  );
+  background: transparent;
+  border-color: var(--gray-600);
+  color: #e2e8f0;
+}
+
+body.dark-mode .band-tag:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
   color: #0f172a;
 }
 
