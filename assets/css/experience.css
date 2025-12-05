@@ -224,7 +224,9 @@ body.dark-mode .tech-used {
 }
 
 .tech-tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: var(--space-2) var(--space-3);
   font-size: var(--text-sm);
   font-weight: 500;
@@ -234,6 +236,11 @@ body.dark-mode .tech-used {
   border: 1px solid var(--primary-color);
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+}
+
+.tech-icon {
+  font-style: normal;
+  font-size: 0.9em;
 }
 
 .tech-tag:hover {
