@@ -133,6 +133,10 @@ body.dark-mode .page-header {
   margin-bottom: var(--space-6);
 }
 
+body.dark-mode .intro-text p {
+  color: #e2e8f0; /* Brighter for better readability in dark mode */
+}
+
 /* Pullquote */
 .pullquote {
   margin: var(--space-8) 0;
@@ -258,6 +262,10 @@ body.dark-mode .timeline-content {
   margin-bottom: var(--space-4);
 }
 
+body.dark-mode .timeline-content p {
+  color: #e2e8f0; /* Brighter for better readability in dark mode */
+}
+
 .timeline-content p:last-child {
   margin-bottom: 0;
 }
@@ -325,6 +333,10 @@ body.dark-mode .identity-card {
   margin-bottom: var(--space-4);
 }
 
+body.dark-mode .identity-card p {
+  color: #e2e8f0; /* Brighter for better readability in dark mode */
+}
+
 .identity-card p:last-child {
   margin-bottom: 0;
 }
@@ -384,6 +396,10 @@ body.dark-mode .identity-card {
   margin: 0;
 }
 
+body.dark-mode .value-content p {
+  color: #e2e8f0; /* Brighter for better readability in dark mode */
+}
+
 /* -----------------------------------------------------------------------------
    CLOSING SECTION
    ----------------------------------------------------------------------------- */
@@ -407,6 +423,10 @@ body.dark-mode .identity-card {
   line-height: 1.8;
   color: var(--text-dark);
   margin-bottom: var(--space-6);
+}
+
+body.dark-mode .closing-text {
+  color: #e2e8f0; /* Brighter for better readability in dark mode */
 }
 
 .closing-cta {
