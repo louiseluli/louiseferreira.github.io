@@ -2173,83 +2173,504 @@
         </div>
       </section>
 
-      <!-- SECTION: METACRITIC (simplified) -->
+      <!-- SECTION 20: METACRITIC ANALYSIS -->
       <section class="project-section section">
         <div class="container">
-          <h2>Metacritic Analysis</h2>
+          <h2>20. My Alignment with Metacritic</h2>
           <p class="section-intro">
-            Another lens on how "critical consensus" compares with my viewing patterns.
+            How "Meta-core" is my collection? Metacritic aggregates professional critics into a weighted score - here is how my viewing aligns with their consensus.
           </p>
 
-          <div class="visual-grid">
-            <figure>
+          <div class="analysis-block">
+            <figure class="visual-featured">
               <img
                 src="assets/img/cinescope/metacritic-analysis.png"
-                alt="Metacritic analysis"
+                alt="Metacritic analysis with score distribution and correlation"
               />
-              <figcaption>
-                Metacritic vs my collection: with only ~70% coverage, this source represents the most 
-                curated critical view - and misses a meaningful chunk of my more eclectic taste.
-              </figcaption>
             </figure>
+            <div class="interpretation">
+              <h3>Score Distribution</h3>
+              <p>
+                Most of my films sit in the 4-8 Metacritic range (40-80/100), with the bulk around 5-7. 
+                Films like <em>The English Patient</em> or <em>Saving Private Ryan</em> fit right in the heart 
+                of my collection: neither obscure disaster nor ultra-niche masterpiece, but "serious critical cinema."
+              </p>
+
+              <h3>Correlation with IMDb</h3>
+              <p>
+                The scatterplot forms a tight diagonal cloud: when Metacritic goes up, IMDb usually goes up too.
+                If I like a film with 8.5 on IMDb, chances are its Metascore is also solid - think 
+                <em>The Shawshank Redemption</em> or <em>Cinema Paradiso</em>.
+              </p>
+              <p>
+                Where points drift away from the diagonal are the "critics vs crowd" divergences - 
+                a comfort film that IMDb users rate 7.5 but Meta holds at 55, or a formally brilliant movie 
+                critics adore (Meta 85+) while the public is more lukewarm.
+              </p>
+
+              <h3>Metacritic Categories</h3>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <span class="stat-highlight">Universal Acclaim (81+)</span>
+                  <p><em>City of God</em>, <em>Double Indemnity</em>, <em>12 Angry Men</em>, <em>Modern Times</em>, 
+                  <em>It's a Wonderful Life</em>, <em>Casablanca</em>, <em>Inception</em> - the "critically bullet-proof" ones</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-highlight">Generally Favorable (61-80)</span>
+                  <p>A big chunk: <em>Forrest Gump</em>, <em>Fight Club</em>, <em>The Sting</em>, <em>La La Land</em></p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-highlight">Mixed (40-60)</span>
+                  <p>The largest bar - "mid-Meta" cinema that critics see as imperfect or divisive. 
+                  Romantic comedies and genre films that audiences like more than critics.</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-highlight">Unfavorable (&lt;40)</span>
+                  <p>A non-tiny number: my willingness to watch <em>So Undercover</em> or <em>Problem Child</em> 
+                  shows I actively explore trash/guilty-pleasure territory, not only "respectable" options.</p>
+                </div>
+              </div>
+
+              <h3>Coverage: ~70%</h3>
+              <p>
+                About 30% of my films have no Metascore - often older classics that never got a formal Meta aggregation, 
+                TV movies, international titles, or niche genre releases. I regularly go beyond the "Metacritic canon."
+              </p>
+
+              <p class="insight">
+                <strong>Pattern:</strong> I am not a Metacritic snob. I watch across all four quality buckets, 
+                with a special tolerance for the "mixed" and "unfavorable" zones that critics dismiss.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- SECTION: PATTERNS, GAPS & RECOMMENDATIONS -->
+      <!-- SECTION 21: SIMILAR FILMS RECOMMENDATIONS -->
       <section class="project-section section section-alt">
         <div class="container">
-          <h2>Patterns, Gaps &amp; What Comes Next</h2>
-          <p>
-            At the final stage, CineScope uses patterns in the enriched data to
-            suggest what I might want to watch next, and to highlight where my
-            collection is still narrow.
+          <h2>21. Personalized Recommendations: What My Own Data Suggests</h2>
+          <p class="section-intro">
+            A prototype recommender built from my own films - each block takes a "reference" film and lists the most similar titles in my dataset based on genre, decade, tone, and ratings.
           </p>
 
-          <div class="visual-grid">
-            <figure>
+          <div class="analysis-block">
+            <figure class="visual-featured">
               <img
                 src="assets/img/cinescope/similar-films-recommendations.png"
-                alt="Similar films recommendations"
+                alt="Similar films recommendations grid"
               />
-              <figcaption>
-                Similar films recommendations: using my historical patterns to
-                surface unwatched titles I am likely to enjoy.
-              </figcaption>
             </figure>
+            <div class="interpretation">
+              <h3>If I Love The Shawshank Redemption</h3>
+              <p>The system pairs it with:</p>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">The Elephant Man</span>
+                  <span class="actor-films">Emotionally intense, character-driven, moral ambiguity</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">The Goodbye Girl</span>
+                  <span class="actor-films">Softer tone but similar "human resilience + relationships" vibe</span>
+                </div>
+              </div>
+              <p>When I am in a Shawshank mood, these are other character-focused, critically solid dramas waiting on my shelf.</p>
 
-            <figure>
+              <h3>If I Am Into The Host (2006)</h3>
+              <p>
+                I get a cluster of films that mix genre with emotional depth - thriller + family drama, 
+                fantastical elements + social commentary. The system says: "You like horror/sci-fi where 
+                the monster is not the only problem - here are others with that same layered structure."
+              </p>
+
+              <h3>If I Choose Den of Thieves: Pantera</h3>
+              <p>
+                Recommendations trend toward crime/action heist energy: films like <em>Battleship</em> or 
+                <em>My Mom's New Boyfriend</em> (less heist, more caper) echo my attraction to slick, 
+                slightly messy genre cinema.
+              </p>
+
+              <h3>If I Click Where is Coletti? (1915)</h3>
+              <p>
+                The list suggests early-cinema comedies with similar runtime and silent slapstick DNA. 
+                "If you are already venturing into 1910s comedy, here are the neighbors on that same dusty shelf."
+              </p>
+
+              <h3>For 27 Dresses</h3>
+              <p>
+                The system groups rom-coms with similar structure and mood - "On days when you rewatch 
+                <em>27 Dresses</em>, these are your other wedding/identity/work-rom-com comfort picks."
+              </p>
+
+              <p class="insight">
+                <strong>Pattern:</strong> This figure is less about what critics think and more: 
+                "If I trained an algorithm on my own taste, what would it tell Future Me to watch next?"
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 22: COLLECTION GAPS -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>22. Collection Gaps: Where to Expand Next</h2>
+          <p class="section-intro">
+            My "where to explore" map - highlighting genre-decade pockets with high potential based on what I already love but have barely touched.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
               <img
                 src="assets/img/cinescope/collection-gaps-analysis.png"
-                alt="Collection gaps analysis"
+                alt="Collection gaps analysis dashboard"
               />
-              <figcaption>
-                Collection gaps: genres, eras, or styles that I under-explore,
-                even though they connect to what I already love.
-              </figcaption>
             </figure>
+            <div class="interpretation">
+              <h3>High-Quality Gaps</h3>
+              <p>Genre-decade pockets with high average ratings but very few films watched:</p>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Documentary (2010s)</span>
+                  <span class="actor-films">Tiny count but average ratings above 8.2. If I liked <em>Citizenfour</em> or 
+                  <em>The Act of Killing</em>-type docs, I should watch more here.</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Animation (1990s)</span>
+                  <span class="actor-films">Only a handful of titles but I rate them strongly - watching the top layer 
+                  (<em>Toy Story</em>, <em>The Lion King</em>, <em>Beauty and the Beast</em>) but not the deeper cuts.</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Crime (1940s &amp; 1960s)</span>
+                  <span class="actor-films">Noir and classic crime. I have dipped in with <em>Double Indemnity</em> or 
+                  <em>The Big Sleep</em>, but I am under-using my sweet spot.</span>
+                </div>
+              </div>
 
-            <figure>
+              <h3>Era Gaps</h3>
+              <p>Decades where certain genres are almost missing:</p>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Adventure (1930s-1950s)</span>
+                  <span class="actor-films">Only a few titles. If I like <em>The Adventures of Robin Hood</em> or 
+                  <em>The Thief of Bagdad</em>, there is a whole world of pre-blockbuster adventure I have not mined.</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Horror (1930s &amp; 1940s)</span>
+                  <span class="actor-films">Beyond <em>The Bride of Frankenstein</em> or <em>House on Haunted Hill</em>, 
+                  vintage horror is still a niche corner in my history.</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Crime/Drama (1920s)</span>
+                  <span class="actor-films">Practically blank - silent-era drama/crime is more a curiosity than a habit... so far.</span>
+                </div>
+              </div>
+
+              <h3>Directors to Explore Deeper</h3>
+              <p>Directors I rated very highly but have only seen 1-3 films from:</p>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Vittorio De Sica</span>
+                  <span class="actor-films">If I have watched <em>Bicycle Thieves</em> or <em>Umberto D.</em>, 
+                  my high rating says his style works for me. Go further into Italian neorealism.</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Guillermo del Toro</span>
+                  <span class="actor-films">Maybe <em>Pan's Labyrinth</em> or <em>The Devil's Backbone</em>: 
+                  scores say "Yes please," count says "barely explored."</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Leonid Gaidai, Jean-Pierre Jeunet, Frank Darabont</span>
+                  <span class="actor-films">High-impact per film. I am under-sampling directors whose work I already love.</span>
+                </div>
+              </div>
+
+              <h3>Runtime Diversity Gaps</h3>
+              <p>
+                I might watch Fantasy (Standard length) a lot, but Fantasy (Short) or Crime (Epic-length) almost never.
+                If I enjoy <em>Once Upon a Time in the West</em> or <em>Seven Samurai</em>, more epic-length genre cinema would suit me.
+              </p>
+
+              <p class="insight">
+                <strong>Pattern:</strong> This is a strategic watchlist generator - it tells me where the 
+                low-hanging fruit for future favorites is hiding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 23: COLLECTION DIVERSITY SCORE -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>23. Collection Diversity Score: The Dashboard on a Single Slide</h2>
+          <p class="section-intro">
+            Three dimensions of diversity - genre, era, and quality range - summarizing how varied my personal cinema universe really is.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
               <img
                 src="assets/img/cinescope/collection-diversity-score.png"
-                alt="Collection diversity score"
+                alt="Collection diversity score dashboard"
               />
-              <figcaption>
-                Collection diversity score: a single view summarizing how varied
-                my personal cinema universe really is.
-              </figcaption>
             </figure>
+            <div class="interpretation">
+              <h3>Genre Diversity: ~77% (23 Unique Genres)</h3>
+              <p>
+                I do not just oscillate between "Drama, Comedy, Action." I also touch Documentary, Film-Noir, 
+                Biography, Animation, Short, and more. In practice, my viewing swings from <em>Ben-Hur</em> to 
+                <em>Six Feet Under</em> (series), from screwball comedies to war epics, from experimental horror to family films.
+              </p>
 
-            <figure>
+              <h3>Era Diversity: ~82% (12 Decades)</h3>
+              <p>
+                My films stretch from the 1910s (e.g., <em>Where is Coletti?</em>) all the way to the 2020s, 
+                with substantial presence across silent era, Golden Age, New Hollywood, 80s/90s, and contemporary cinema.
+                I am not just "a 90s kid who watches 90s movies" - I am actively traveling across film history.
+              </p>
+
+              <h3>Quality Range: ~76% (Spread of Ratings)</h3>
+              <p>My collection purposely includes:</p>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Canon Masterpieces</span>
+                  <span class="actor-films">The Shawshank Redemption, City of God, Modern Times</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Critically Mixed Films</span>
+                  <span class="actor-films">The Wedding Date, Death Warrant</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Outright Critical Flops</span>
+                  <span class="actor-films">So Undercover, A Thousand Words</span>
+                </div>
+              </div>
+              <p>I explore the whole spectrum, not just the "Top 250" safety zone.</p>
+
+              <p class="insight">
+                <strong>Pattern:</strong> My collection is broad in what it watches, when it watches, 
+                and how "good" those films are supposed to be. Three dimensions roughly balanced.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 24: OUTLIER DETECTION -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>24. Outlier Detection: My Hall of Anomalies</h2>
+          <p class="section-intro">
+            Films that are weird compared with the rest of my watch history - rating outliers, extreme runtimes, and unusual eras that defy normal patterns.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
               <img
                 src="assets/img/cinescope/outlier-detection.png"
-                alt="Outlier detection in my collection"
+                alt="Outlier detection showing unusual films"
               />
-              <figcaption>
-                Outlier detection: the strange, rare titles that do not fit any
-                obvious pattern - and often become new favourites.
-              </figcaption>
             </figure>
+            <div class="interpretation">
+              <h3>Outlier Types</h3>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <span class="stat-highlight">Rating Outliers (~4%)</span>
+                  <p>Films way higher or lower than my usual scores - giving 9+ to something most people treat as minor, 
+                  or 3 to an accepted classic.</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-highlight">Extreme Runtime (~4-5%)</span>
+                  <p>Ultra-long or ultra-short: epics like <em>Ben-Hur</em> and <em>Gone with the Wind</em>, 
+                  or very short experimental/early titles.</p>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-highlight">Unusual Era (~8-9%)</span>
+                  <p>Films whose decade is rare in my collection - stray 1910s silent comedies 
+                  or non-Western 1940s films.</p>
+                </div>
+              </div>
+
+              <h3>Sample Outlier Films</h3>
+              <p>High-impact films, often classics or foreign masterpieces:</p>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Emotionally Devastating Non-English</span>
+                  <span class="actor-films">Cinema Paradiso, Life Is Beautiful, City of God - 
+                  stand out in both rating and context</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Structurally Perfect Classics</span>
+                  <span class="actor-films">Double Indemnity, 12 Angry Men, Casablanca, Once Upon a Time in the West - 
+                  treated as "above the usual pattern"</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Older Emotional Outliers</span>
+                  <span class="actor-films">Modern Times, City Lights, It's a Wonderful Life - 
+                  very high ratings in decades where I have watched relatively less</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Gravitational Centers of Modern Film</span>
+                  <span class="actor-films">Inception, Fight Club, The Shawshank Redemption, Forrest Gump, Saving Private Ryan</span>
+                </div>
+              </div>
+
+              <p class="insight">
+                <strong>Pattern:</strong> These are films that, according to the math, hit me (or the broader audience) 
+                in a way that normal genre/decade patterns cannot fully explain. They often become new favorites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 25: PATTERN OVERVIEW -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>25. High-Level Patterns: What My Collection Looks Like If I Squint</h2>
+          <p class="section-intro">
+            A 4-in-1 panel zooming out to see genre-decade heatmaps, runtime-quality patterns, top combinations, and average quality by genre.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
+              <img
+                src="assets/img/cinescope/pattern-overview.png"
+                alt="Pattern overview with heatmap and distributions"
+              />
+            </figure>
+            <div class="interpretation">
+              <h3>Genre x Decade Heatmap</h3>
+              <p>
+                <strong>Comedy in the 2000s</strong> is clearly my most populated cell - every rom-com, mainstream comedy, 
+                and light film I have watched from that decade: <em>27 Dresses</em>, <em>The Wedding Date</em>, 
+                <em>Because I Said So</em>, etc.
+              </p>
+              <p>
+                <strong>Drama and Comedy in the 1990s-2010s</strong> also glow bright: <em>Forrest Gump</em>, 
+                <em>Fight Club</em>, <em>Saving Private Ryan</em>, <em>La La Land</em>, <em>Star Wars: Episode IV</em> 
+                (for 70s), and lots of contemporary titles.
+              </p>
+              <p>
+                <strong>Earlier decades (1930s-1950s)</strong> show smaller but visible islands: classic comedies 
+                and dramas like <em>It Happened One Night</em>, <em>All About Eve</em>, <em>Kramer vs. Kramer</em>, 
+                <em>The Sound of Music</em>, <em>Doctor Zhivago</em>.
+              </p>
+
+              <h3>Runtime x Quality Pattern</h3>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Standard Length</span>
+                  <span class="actor-films">Most of my films, with a mix of "Good" and "Great" ratings - 
+                  <em>Titanic</em>, <em>Ben-Hur</em>, <em>Star Wars</em>, <em>My Fair Lady</em></span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Short Films</span>
+                  <span class="actor-films">Surprisingly high "Great/Masterpiece" concentration - curated festival winners 
+                  or famous experimental pieces</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Epic Length</span>
+                  <span class="actor-films">Small but skewed toward higher quality: when I commit to 3+ hours 
+                  (<em>Once Upon a Time in the West</em>, <em>Ben-Hur</em>, <em>Gone with the Wind</em>), 
+                  it is usually a classic, not a random gamble</span>
+                </div>
+              </div>
+
+              <h3>Top 15 Genre-Decade Combinations</h3>
+              <p>
+                <strong>Comedy (2000s)</strong> is clearly #1, my comfort zone. <strong>Comedy (2010s)</strong> 
+                and <strong>Comedy (1990s)</strong> still strong - "comedy from my own lifetime" is a huge pillar.
+                <strong>Action (2000s/2010s)</strong> and <strong>Drama (2000s/2010s)</strong> also rank high - 
+                superhero cinema to prestige dramas.
+              </p>
+
+              <h3>Average Quality by Genre</h3>
+              <div class="actor-table">
+                <div class="actor-row">
+                  <span class="actor-name">Documentary</span>
+                  <span class="actor-count">~7.9 avg</span>
+                  <span class="actor-films">Top of the list - when I watch docs, I am usually impressed</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Biography &amp; Animation</span>
+                  <span class="actor-count">Close behind</span>
+                  <span class="actor-films">Biopics and well-crafted animated films rarely disappoint me</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Film-Noir, Crime, Drama</span>
+                  <span class="actor-count">~6.8-7.0</span>
+                  <span class="actor-films">Classic and serious tastes generally pay off</span>
+                </div>
+                <div class="actor-row">
+                  <span class="actor-name">Comedy</span>
+                  <span class="actor-count">~6.3</span>
+                  <span class="actor-films">Slightly lower because I watch so many that mediocre ones drag the average down - 
+                  my guilty pleasures live here</span>
+                </div>
+              </div>
+
+              <p class="insight">
+                <strong>Pattern:</strong> My collection leans toward recent decades but with consistent roots in the classic canon. 
+                I reward documentaries and biographies most, and am slightly harsher (or more adventurous) with comedy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 26: QUALITY BY GENRE BOXPLOT -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>26. Quality Distribution Per Genre: How Messy Is Each Genre?</h2>
+          <p class="section-intro">
+            Boxplots showing the spread of IMDb ratings for each genre - revealing where I find consistency and where I surf chaos.
+          </p>
+
+          <div class="analysis-block">
+            <figure class="visual-featured">
+              <img
+                src="assets/img/cinescope/quality-by-genre-boxplot.png"
+                alt="Quality by genre boxplot"
+              />
+            </figure>
+            <div class="interpretation">
+              <h3>Drama</h3>
+              <p>
+                Median around 6.7-6.8 with a long tail up to 9+ (<em>The Shawshank Redemption</em>, <em>12 Angry Men</em>, 
+                <em>City of God</em>, <em>Forrest Gump</em>). I consistently find strong dramas, but I also include 
+                weaker ones, so the lower whisker drops toward 4s and 3s.
+              </p>
+
+              <h3>Comedy &amp; Romance</h3>
+              <p>
+                Slightly lower medians (~6.2-6.4). Very wide spread - from painful 3-ish romantic comedies 
+                or broad comedies (<em>Problem Child</em>, <em>National Lampoon's Senior Trip</em>) to well-loved 
+                pieces like <em>La La Land</em>, <em>The Apartment</em>, <em>Some Like It Hot</em>.
+                I experiment a lot here, not only chasing "the best of the best."
+              </p>
+
+              <h3>Horror &amp; Action</h3>
+              <p>
+                Broadest spreads: some very high peaks (classic horror like <em>The Exorcist</em>-type films, 
+                smart action like <em>Die Hard</em>) but many low-rated genre entries.
+                I am clearly open to trash, cult, and B-movie horror/action, not just prestige entries.
+              </p>
+
+              <h3>Crime, Mystery, Sci-Fi, Fantasy, Adventure, Family</h3>
+              <p>
+                Medians in the 6.3-6.8 band. Crime and Mystery skew slightly higher, reflecting my love for 
+                tight narratives (noir, thrillers). Family films have a moderate spread - lots of average ones, 
+                with a few outstanding hits (Pixar, classic family adventure) pulling the upper tail.
+              </p>
+
+              <p class="insight">
+                <strong>Pattern:</strong> I am not a perfectionist. I am willing to watch across the quality spectrum, 
+                but different genres have different "risk profiles." Documentaries and biographies are safe bets; 
+                comedy, horror, and action are where I surf chaos.
+              </p>
+            </div>
           </div>
         </div>
       </section>
