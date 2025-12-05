@@ -24,9 +24,23 @@
   transition: all 0.3s ease;
 }
 
+/* Progress indicator bar */
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: var(--scroll-progress, 0%);
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transition: width 0.1s ease-out;
+}
+
 .site-header.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow-md);
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Dark Mode Header */
@@ -36,7 +50,9 @@ body.dark-mode .site-header {
 }
 
 body.dark-mode .site-header.scrolled {
-  background-color: rgba(15, 23, 42, 0.95);
+  background-color: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* -----------------------------------------------------------------------------
@@ -88,14 +104,40 @@ body.dark-mode .site-header.scrolled {
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
   transition: color var(--transition-fast);
+  position: relative;
+}
+
+/* Underline animation for nav links */
+.navbar-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+
+.navbar-menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .navbar-menu a:hover {
   color: var(--primary-color);
 }
+
 .navbar-menu a.active {
   color: var(--primary-color);
   font-weight: 600;
+}
+
+.navbar-menu a.active::after {
+  transform: scaleX(1);
 }
 
 /* 2. MOBILE MENU OVERLAY (Backdrop) - Sits BEHIND the header */
@@ -177,10 +219,10 @@ body.dark-mode .site-header.scrolled {
     justify-content: flex-start;
 
     background-color: var(--white);
-    padding: 80px 24px 40px;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    padding: 100px 24px 40px;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
 
-    transition: right 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001; /* Above header base, below toggle */
     overflow-y: auto;
   }
@@ -192,7 +234,26 @@ body.dark-mode .site-header.scrolled {
   .navbar-menu li {
     width: 100%;
     border-bottom: 1px solid var(--gray-200);
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
+
+  .navbar-menu.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Staggered animation for menu items */
+  .navbar-menu.active li:nth-child(1) { transition-delay: 0.05s; }
+  .navbar-menu.active li:nth-child(2) { transition-delay: 0.1s; }
+  .navbar-menu.active li:nth-child(3) { transition-delay: 0.15s; }
+  .navbar-menu.active li:nth-child(4) { transition-delay: 0.2s; }
+  .navbar-menu.active li:nth-child(5) { transition-delay: 0.25s; }
+  .navbar-menu.active li:nth-child(6) { transition-delay: 0.3s; }
+  .navbar-menu.active li:nth-child(7) { transition-delay: 0.35s; }
+  .navbar-menu.active li:nth-child(8) { transition-delay: 0.4s; }
+  .navbar-menu.active li:nth-child(9) { transition-delay: 0.45s; }
 
   .navbar-menu a {
     display: block;
@@ -201,13 +262,27 @@ body.dark-mode .site-header.scrolled {
     width: 100%;
   }
 
+  /* Remove underline animation on mobile */
+  .navbar-menu a::after {
+    display: none;
+  }
+
+  .navbar-menu a.active {
+    color: var(--primary-color);
+    background: linear-gradient(90deg, rgba(90, 31, 153, 0.08), transparent);
+    padding-left: 1rem;
+    margin-left: -1rem;
+    border-left: 3px solid var(--primary-color);
+  }
+
   /* Social Icons Mobile */
   .navbar-social {
     width: 100%;
     margin: 2rem 0 0 0;
-    padding: 1rem 0 0 0;
+    padding: 1.5rem 0 0 0;
     border-left: none;
     border-top: 1px solid var(--gray-200);
+    justify-content: center;
   }
 
   body.dark-mode .navbar-menu {

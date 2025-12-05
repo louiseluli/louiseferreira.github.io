@@ -80,10 +80,27 @@
 
     const scrollY = window.scrollY || window.pageYOffset;
 
+    // Add scrolled class after 50px
     if (scrollY > 50) {
       siteHeader.classList.add("scrolled");
     } else {
       siteHeader.classList.remove("scrolled");
+    }
+
+    // Update scroll progress indicator
+    updateScrollProgress();
+  }
+
+  /**
+   * Update the scroll progress bar in the header
+   */
+  function updateScrollProgress() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    
+    if (siteHeader) {
+      siteHeader.style.setProperty('--scroll-progress', `${Math.min(scrollPercent, 100)}%`);
     }
   }
 
