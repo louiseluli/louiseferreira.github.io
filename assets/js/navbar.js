@@ -96,11 +96,15 @@
    */
   function updateScrollProgress() {
     const scrollY = window.scrollY || window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
-    
+
     if (siteHeader) {
-      siteHeader.style.setProperty('--scroll-progress', `${Math.min(scrollPercent, 100)}%`);
+      siteHeader.style.setProperty(
+        "--scroll-progress",
+        `${Math.min(scrollPercent, 100)}%`
+      );
     }
   }
 

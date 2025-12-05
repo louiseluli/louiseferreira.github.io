@@ -26,13 +26,17 @@
 
 /* Progress indicator bar */
 .site-header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   height: 3px;
   width: var(--scroll-progress, 0%);
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   transition: width 0.1s ease-out;
 }
 
@@ -109,13 +113,17 @@ body.dark-mode .site-header.scrolled {
 
 /* Underline animation for nav links */
 .navbar-menu a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0.75rem;
   right: 0.75rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -138,6 +146,25 @@ body.dark-mode .site-header.scrolled {
 
 .navbar-menu a.active::after {
   transform: scaleX(1);
+}
+
+/* Focus styles for keyboard navigation */
+.navbar-menu a:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary-color));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.navbar-toggle:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary-color));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.navbar-social a:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--primary-color));
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 /* 2. MOBILE MENU OVERLAY (Backdrop) - Sits BEHIND the header */
@@ -245,15 +272,33 @@ body.dark-mode .site-header.scrolled {
   }
 
   /* Staggered animation for menu items */
-  .navbar-menu.active li:nth-child(1) { transition-delay: 0.05s; }
-  .navbar-menu.active li:nth-child(2) { transition-delay: 0.1s; }
-  .navbar-menu.active li:nth-child(3) { transition-delay: 0.15s; }
-  .navbar-menu.active li:nth-child(4) { transition-delay: 0.2s; }
-  .navbar-menu.active li:nth-child(5) { transition-delay: 0.25s; }
-  .navbar-menu.active li:nth-child(6) { transition-delay: 0.3s; }
-  .navbar-menu.active li:nth-child(7) { transition-delay: 0.35s; }
-  .navbar-menu.active li:nth-child(8) { transition-delay: 0.4s; }
-  .navbar-menu.active li:nth-child(9) { transition-delay: 0.45s; }
+  .navbar-menu.active li:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+  .navbar-menu.active li:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  .navbar-menu.active li:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  .navbar-menu.active li:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+  .navbar-menu.active li:nth-child(5) {
+    transition-delay: 0.25s;
+  }
+  .navbar-menu.active li:nth-child(6) {
+    transition-delay: 0.3s;
+  }
+  .navbar-menu.active li:nth-child(7) {
+    transition-delay: 0.35s;
+  }
+  .navbar-menu.active li:nth-child(8) {
+    transition-delay: 0.4s;
+  }
+  .navbar-menu.active li:nth-child(9) {
+    transition-delay: 0.45s;
+  }
 
   .navbar-menu a {
     display: block;
