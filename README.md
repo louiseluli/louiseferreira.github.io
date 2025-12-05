@@ -18,16 +18,16 @@ I'm a Chevening/Lemann Scholar (2024/2025) with an MSc in AI from the University
 
 ## Pages
 
-| Page | Description |
-|------|-------------|
-| **Home** | Introduction and overview |
-| **About** | Personal story and journey |
-| **Experience** | Professional background |
-| **Projects** | Research and technical work |
-| **Skills** | Technical competencies |
-| **Awards** | Scholarships and recognition |
-| **Personal** | Music, cinema, and interests |
-| **Contact** | How to reach me |
+| Page           | Description                  |
+| -------------- | ---------------------------- |
+| **Home**       | Introduction and overview    |
+| **About**      | Personal story and journey   |
+| **Experience** | Professional background      |
+| **Projects**   | Research and technical work  |
+| **Skills**     | Technical competencies       |
+| **Awards**     | Scholarships and recognition |
+| **Personal**   | Music, cinema, and interests |
+| **Contact**    | How to reach me              |
 
 ## Featured Project
 
@@ -37,9 +37,14 @@ I'm a Chevening/Lemann Scholar (2024/2025) with an MSc in AI from the University
 
 ## Tech Stack
 
-- HTML5 / CSS3 / Vanilla JavaScript
-- [AOS](https://michalsnik.github.io/aos/) for scroll animations
-- GitHub Pages for hosting
+<p>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages" />
+</p>
+
+**Libraries:** [AOS](https://michalsnik.github.io/aos/) for scroll animations
 
 ## Local Development
 
@@ -59,4 +64,4 @@ open index.html
 
 ---
 
-*Built with purpose and code.* ✨
+_Built with purpose and code._ ✨
