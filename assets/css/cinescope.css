@@ -12,7 +12,7 @@ body.dark-mode .project-page {
 /* HERO */
 
 .project-hero {
-  padding: 4rem 0 3rem;
+  padding: 7rem 0 3rem; /* Extra top padding to account for fixed navbar */
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
