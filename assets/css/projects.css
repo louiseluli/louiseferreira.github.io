@@ -416,7 +416,11 @@
 }
 
 .findings-table thead {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   color: var(--white);
 }
 
@@ -593,6 +597,112 @@ body.dark-mode .phase-name {
   box-shadow: var(--shadow-xl);
   max-width: 100%;
   overflow: hidden;
+}
+
+/* Research Gallery for Dissertation Figures */
+.visual-container.research-gallery {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: var(--space-4);
+}
+
+.gallery-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #0f172a;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: #0f172a;
+  padding: var(--space-2);
+}
+
+.gallery-image.active {
+  opacity: 1;
+}
+
+.gallery-thumbs {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+.gallery-thumbs .thumb {
+  padding: var(--space-2) var(--space-3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-body);
+}
+
+.gallery-thumbs .thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-thumbs .thumb.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.gallery-thumbs .thumb-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gallery-thumbs .thumb.active .thumb-label {
+  color: var(--white);
+}
+
+.gallery-caption {
+  text-align: center;
+  padding: var(--space-2);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.gallery-caption p {
+  font-size: var(--text-sm);
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive gallery */
+@media (max-width: 640px) {
+  .gallery-thumbs {
+    gap: var(--space-1);
+  }
+  
+  .gallery-thumbs .thumb {
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .gallery-thumbs .thumb-label {
+    font-size: 0.65rem;
+  }
+  
+  .gallery-main {
+    aspect-ratio: 1/1;
+  }
 }
 
 .data-viz {

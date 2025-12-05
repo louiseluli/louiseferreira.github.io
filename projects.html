@@ -149,10 +149,12 @@
           <div class="featured-content">
             <div class="featured-text" data-aos="fade-right">
               <h2 class="project-title">
-                AlgoFairness Pornometrics: Fair ML for User-Generated Adult Video Platforms
+                AlgoFairness Pornometrics: Fair ML for User-Generated Adult
+                Video Platforms
               </h2>
               <p class="project-tagline">
-                A complete, reproducible research pipeline for auditing algorithmic bias with intersectional analysis
+                A complete, reproducible research pipeline for auditing
+                algorithmic bias with intersectional analysis
               </p>
 
               <div class="content-warning">
@@ -180,9 +182,11 @@
                 <p>
                   This thesis proves this discrimination is
                   <strong>measurable</strong>, <strong>quantifiable</strong>,
-                  and most importantly — <strong>fixable</strong>. Through a novel 
-                  <strong>Ensemble Fairness Optimization</strong> approach, I successfully 
-                  reduced documented bias while preserving predictive accuracy.
+                  and most importantly — <strong>fixable</strong>. Through a
+                  novel
+                  <strong>Ensemble Fairness Optimization</strong> approach, I
+                  successfully reduced documented bias while preserving
+                  predictive accuracy.
                 </p>
               </div>
 
@@ -211,11 +215,13 @@
               <div class="research-section">
                 <h3>Key Findings: Bias is Measurable</h3>
                 <p>
-                  High overall model accuracy masks significant underlying biases. 
-                  The RF model's F1-score for Asian Women (0.119) is <strong>less than a quarter</strong> 
-                  of the score for White Women (0.583), demonstrating severe performance disparity.
+                  High overall model accuracy masks significant underlying
+                  biases. The RF model's F1-score for Asian Women (0.119) is
+                  <strong>less than a quarter</strong>
+                  of the score for White Women (0.583), demonstrating severe
+                  performance disparity.
                 </p>
-                
+
                 <div class="findings-table">
                   <table>
                     <thead>
@@ -259,11 +265,12 @@
               <div class="research-section">
                 <h3>Solutions: Bias Can Be Reduced</h3>
                 <p>
-                  I tested three bias mitigation strategies: pre-processing (Reweighing), 
-                  in-processing (Exponentiated Gradient with Demographic Parity), and 
-                  post-processing (Calibrated Equalized Odds). The best approach reduced 
-                  the accuracy gap for Black women from <strong>-12.6% to -4.6%</strong> — 
-                  a 64% improvement.
+                  I tested three bias mitigation strategies: pre-processing
+                  (Reweighing), in-processing (Exponentiated Gradient with
+                  Demographic Parity), and post-processing (Calibrated Equalized
+                  Odds). The best approach reduced the accuracy gap for Black
+                  women from <strong>-12.6% to -4.6%</strong> — a 64%
+                  improvement.
                 </p>
 
                 <div class="mitigation-comparison">
@@ -276,7 +283,9 @@
                     </div>
                   </div>
                   <div class="comparison-item">
-                    <div class="comparison-label">Reweighed RF (Best Accuracy)</div>
+                    <div class="comparison-label">
+                      Reweighed RF (Best Accuracy)
+                    </div>
                     <div class="comparison-bar">
                       <div class="bar-segment medium" style="width: 42%">
                         <span>86.2% acc, EOD: 0.053</span>
@@ -297,9 +306,10 @@
               <div class="research-section">
                 <h3>30-Step Reproducible Pipeline</h3>
                 <p>
-                  This isn't just a paper — it's a complete, reproducible research framework 
-                  with 30 automated steps from raw data to final analysis, including interactive 
-                  dashboards and causal inference.
+                  This isn't just a paper — it's a complete, reproducible
+                  research framework with 30 automated steps from raw data to
+                  final analysis, including interactive dashboards and causal
+                  inference.
                 </p>
                 <div class="pipeline-phases">
                   <div class="phase">
@@ -356,73 +366,59 @@
               data-aos="fade-left"
               data-aos-delay="200"
             >
-              <div class="visual-container">
-                <svg
-                  class="data-viz"
-                  viewBox="0 0 420 520"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <!-- Title -->
-                  <text x="210" y="30" text-anchor="middle" class="viz-title" font-size="16" font-weight="600" fill="currentColor">
-                    Accuracy-Fairness Pareto Frontier
-                  </text>
-                  <text x="210" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">
-                    Comparing mitigation strategies
-                  </text>
-
-                  <!-- Axis labels -->
-                  <text x="210" y="490" text-anchor="middle" font-size="11" fill="#94a3b8">Accuracy →</text>
-                  <text x="15" y="270" text-anchor="middle" font-size="11" fill="#94a3b8" transform="rotate(-90, 15, 270)">Fairness →</text>
-
-                  <!-- Grid -->
-                  <line x1="50" y1="70" x2="50" y2="460" stroke="#334155" stroke-width="1" opacity="0.3"/>
-                  <line x1="50" y1="460" x2="400" y2="460" stroke="#334155" stroke-width="1" opacity="0.3"/>
-                  
-                  <!-- Baseline point (worst) -->
-                  <circle cx="120" cy="380" r="12" fill="#ef4444" opacity="0.8"/>
-                  <text x="140" y="385" font-size="10" fill="#ef4444" font-weight="500">Baseline RF</text>
-                  <text x="140" y="398" font-size="9" fill="#94a3b8">80.5% acc, -12.6% gap</text>
-
-                  <!-- BERT baseline -->
-                  <circle cx="280" cy="300" r="12" fill="#f59e0b" opacity="0.8"/>
-                  <text x="300" y="305" font-size="10" fill="#f59e0b" font-weight="500">BERT</text>
-                  <text x="300" y="318" font-size="9" fill="#94a3b8">92.6% acc</text>
-
-                  <!-- Reweighed RF -->
-                  <circle cx="260" cy="180" r="12" fill="#3b82f6" opacity="0.8"/>
-                  <text x="280" y="185" font-size="10" fill="#3b82f6" font-weight="500">Reweighed</text>
-                  <text x="280" y="198" font-size="9" fill="#94a3b8">86.2% acc, EOD: 0.053</text>
-
-                  <!-- In-Processing (best fairness) -->
-                  <circle cx="200" cy="120" r="14" fill="#10b981" opacity="0.9"/>
-                  <text x="220" y="115" font-size="10" fill="#10b981" font-weight="600">EG + DP ✨</text>
-                  <text x="220" y="128" font-size="9" fill="#94a3b8">80.3% acc, -4.6% gap</text>
-                  <text x="220" y="141" font-size="9" fill="#10b981">Best fairness!</text>
-
-                  <!-- Pareto frontier line -->
-                  <path d="M120,380 Q180,250 200,120 L260,180 L280,300" 
-                        stroke="#a855f7" stroke-width="2" fill="none" 
-                        stroke-dasharray="5,5" opacity="0.6"/>
-                  
-                  <!-- Legend -->
-                  <rect x="50" y="500" width="350" height="1" fill="#334155" opacity="0.3"/>
-                  
-                  <!-- Improvement arrow -->
-                  <defs>
-                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
-                    </marker>
-                  </defs>
-                  <line x1="120" y1="380" x2="195" y2="130" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                  
-                  <!-- Improvement badge -->
-                  <g transform="translate(85, 230)">
-                    <rect x="-35" y="-20" width="70" height="40" rx="6" fill="#10b981" opacity="0.15"/>
-                    <text y="0" text-anchor="middle" font-size="14" font-weight="700" fill="#10b981">64%</text>
-                    <text y="14" text-anchor="middle" font-size="9" fill="#10b981">bias reduced</text>
-                  </g>
-                </svg>
+              <div class="visual-container research-gallery">
+                <!-- Main showcase figure -->
+                <div class="gallery-main">
+                  <img 
+                    src="assets/img/algofairness/showcase/pareto_frontier.png" 
+                    alt="Accuracy-Fairness Pareto Frontier showing trade-offs between different mitigation strategies"
+                    class="gallery-image active"
+                    id="gallery-pareto"
+                    loading="lazy"
+                  />
+                  <img 
+                    src="assets/img/algofairness/showcase/corpus_overview.png" 
+                    alt="Corpus Overview Dashboard showing dataset composition and statistics"
+                    class="gallery-image"
+                    id="gallery-corpus"
+                    loading="lazy"
+                  />
+                  <img 
+                    src="assets/img/algofairness/showcase/mitigation_effectiveness.png" 
+                    alt="Mitigation Effectiveness comparing bias reduction across strategies"
+                    class="gallery-image"
+                    id="gallery-mitigation"
+                    loading="lazy"
+                  />
+                  <img 
+                    src="assets/img/algofairness/results/fairness_curve.png" 
+                    alt="Fairness Curves showing model performance across demographic groups"
+                    class="gallery-image"
+                    id="gallery-fairness"
+                    loading="lazy"
+                  />
+                </div>
+                
+                <!-- Thumbnail navigation -->
+                <div class="gallery-thumbs">
+                  <button class="thumb active" data-target="gallery-pareto" aria-label="View Pareto Frontier">
+                    <span class="thumb-label">Pareto Frontier</span>
+                  </button>
+                  <button class="thumb" data-target="gallery-corpus" aria-label="View Corpus Overview">
+                    <span class="thumb-label">Corpus Overview</span>
+                  </button>
+                  <button class="thumb" data-target="gallery-mitigation" aria-label="View Mitigation Results">
+                    <span class="thumb-label">Mitigation</span>
+                  </button>
+                  <button class="thumb" data-target="gallery-fairness" aria-label="View Fairness Curves">
+                    <span class="thumb-label">Fairness Curves</span>
+                  </button>
+                </div>
+                
+                <!-- Caption -->
+                <div class="gallery-caption">
+                  <p id="gallery-caption-text">Accuracy-Fairness Pareto Frontier: Comparing mitigation strategies across the trade-off space</p>
+                </div>
               </div>
             </div>
           </div>
@@ -825,6 +821,7 @@
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/project-filter.js"></script>
+    <script src="assets/js/research-gallery.js"></script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
