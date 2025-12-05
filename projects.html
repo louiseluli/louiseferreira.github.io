@@ -143,17 +143,16 @@
       <section class="featured-project section" data-category="fairness ml">
         <div class="container">
           <div class="featured-badge" data-aos="fade-up">
-            <span>🔬 MSc Dissertation Research</span>
+            <span>🔬 MSc Dissertation Research • University of Essex</span>
           </div>
 
           <div class="featured-content">
             <div class="featured-text" data-aos="fade-right">
               <h2 class="project-title">
-                Fairness in Adult Content Classification Systems
+                AlgoFairness Pornometrics: Fair ML for User-Generated Adult Video Platforms
               </h2>
               <p class="project-tagline">
-                Quantifying and mitigating intersectional bias in ML-driven
-                content moderation
+                A complete, reproducible research pipeline for auditing algorithmic bias with intersectional analysis
               </p>
 
               <div class="content-warning">
@@ -181,23 +180,22 @@
                 <p>
                   This thesis proves this discrimination is
                   <strong>measurable</strong>, <strong>quantifiable</strong>,
-                  and most importantly — <strong>fixable</strong>.
+                  and most importantly — <strong>fixable</strong>. Through a novel 
+                  <strong>Ensemble Fairness Optimization</strong> approach, I successfully 
+                  reduced documented bias while preserving predictive accuracy.
                 </p>
               </div>
 
               <div class="research-section">
                 <h3>The Research in Numbers</h3>
-
                 <div class="stats-grid">
                   <div class="stat-card">
                     <div class="stat-number">535,236</div>
                     <div class="stat-label">Videos Analyzed</div>
                   </div>
                   <div class="stat-card">
-                    <div class="stat-number">4,360</div>
-                    <div class="stat-label">
-                      Intersectional Samples (Black Women)
-                    </div>
+                    <div class="stat-number">0.8%</div>
+                    <div class="stat-label">Black Women Representation</div>
                   </div>
                   <div class="stat-card">
                     <div class="stat-number">92.6%</div>
@@ -211,13 +209,61 @@
               </div>
 
               <div class="research-section">
+                <h3>Key Findings: Bias is Measurable</h3>
+                <p>
+                  High overall model accuracy masks significant underlying biases. 
+                  The RF model's F1-score for Asian Women (0.119) is <strong>less than a quarter</strong> 
+                  of the score for White Women (0.583), demonstrating severe performance disparity.
+                </p>
+                
+                <div class="findings-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Model</th>
+                        <th>Group</th>
+                        <th>Accuracy</th>
+                        <th>F1-Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Random Forest</td>
+                        <td>Asian Women</td>
+                        <td>79.5%</td>
+                        <td class="metric-bad">0.119</td>
+                      </tr>
+                      <tr>
+                        <td>Random Forest</td>
+                        <td>Black Women</td>
+                        <td>83.3%</td>
+                        <td>0.494</td>
+                      </tr>
+                      <tr>
+                        <td>Random Forest</td>
+                        <td>White Women</td>
+                        <td>70.7%</td>
+                        <td class="metric-good">0.583</td>
+                      </tr>
+                      <tr>
+                        <td>BERT</td>
+                        <td>Black Women</td>
+                        <td>95.6%</td>
+                        <td class="metric-good">0.904</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="research-section">
                 <h3>Solutions: Bias Can Be Reduced</h3>
                 <p>
-                  I tested three bias mitigation strategies. The best approach
-                  (in-processing with demographic parity constraints) reduced
-                  the accuracy gap for Black women from
-                  <strong>-12.6% to -4.6%</strong> — a 64% improvement. It's not
-                  perfect, but it proves fairness interventions work.
+                  I tested three bias mitigation strategies: pre-processing (Reweighing), 
+                  in-processing (Exponentiated Gradient with Demographic Parity), and 
+                  post-processing (Calibrated Equalized Odds). The best approach reduced 
+                  the accuracy gap for Black women from <strong>-12.6% to -4.6%</strong> — 
+                  a 64% improvement.
                 </p>
 
                 <div class="mitigation-comparison">
@@ -226,6 +272,14 @@
                     <div class="comparison-bar">
                       <div class="bar-segment bad" style="width: 100%">
                         <span>-12.6% accuracy gap</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-item">
+                    <div class="comparison-label">Reweighed RF (Best Accuracy)</div>
+                    <div class="comparison-bar">
+                      <div class="bar-segment medium" style="width: 42%">
+                        <span>86.2% acc, EOD: 0.053</span>
                       </div>
                     </div>
                   </div>
@@ -240,14 +294,56 @@
                 </div>
               </div>
 
+              <div class="research-section">
+                <h3>30-Step Reproducible Pipeline</h3>
+                <p>
+                  This isn't just a paper — it's a complete, reproducible research framework 
+                  with 30 automated steps from raw data to final analysis, including interactive 
+                  dashboards and causal inference.
+                </p>
+                <div class="pipeline-phases">
+                  <div class="phase">
+                    <span class="phase-num">1-6</span>
+                    <span class="phase-name">Data & Bias Discovery</span>
+                  </div>
+                  <div class="phase">
+                    <span class="phase-num">7-13</span>
+                    <span class="phase-name">Modeling & Fairness</span>
+                  </div>
+                  <div class="phase">
+                    <span class="phase-num">15-23</span>
+                    <span class="phase-name">Advanced Analysis</span>
+                  </div>
+                  <div class="phase">
+                    <span class="phase-num">24-30</span>
+                    <span class="phase-name">Synthesis & Outputs</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tech-stack">
+                <h4>Tech Stack</h4>
+                <div class="tech-tags">
+                  <span class="tech-tag">Python 3.12+</span>
+                  <span class="tech-tag">scikit-learn</span>
+                  <span class="tech-tag">Fairlearn</span>
+                  <span class="tech-tag">PyTorch</span>
+                  <span class="tech-tag">Transformers (BERT)</span>
+                  <span class="tech-tag">NetworkX</span>
+                  <span class="tech-tag">Pandas</span>
+                  <span class="tech-tag">Statsmodels</span>
+                  <span class="tech-tag">Matplotlib/Seaborn</span>
+                </div>
+              </div>
+
               <div class="project-links">
                 <a
-                  href="https://github.com/louiseluli"
+                  href="https://github.com/louiseluli/AlgoFairness-Pornometrics"
                   class="btn btn-primary"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View Research Code
+                  View Full Repository →
                 </a>
                 <button class="btn btn-secondary" disabled>
                   Full Paper (Coming Soon)
@@ -263,68 +359,68 @@
               <div class="visual-container">
                 <svg
                   class="data-viz"
-                  viewBox="0 0 420 450"
+                  viewBox="0 0 420 520"
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="xMidYMid meet"
                 >
                   <!-- Title -->
-                  <text x="210" y="35" text-anchor="middle" class="viz-title" font-size="18" font-weight="600" fill="currentColor">
-                    Accuracy by Demographic Group
+                  <text x="210" y="30" text-anchor="middle" class="viz-title" font-size="16" font-weight="600" fill="currentColor">
+                    Accuracy-Fairness Pareto Frontier
+                  </text>
+                  <text x="210" y="50" text-anchor="middle" font-size="11" fill="#94a3b8">
+                    Comparing mitigation strategies
                   </text>
 
-                  <!-- Baseline Section -->
-                  <text x="25" y="75" class="viz-subtitle" font-size="13" font-weight="500" fill="#94a3b8">
-                    Baseline Model (Random Forest)
-                  </text>
+                  <!-- Axis labels -->
+                  <text x="210" y="490" text-anchor="middle" font-size="11" fill="#94a3b8">Accuracy →</text>
+                  <text x="15" y="270" text-anchor="middle" font-size="11" fill="#94a3b8" transform="rotate(-90, 15, 270)">Fairness →</text>
 
-                  <rect x="25" y="95" width="220" height="28" fill="#14B8A6" rx="6" />
-                  <text x="255" y="114" class="viz-label" font-size="13" fill="currentColor">
-                    White Women: 70.7%
-                  </text>
+                  <!-- Grid -->
+                  <line x1="50" y1="70" x2="50" y2="460" stroke="#334155" stroke-width="1" opacity="0.3"/>
+                  <line x1="50" y1="460" x2="400" y2="460" stroke="#334155" stroke-width="1" opacity="0.3"/>
+                  
+                  <!-- Baseline point (worst) -->
+                  <circle cx="120" cy="380" r="12" fill="#ef4444" opacity="0.8"/>
+                  <text x="140" y="385" font-size="10" fill="#ef4444" font-weight="500">Baseline RF</text>
+                  <text x="140" y="398" font-size="9" fill="#94a3b8">80.5% acc, -12.6% gap</text>
 
-                  <rect x="25" y="135" width="180" height="28" fill="#ef4444" rx="6" />
-                  <text x="215" y="154" class="viz-label" font-size="13" fill="currentColor">
-                    Black Women: 58.1%
-                  </text>
+                  <!-- BERT baseline -->
+                  <circle cx="280" cy="300" r="12" fill="#f59e0b" opacity="0.8"/>
+                  <text x="300" y="305" font-size="10" fill="#f59e0b" font-weight="500">BERT</text>
+                  <text x="300" y="318" font-size="9" fill="#94a3b8">92.6% acc</text>
 
-                  <!-- Gap indicator -->
-                  <text x="25" y="185" font-size="12" fill="#ef4444" font-weight="500">
-                    ⚠ -12.6% accuracy gap
-                  </text>
+                  <!-- Reweighed RF -->
+                  <circle cx="260" cy="180" r="12" fill="#3b82f6" opacity="0.8"/>
+                  <text x="280" y="185" font-size="10" fill="#3b82f6" font-weight="500">Reweighed</text>
+                  <text x="280" y="198" font-size="9" fill="#94a3b8">86.2% acc, EOD: 0.053</text>
 
-                  <!-- Divider -->
-                  <line x1="25" y1="210" x2="395" y2="210" stroke="#334155" stroke-width="1" stroke-dasharray="4" />
+                  <!-- In-Processing (best fairness) -->
+                  <circle cx="200" cy="120" r="14" fill="#10b981" opacity="0.9"/>
+                  <text x="220" y="115" font-size="10" fill="#10b981" font-weight="600">EG + DP ✨</text>
+                  <text x="220" y="128" font-size="9" fill="#94a3b8">80.3% acc, -4.6% gap</text>
+                  <text x="220" y="141" font-size="9" fill="#10b981">Best fairness!</text>
 
-                  <!-- After Mitigation Section -->
-                  <text x="25" y="245" class="viz-subtitle" font-size="13" font-weight="500" fill="#94a3b8">
-                    After Mitigation (In-Processing)
-                  </text>
-
-                  <rect x="25" y="265" width="260" height="28" fill="#14B8A6" rx="6" />
-                  <text x="295" y="284" class="viz-label" font-size="13" fill="currentColor">
-                    White Women: 91.0%
-                  </text>
-
-                  <rect x="25" y="305" width="248" height="28" fill="#10b981" rx="6" />
-                  <text x="283" y="324" class="viz-label" font-size="13" fill="currentColor">
-                    Black Women: 86.4%
-                  </text>
-
-                  <!-- Success indicator -->
-                  <text x="25" y="355" font-size="12" fill="#10b981" font-weight="500">
-                    ✓ -4.6% gap (64% improvement)
-                  </text>
-
+                  <!-- Pareto frontier line -->
+                  <path d="M120,380 Q180,250 200,120 L260,180 L280,300" 
+                        stroke="#a855f7" stroke-width="2" fill="none" 
+                        stroke-dasharray="5,5" opacity="0.6"/>
+                  
+                  <!-- Legend -->
+                  <rect x="50" y="500" width="350" height="1" fill="#334155" opacity="0.3"/>
+                  
+                  <!-- Improvement arrow -->
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+                    </marker>
+                  </defs>
+                  <line x1="120" y1="380" x2="195" y2="130" stroke="#10b981" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                  
                   <!-- Improvement badge -->
-                  <g transform="translate(330, 400)">
-                    <circle r="38" fill="#fbbf24" opacity="0.15" />
-                    <circle r="30" fill="#fbbf24" opacity="0.25" />
-                    <text y="5" text-anchor="middle" class="viz-highlight" font-size="20" font-weight="700" fill="#fbbf24">
-                      64%
-                    </text>
-                    <text y="22" text-anchor="middle" class="viz-highlight-small" font-size="10" fill="#94a3b8">
-                      bias reduced
-                    </text>
+                  <g transform="translate(85, 230)">
+                    <rect x="-35" y="-20" width="70" height="40" rx="6" fill="#10b981" opacity="0.15"/>
+                    <text y="0" text-anchor="middle" font-size="14" font-weight="700" fill="#10b981">64%</text>
+                    <text y="14" text-anchor="middle" font-size="9" fill="#10b981">bias reduced</text>
                   </g>
                 </svg>
               </div>
