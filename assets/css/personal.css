@@ -870,6 +870,18 @@ body.dark-mode .closing-content em {
     max-width: 500px;
     margin: 0 auto;
   }
+
+  .music-text,
+  .cinema-text,
+  .culture-text {
+    order: 1;
+  }
+
+  .music-visual,
+  .cinema-visual,
+  .culture-visual {
+    order: 2;
+  }
 }
 
 @media (max-width: 768px) {
@@ -900,9 +912,34 @@ body.dark-mode .closing-content em {
     flex-direction: column;
     align-items: stretch;
   }
+
+  /* Touch targets for band tags */
+  .band-tag {
+    padding: var(--space-3) var(--space-5);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .music-item {
+    padding: var(--space-3);
+    min-height: 60px;
+  }
+
+  .playlist-card {
+    padding: var(--space-4);
+  }
 }
 
 @media (max-width: 480px) {
+  .page-header {
+    padding: calc(var(--space-12) + 72px) 0 var(--space-8);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+
   .music-item {
     flex-direction: column;
     text-align: center;
@@ -910,10 +947,25 @@ body.dark-mode .closing-content em {
 
   .bands-grid {
     justify-content: center;
+    gap: var(--space-2);
+  }
+
+  .band-tag {
+    font-size: var(--text-xs);
+    padding: var(--space-2) var(--space-4);
   }
 
   .poster-icon {
     font-size: 3rem;
+  }
+
+  .gaming-card,
+  .travel-card {
+    padding: var(--space-6);
+  }
+
+  .era-card {
+    padding: var(--space-3);
   }
 }
 

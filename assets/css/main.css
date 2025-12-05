@@ -139,6 +139,19 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Responsive images by default */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Video/iframe responsive */
+video,
+iframe {
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -753,6 +766,7 @@ pre code {
 /* -----------------------------------------------------------------------------
    RESPONSIVE
    ----------------------------------------------------------------------------- */
+/* Mobile-first touch targets */
 @media (max-width: 768px) {
   :root {
     --space-16: 3rem;
@@ -767,6 +781,19 @@ pre code {
     font-size: 15px;
   }
 
+  /* Ensure all interactive elements have 44px touch targets */
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-3) var(--space-6);
+  }
+
+  a:not(.navbar-brand) {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .footer-content {
     flex-direction: column;
     text-align: center;
@@ -774,9 +801,53 @@ pre code {
 
   .footer-nav {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer-nav a {
+    padding: var(--space-2) var(--space-3);
   }
 
   .footer-social {
     justify-content: center;
   }
+
+  .footer-social a {
+    padding: var(--space-2);
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  :root {
+    --space-8: 1.5rem;
+    --space-12: 2.5rem;
+    --space-16: 2.5rem;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  /* Stack all grids */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce button padding on very small screens */
+  .btn {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+  }
+}
+
+/* Prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }

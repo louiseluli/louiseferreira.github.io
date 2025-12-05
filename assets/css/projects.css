@@ -636,6 +636,17 @@ body.dark-mode .stat-number {
 /* -----------------------------------------------------------------------------
    RESPONSIVE
    ----------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .featured-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .project-card {
+    padding: var(--space-6);
+  }
+}
+
 @media (max-width: 768px) {
   .film-results {
     grid-template-columns: 1fr; /* Stack cards on mobile */
@@ -652,5 +663,61 @@ body.dark-mode .stat-number {
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-controls {
+    gap: var(--space-2);
+  }
+
+  .filter-btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+    min-height: 44px;
+  }
+
+  .project-link {
+    padding: var(--space-2) 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .interactive-demo {
+    padding: var(--space-4);
+  }
+
+  #cinemaSearchInput {
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    padding: calc(var(--space-12) + 72px) 0 var(--space-8);
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .page-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: var(--text-2xl);
+  }
+
+  .project-card {
+    padding: var(--space-4);
+  }
+
+  .project-card-title {
+    font-size: var(--text-xl);
   }
 }
