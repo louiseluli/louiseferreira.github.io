@@ -1,0 +1,9 @@
+,value
+rq1_black_female_pct,0.815
+rq1_top_pmi,6.94
+rq1_harm_max_pct,99.5
+rq2_rf_acc,0.805
+rq2_bert_acc,0.926
+rq4_best_acc_model_acc,0.862
+rq4_smallest_acc_delta,-0.047
+rq4_smallest_tpr_delta,0.053
