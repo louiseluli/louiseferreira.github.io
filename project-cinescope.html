@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CineScope – Personal Cinema Analytics | Louise Ferreira</title>
+    <meta
+      name="description"
+      content="CineScope is a personal cinema analytics project where years of curated watchlists and a physical collection become a full data pipeline: enrichment, visualisation and pattern discovery on my own film life."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Louise Ferreira" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Core styles -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/projects.css" />
+    <!-- Extra styling just for this page -->
+    <link rel="stylesheet" href="assets/css/cinescope.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="navbar-brand">
+          <span>Louise Ferreira</span>
+        </a>
+
+        <ul class="navbar-menu" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+          <li class="navbar-social">
+            <a
+              href="https://github.com/louiseluli"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile (opens in new tab)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/louisesfer/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile (opens in new tab)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <button
+          class="navbar-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main-content" class="main-content project-page">
+      <!-- HERO SECTION -->
+      <section class="project-hero">
+        <div class="container hero-layout">
+          <div class="hero-text">
+            <p class="hero-kicker">Personal Data • Cinema • ML Pipeline</p>
+            <h1>CineScope: Personal Cinema Analytics</h1>
+            <p class="hero-subtitle">
+              Years of curated watchlists and a carefully built movie
+              collection, transformed into a data project to understand my own
+              cinematic patterns.
+            </p>
+            <p>
+              I’ve been exporting IMDb lists, maintaining spreadsheets, and
+              building databases of my films for years. CineScope is where I
+              turned that private obsession into a structured analytics
+              pipeline: who I watch, which stories I return to, how my taste
+              evolves across decades, and where the hidden gaps in my collection
+              are.
+            </p>
+
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <span class="hero-stat-number">2,000+</span>
+                <span class="hero-stat-label">Films in personal dataset</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">30+</span>
+                <span class="hero-stat-label">Visual analytics views</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">5+</span>
+                <span class="hero-stat-label">External data sources</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-collage">
+            <figure>
+              <img
+                src="assets/img/cinescope/rating-distribution.png"
+                alt="Rating distribution of my watched movies"
+              />
+              <figcaption>
+                Rating distribution: how generous, harsh, or simply consistent I
+                really am.
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="assets/img/cinescope/decade-genre-heatmap.png"
+                alt="Decade vs genre heatmap"
+              />
+              <figcaption>
+                Decades × genres: where my watching habits truly live.
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="assets/img/cinescope/top-actors.png"
+                alt="Top actors in my collection"
+              />
+              <figcaption>
+                The actors who silently dominate my nights at the movies.
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src="assets/img/cinescope/pattern-overview.png"
+                alt="Pattern overview in my collection"
+              />
+              <figcaption>
+                High-level patterns that emerge once everything is centralized
+                and enriched.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- STORY SECTION -->
+      <section class="project-section project-story section">
+        <div class="container">
+          <h2>From Lifelong Lists to a Data Project</h2>
+          <p>
+            CineScope is built on top of
+            <strong>years of curated lists</strong>: personal watch history,
+            IMDb exports, local collection databases, and quiet notes about what
+            I love. I pulled all of this together, enriched it with external
+            sources (IMDb, TMDb, OMDb, DoesTheDogDie, Wikidata), and created a
+            pipeline that treats my own film life like a research dataset.
+          </p>
+          <p>
+            Instead of asking “what should I watch?”, this project asks deeper
+            questions:
+            <em
+              >What do I actually watch? Where are my biases? Which genres and
+              eras define my taste? Who shows up over and over again when I’m
+              not paying attention?</em
+            >
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION: TASTE & TIME -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>My Taste, Over Time</h2>
+          <p>
+            The first layer of CineScope looks at ratings, decades, and
+            runtimes. It turns vague intuition (&ldquo;I like classic
+            films&rdquo;, &ldquo;I’m not into very long movies&rdquo;) into
+            measurable patterns.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/decade-distribution.png"
+                alt="Decade distribution of my watched films"
+              />
+              <figcaption>
+                Decade distribution: which eras dominate my watch history and
+                where I’m surprisingly sparse.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/runtime-sweet-spot.png"
+                alt="Runtime sweet spot chart"
+              />
+              <figcaption>
+                Runtime sweet spot: the lengths where I consistently rate films
+                higher – a data-driven comfort zone.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/popularity-vs-rating.png"
+                alt="Popularity vs my ratings"
+              />
+              <figcaption>
+                Popularity vs my ratings: where I agree with the crowd and where
+                I quietly rebel.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/rating-vs-runtime-scatter.png"
+                alt="Rating vs runtime scatterplot"
+              />
+              <figcaption>
+                Rating × runtime scatter: every single film as a dot – revealing
+                clusters of comfort films and rare outliers.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: GENRES & HYBRIDITY -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>Genres, Hybrids & Evolution</h2>
+          <p>
+            I’ve always said I love specific genres – horror, noir, thrillers,
+            classic Hollywood. CineScope translates that into concrete
+            distributions and hybrid genre patterns.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-distribution.png"
+                alt="Genre distribution"
+              />
+              <figcaption>
+                Genre distribution: the backbone of my collection, from
+                mainstream to niche categories.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-rating-distribution.png"
+                alt="Genre rating distribution"
+              />
+              <figcaption>
+                Genre × rating distribution: which genres I am consistently
+                generous to, and which ones I judge more harshly.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-combination-heatmap.png"
+                alt="Genre combination heatmap"
+              />
+              <figcaption>
+                Genre combinations: where horror meets comedy, noir meets
+                thriller, or sci-fi meets drama.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/multi-genre-analysis.png"
+                alt="Multi-genre analysis"
+              />
+              <figcaption>
+                Multi-genre analysis: how multi-labeled films behave differently
+                from &ldquo;pure&rdquo; genre films.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-quality-runtime.png"
+                alt="Genres and quality across runtime"
+              />
+              <figcaption>
+                Genres × runtime × quality: which types of stories stay tight
+                and which need longer runtimes to shine.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/pure-vs-hybrid.png"
+                alt="Pure vs hybrid genres"
+              />
+              <figcaption>
+                Pure vs hybrid genres: how single-genre films compare to hybrids
+                in terms of ratings and frequency.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-evolution-decades.png"
+                alt="Genre evolution across decades"
+              />
+              <figcaption>
+                Genre evolution: how my favourite genres travel across decades –
+                which ones stay, which ones fade.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/genre-decade-deep-dive.png"
+                alt="Genre by decade deep dive"
+              />
+              <figcaption>
+                Genre × decade deep dive: a closer look at specific combinations
+                that define different phases of my viewing life.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: PEOPLE & REPRESENTATION -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>Who I Watch: People & Representation</h2>
+          <p>
+            One of the aims of this project is to move beyond &ldquo;what
+            films&rdquo; into &ldquo;who&rdquo;: which performers, ensembles,
+            and patterns of representation are actually present in my viewing.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/top-actresses.png"
+                alt="Top actresses leaderboard"
+              />
+              <figcaption>
+                Top actresses: the women who keep returning in my collection,
+                often shaping entire eras of my viewing.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/actor-diversity-score.png"
+                alt="Actor diversity score"
+              />
+              <figcaption>
+                Actor diversity score: a synthesized metric capturing how varied
+                the people on screen actually are.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/top-quality-actors.png"
+                alt="Actors in top rated films"
+              />
+              <figcaption>
+                Actors in my top-rated films: who shows up when I love a movie
+                enough to give it my highest scores.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/top-actors.png"
+                alt="Top actors leaderboard"
+              />
+              <figcaption>
+                Top actors: the familiar faces that follow me from film to film
+                across decades and genres.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: CAREERS & LONGEVITY -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>Careers, Longevity & Trajectories</h2>
+          <p>
+            Because the dataset is enriched with years and filmographies, I can
+            look at careers instead of just isolated performances: how long
+            actors stay present, when they peak, and how quality moves with
+            them.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/career-evolution.png"
+                alt="Actor career evolution"
+              />
+              <figcaption>
+                Career evolution: arcs of actors across time and quality, inside
+                the films I’ve chosen to watch.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/career-length-distribution.png"
+                alt="Career length distribution"
+              />
+              <figcaption>
+                Career length distribution: which careers are brief, which are
+                decades-long, and how that influences visibility in my
+                collection.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/classic-vs-modern.png"
+                alt="Classic vs modern comparison"
+              />
+              <figcaption>
+                Classic vs modern: how my ratings shift between older films and
+                more contemporary ones, including the performers in the middle.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: BEHIND THE CAMERA & AWARDS -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>Behind the Camera & Awards</h2>
+          <p>
+            CineScope also tracks the ecosystem behind the films: directors,
+            studios, awards, and how critical recognition overlaps with my own
+            ratings.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/director-leaderboard.png"
+                alt="Director leaderboard"
+              />
+              <figcaption>
+                Director leaderboard: which directors are most present across my
+                watch history.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/director-quality.png"
+                alt="Director quality chart"
+              />
+              <figcaption>
+                Director quality: how consistent different directors are in the
+                films I watch and how often they hit my highest ratings.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/director-evolution.png"
+                alt="Director evolution over time"
+              />
+              <figcaption>
+                Director evolution: changes in how I rate specific directors
+                across the decades – who improves, who stagnates, who surprises.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/studio-leaderboard.png"
+                alt="Studio leaderboard"
+              />
+              <figcaption>
+                Studio leaderboard: the production houses that quietly shape my
+                collection.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/oscar-timeline.png"
+                alt="Oscar timeline in my collection"
+              />
+              <figcaption>
+                Awards timeline: how Oscar-winning and nominated films are
+                distributed across my collection.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/top-awarded-films.png"
+                alt="Top awarded films"
+              />
+              <figcaption>
+                Top awarded films: titles that accumulate the most recognition
+                and how they sit within my taste.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: SOURCES & CRITICS -->
+      <section class="project-section section">
+        <div class="container">
+          <h2>How Critics and Sources See My Films</h2>
+          <p>
+            Because the project merges multiple external sources, I can compare
+            how <em>I</em> rate films against IMDb, Rotten Tomatoes, Metacritic
+            and others.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/sources-overview.png"
+                alt="Sources overview"
+              />
+              <figcaption>
+                Sources overview: which rating sources are available for my
+                collection and how dense each one is.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/source-divergence.png"
+                alt="Source divergence"
+              />
+              <figcaption>
+                Source divergence: where different critics and platforms
+                disagree the most about the same films.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/rotten-tomatoes-analysis.png"
+                alt="Rotten Tomatoes analysis"
+              />
+              <figcaption>
+                Rotten Tomatoes vs me: patterns in how I align—or clash—with
+                aggregated scores.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/metacritic-analysis.png"
+                alt="Metacritic analysis"
+              />
+              <figcaption>
+                Metacritic vs me: another lens on how &ldquo;critical
+                consensus&rdquo; compares with my ratings.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: PATTERNS, GAPS & RECOMMENDATIONS -->
+      <section class="project-section section section-alt">
+        <div class="container">
+          <h2>Patterns, Gaps & What Comes Next</h2>
+          <p>
+            At the final stage, CineScope uses patterns in the enriched data to
+            suggest what I might want to watch next, and to highlight where my
+            collection is still narrow.
+          </p>
+
+          <div class="visual-grid">
+            <figure>
+              <img
+                src="assets/img/cinescope/similar-films-recommendations.png"
+                alt="Similar films recommendations"
+              />
+              <figcaption>
+                Similar films recommendations: using my historical patterns to
+                surface unwatched titles I’m likely to enjoy.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/collection-gaps-analysis.png"
+                alt="Collection gaps analysis"
+              />
+              <figcaption>
+                Collection gaps: genres, eras, or styles that I under-explore,
+                even though they connect to what I already love.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/collection-diversity-score.png"
+                alt="Collection diversity score"
+              />
+              <figcaption>
+                Collection diversity score: a single view summarizing how varied
+                my personal cinema universe really is.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="assets/img/cinescope/outlier-detection.png"
+                alt="Outlier detection in my collection"
+              />
+              <figcaption>
+                Outlier detection: the strange, rare titles that don’t fit any
+                obvious pattern – and often become new favourites.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: TECH & LINK -->
+      <section class="project-section project-tech section">
+        <div class="container container-narrow">
+          <h2>Under the Hood</h2>
+          <p>
+            CineScope is built as a modular Python pipeline combining IMDb
+            non-commercial datasets, APIs (TMDb, OMDb, DoesTheDogDie, Wikidata),
+            and a dense network of CSV, Parquet, and SQLite layers. The same
+            tools I use in research are pointed at something extremely personal:
+            my own watch history and collection.
+          </p>
+          <p>
+            The repository shows the full pipeline: data ingestion, enrichment
+            scripts, analysis batches, visual exports, and an early UI prototype
+            exploring search and browsing on top of the enriched data.
+          </p>
+          <p class="project-links">
+            <a
+              href="https://github.com/louiseluli/CineScope"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              View CineScope Code on GitHub
+            </a>
+            <a href="projects.html" class="btn btn-secondary">
+              Back to Projects
+            </a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <p class="footer-tagline">
+              Building algorithms that serve justice, not just efficiency.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="about.html">About</a>
+            <a href="experience.html">Experience</a>
+            <a href="personal.html">Personal</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+
+          <div class="footer-social">
+            <a
+              href="https://github.com/louiseluli"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/louisesfer/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Louise Ferreira. Built with purpose and code.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/navbar.js"></script>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </body>
+</html>

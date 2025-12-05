@@ -1,0 +1,192 @@
+/* CineScope page-specific styling
+   Works on top of main.css / theme.css / projects.css */
+
+.project-page {
+  background: var(--gray-50);
+}
+
+/* HERO */
+
+.project-hero {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.project-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.1rem, 2.6vw, 2.6rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  line-height: 1.7;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.hero-stat {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: white;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  min-width: 150px;
+}
+
+.hero-stat-number {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.hero-stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* HERO COLLAGE */
+
+.hero-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hero-collage figure {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-collage img {
+  width: 100%;
+  display: block;
+}
+
+.hero-collage figcaption {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.04),
+    rgba(15, 23, 42, 0.02)
+  );
+}
+
+/* SECTIONS */
+
+.project-section {
+  padding: 3rem 0;
+}
+
+.project-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.project-section p {
+  max-width: 60rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+/* VISUAL GRID */
+
+.visual-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+.visual-grid figure {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.visual-grid img {
+  width: 100%;
+  display: block;
+}
+
+.visual-grid figcaption {
+  padding: 0.9rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  background: radial-gradient(circle at top left, #f3e8ff 0, #ffffff 55%);
+}
+
+/* TECH SECTION */
+
+.project-tech .project-links {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-collage {
+    order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .project-hero {
+    padding-top: 3rem;
+  }
+
+  .hero-stats {
+    gap: 1rem;
+  }
+
+  .hero-stat {
+    min-width: 0;
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+}
