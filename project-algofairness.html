@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AlgoFairness Pornometrics: A complete, reproducible research pipeline for auditing algorithmic bias in adult content classification with intersectional analysis. MSc Dissertation at University of Essex."
+    />
+    <meta name="author" content="Louise Ferreira" />
+    <title>
+      AlgoFairness Pornometrics - MSc Dissertation | Louise Ferreira
+    </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/projects.css" />
+    <link rel="stylesheet" href="assets/css/algofairness.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="navbar-brand">
+          <span>Louise Ferreira</span>
+        </a>
+        <ul class="navbar-menu" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="awards.html">Awards</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="navbar-social">
+            <a
+              href="https://github.com/louiseluli"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <button
+          class="navbar-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main-content" class="main-content project-page">
+      <!-- HERO SECTION -->
+      <section class="page-header algofairness-hero">
+        <div class="container">
+          <div
+            class="featured-badge"
+            style="
+              background: linear-gradient(135deg, #8b5cf6, #6366f1);
+              color: #fff;
+            "
+          >
+            🔬 MSc Dissertation Research • University of Essex • 2024
+          </div>
+          <h1 class="page-title" data-aos="fade-up">
+            AlgoFairness Pornometrics
+          </h1>
+          <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Fair ML for User-Generated Adult Video Platforms: A Complete
+            Research Pipeline for Auditing Algorithmic Bias
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTENT WARNING -->
+      <section class="section content-warning-section">
+        <div class="container container-narrow">
+          <div class="content-warning large">
+            <div class="content-warning-title">⚠️ Research Content Note</div>
+            <p>
+              This research analyzes adult content metadata to study algorithmic
+              bias.
+              <strong>No explicit imagery is displayed.</strong> All analysis
+              follows strict ethical guidelines and focuses on fairness metrics,
+              not content itself. The goal is to expose and reduce
+              discrimination against marginalized communities in content
+              moderation systems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY STATS -->
+      <section class="section">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">535,236</div>
+              <div class="stat-label">Videos Analyzed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">0.8%</div>
+              <div class="stat-label">Black Women Representation</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">92.6%</div>
+              <div class="stat-label">Best Model Accuracy (BERT)</div>
+            </div>
+            <div class="stat-card highlight-stat">
+              <div class="stat-number">64%</div>
+              <div class="stat-label">Bias Reduction Achieved</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY THIS MATTERS -->
+      <section class="section section-alt">
+        <div class="container container-narrow">
+          <h2 data-aos="fade-up">Why This Research Matters</h2>
+
+          <div class="executive-summary" data-aos="fade-up">
+            <p>
+              Content moderation algorithms systematically discriminate against
+              LGBT creators, sex workers, and BIPOC communities. When your ML
+              model decides what's "appropriate," it's encoding cultural biases
+              at industrial scale — and the people getting hurt are always the
+              same: queer folks, Black and Brown creators, anyone outside the
+              cishet white norm.
+            </p>
+            <p>
+              This thesis proves this discrimination is
+              <strong>measurable</strong>, <strong>quantifiable</strong>, and
+              most importantly — <strong>fixable</strong>. Through a novel
+              <strong>Ensemble Fairness Optimization</strong> approach, I
+              successfully reduced documented bias while preserving predictive
+              accuracy.
+            </p>
+          </div>
+
+          <div class="research-questions" data-aos="fade-up">
+            <h3>Research Questions</h3>
+            <ol>
+              <li>
+                <strong>RQ1:</strong> What representational biases exist in UGC
+                adult video platform metadata?
+              </li>
+              <li>
+                <strong>RQ2:</strong> How do ML classifiers perform across
+                intersectional demographic groups?
+              </li>
+              <li>
+                <strong>RQ3:</strong> What are the causal mechanisms driving
+                algorithmic disparities?
+              </li>
+              <li>
+                <strong>RQ4:</strong> Can bias mitigation techniques reduce
+                disparities while preserving accuracy?
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORPUS OVERVIEW -->
+      <section class="section">
+        <div class="container">
+          <h2 data-aos="fade-up">1. The Dataset: Corpus Overview</h2>
+
+          <div class="figure-showcase" data-aos="fade-up">
+            <div class="figure-main">
+              <img
+                src="assets/img/algofairness/showcase/corpus_overview.png"
+                alt="Corpus Overview Dashboard showing the composition of 535,236 videos across demographic categories, temporal distribution, and metadata statistics"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <strong>Figure 1: Corpus Overview Dashboard</strong> —
+              Comprehensive view of the 535,236-video dataset showing
+              demographic distributions, temporal patterns, and metadata
+              characteristics.
+            </div>
+          </div>
+
+          <div class="interpretation" data-aos="fade-up">
+            <h3>Key Observations</h3>
+            <ul>
+              <li>
+                <strong>Severe underrepresentation:</strong> Black women
+                comprise only 0.81% of the corpus despite being a distinct
+                intersectional category
+              </li>
+              <li>
+                <strong>49 metadata columns</strong> including protected
+                attributes (race, gender, sexuality, age) extracted via NLP
+                tagging
+              </li>
+              <li>
+                <strong>Temporal span:</strong> Videos from 2007-2024 enable
+                longitudinal bias analysis
+              </li>
+              <li>
+                <strong>Language distribution:</strong> Multilingual content
+                with intersection-specific patterns
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDA SECTION -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 data-aos="fade-up">2. Exploratory Data Analysis</h2>
+          <p class="section-intro" data-aos="fade-up">
+            Deep dive into the dataset reveals systematic patterns of
+            representation disparity across intersectional groups.
+          </p>
+
+          <div class="figure-grid" data-aos="fade-up">
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/eda/lang_intersection_heatmap.png"
+                alt="Heatmap showing language distribution across intersectional demographic groups"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Language × Intersection Heatmap</strong> — Non-English
+                content correlates strongly with specific demographic groups,
+                suggesting potential language-based algorithmic penalties.
+              </div>
+            </div>
+
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/eda/top_categories.png"
+                alt="Bar chart showing top content categories by frequency"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Top Categories Distribution</strong> — Category tags
+                show clear skew toward stereotypical classifications for
+                marginalized groups.
+              </div>
+            </div>
+
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/eda/mdi_decomposition.png"
+                alt="Intersectional representation decomposition showing MDI scores"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Marginal Disparity Index (MDI)</strong> — Quantifying
+                representational gaps across single and intersectional
+                identities. Higher MDI = greater underrepresentation.
+              </div>
+            </div>
+
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/eda/views_boxplot.png"
+                alt="Boxplot showing view count distribution across demographic groups"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>View Distribution by Group</strong> — Visibility
+                disparities: some intersectional groups receive systematically
+                fewer views, suggesting algorithmic suppression.
+              </div>
+            </div>
+          </div>
+
+          <div class="figure-grid figure-grid-2" data-aos="fade-up">
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/eda/category_cardinality.png"
+                alt="Category cardinality analysis showing tag diversity"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Category Cardinality</strong> — Tag diversity varies
+                significantly by group, with marginalized identities receiving
+                fewer, more stereotypical labels.
+              </div>
+            </div>
+
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/eda/month_seasonality.png"
+                alt="Monthly seasonality patterns in content uploads"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Temporal Seasonality</strong> — Upload patterns show
+                consistent trends across months, validating dataset stability
+                for longitudinal analysis.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODEL PERFORMANCE -->
+      <section class="section">
+        <div class="container">
+          <h2 data-aos="fade-up">3. Model Performance: The Bias Problem</h2>
+          <p class="section-intro" data-aos="fade-up">
+            High overall accuracy masks severe performance disparities across
+            demographic groups. This is the core finding:
+            <strong>aggregate metrics lie</strong>.
+          </p>
+
+          <div class="findings-table-container" data-aos="fade-up">
+            <h3>Performance by Intersectional Group</h3>
+            <table class="findings-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Group</th>
+                  <th>Accuracy</th>
+                  <th>F1-Score</th>
+                  <th>Gap vs Best</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Random Forest</td>
+                  <td>Asian Women</td>
+                  <td>79.5%</td>
+                  <td class="metric-bad">0.119</td>
+                  <td class="metric-bad">-79.6%</td>
+                </tr>
+                <tr>
+                  <td>Random Forest</td>
+                  <td>Black Women</td>
+                  <td>83.3%</td>
+                  <td>0.494</td>
+                  <td>-15.3%</td>
+                </tr>
+                <tr>
+                  <td>Random Forest</td>
+                  <td>White Women</td>
+                  <td>70.7%</td>
+                  <td class="metric-good">0.583</td>
+                  <td>—</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>BERT</td>
+                  <td>Overall</td>
+                  <td class="metric-good">92.6%</td>
+                  <td class="metric-good">0.891</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td>BERT</td>
+                  <td>Black Women</td>
+                  <td>95.6%</td>
+                  <td class="metric-good">0.904</td>
+                  <td>+1.5%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="figure-showcase" data-aos="fade-up">
+            <div class="figure-main">
+              <img
+                src="assets/img/algofairness/results/fairness_curve.png"
+                alt="Fairness curves showing model performance across demographic groups at different thresholds"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <strong>Figure 2: Fairness Curves</strong> — Performance metrics
+              across threshold values reveal how different groups are affected
+              by classification decisions. The gap between curves represents
+              algorithmic discrimination.
+            </div>
+          </div>
+
+          <div class="figure-grid figure-grid-2" data-aos="fade-up">
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/results/roc_curve.png"
+                alt="ROC curves comparing model discrimination ability"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>ROC Curves</strong> — Area Under Curve (AUC) comparison
+                across models shows strong overall discrimination, but
+                group-specific analysis tells a different story.
+              </div>
+            </div>
+
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/results/pr_curve.png"
+                alt="Precision-Recall curves for minority class performance"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Precision-Recall Curves</strong> — Critical for
+                imbalanced datasets. Performance on minority groups (the ones
+                that matter most) is significantly worse.
+              </div>
+            </div>
+          </div>
+
+          <div class="figure-showcase" data-aos="fade-up">
+            <div class="figure-main">
+              <img
+                src="assets/img/algofairness/results/confusion_matrix.png"
+                alt="Confusion matrix showing classification errors"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <strong>Figure 3: Confusion Matrix</strong> — Error patterns
+              reveal systematic misclassification of content from marginalized
+              creators.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MITIGATION STRATEGIES -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 data-aos="fade-up">4. Bias Mitigation: Finding Solutions</h2>
+          <p class="section-intro" data-aos="fade-up">
+            I tested three categories of fairness interventions across the ML
+            pipeline. The key insight: <strong>there's no free lunch</strong>,
+            but smart trade-offs exist.
+          </p>
+
+          <div class="mitigation-stages" data-aos="fade-up">
+            <div class="stage-card">
+              <div class="stage-header pre">
+                <span class="stage-num">1</span>
+                <h3>Pre-Processing</h3>
+              </div>
+              <div class="stage-body">
+                <p><strong>Technique:</strong> Reweighing</p>
+                <p>
+                  Adjusts sample weights to balance group representation before
+                  training.
+                </p>
+                <ul>
+                  <li>✅ Simple to implement</li>
+                  <li>✅ Model-agnostic</li>
+                  <li>⚠️ Limited bias reduction</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <div class="stage-header in">
+                <span class="stage-num">2</span>
+                <h3>In-Processing</h3>
+              </div>
+              <div class="stage-body">
+                <p>
+                  <strong>Technique:</strong> Exponentiated Gradient +
+                  Demographic Parity
+                </p>
+                <p>
+                  Constrains optimization to satisfy fairness during training.
+                </p>
+                <ul>
+                  <li>✅ Best fairness results</li>
+                  <li>✅ Principled approach</li>
+                  <li>⚠️ Computational cost</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <div class="stage-header post">
+                <span class="stage-num">3</span>
+                <h3>Post-Processing</h3>
+              </div>
+              <div class="stage-body">
+                <p><strong>Technique:</strong> Calibrated Equalized Odds</p>
+                <p>
+                  Adjusts predictions after training to equalize error rates.
+                </p>
+                <ul>
+                  <li>✅ No retraining needed</li>
+                  <li>✅ Works with any model</li>
+                  <li>⚠️ May reduce overall accuracy</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="figure-grid figure-grid-2" data-aos="fade-up">
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/results/inproc_margins.png"
+                alt="In-processing mitigation margins showing fairness-accuracy trade-off"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>In-Processing Margins</strong> — Exponentiated Gradient
+                achieves the best fairness-accuracy balance, reducing the gap to
+                -4.6%.
+              </div>
+            </div>
+
+            <div class="figure-item">
+              <img
+                src="assets/img/algofairness/results/postproc_margins.png"
+                alt="Post-processing mitigation margins"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+              <div class="figure-caption">
+                <strong>Post-Processing Margins</strong> — Calibrated Equalized
+                Odds provides quick wins without retraining, but with lower
+                ceiling.
+              </div>
+            </div>
+          </div>
+
+          <div class="figure-showcase" data-aos="fade-up">
+            <div class="figure-main">
+              <img
+                src="assets/img/algofairness/showcase/mitigation_effectiveness.png"
+                alt="Comparison of mitigation effectiveness across all strategies"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <strong>Figure 4: Mitigation Effectiveness Comparison</strong> —
+              Head-to-head comparison of all three mitigation strategies across
+              fairness metrics. In-processing wins.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARETO FRONTIER -->
+      <section class="section">
+        <div class="container">
+          <h2 data-aos="fade-up">5. The Accuracy-Fairness Trade-off</h2>
+          <p class="section-intro" data-aos="fade-up">
+            The Pareto frontier reveals which models achieve optimal trade-offs
+            between predictive accuracy and demographic fairness. This is the
+            key decision tool for practitioners.
+          </p>
+
+          <div class="figure-showcase pareto-showcase" data-aos="fade-up">
+            <div class="figure-main">
+              <img
+                src="assets/img/algofairness/showcase/pareto_frontier.png"
+                alt="Accuracy-Fairness Pareto Frontier showing the trade-off space between model accuracy and fairness metrics, with different mitigation strategies plotted"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <strong>Figure 5: Accuracy-Fairness Pareto Frontier</strong> —
+              Each point represents a model configuration. Points on the
+              frontier represent optimal trade-offs — you can't improve fairness
+              without sacrificing accuracy, and vice versa. The goal is to move
+              from the bottom-left (unfair, inaccurate) to the top-right (fair,
+              accurate).
+            </div>
+          </div>
+
+          <div class="pareto-interpretation" data-aos="fade-up">
+            <h3>Reading the Frontier</h3>
+            <div class="pareto-legend">
+              <div class="legend-item">
+                <span class="legend-dot baseline"></span>
+                <span
+                  ><strong>Baseline RF:</strong> 80.5% accuracy, -12.6% gap —
+                  Starting point</span
+                >
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot reweighed"></span>
+                <span
+                  ><strong>Reweighed RF:</strong> 86.2% accuracy, EOD: 0.053 —
+                  Best accuracy</span
+                >
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot inproc"></span>
+                <span
+                  ><strong>EG + DP:</strong> 80.3% accuracy, -4.6% gap — Best
+                  fairness (64% improvement!)</span
+                >
+              </div>
+              <div class="legend-item">
+                <span class="legend-dot bert"></span>
+                <span
+                  ><strong>BERT:</strong> 92.6% accuracy — Highest overall,
+                  moderate fairness</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESEARCH LANDSCAPE -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 data-aos="fade-up">6. Research Landscape & Positioning</h2>
+
+          <div class="figure-showcase" data-aos="fade-up">
+            <div class="figure-main">
+              <img
+                src="assets/img/algofairness/showcase/research_landscape.png"
+                alt="Research landscape showing positioning of this work relative to existing literature"
+                class="research-figure clickable"
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <strong>Figure 6: Research Positioning</strong> — This work fills
+              a critical gap at the intersection of algorithmic fairness,
+              content moderation, and intersectional analysis. Most prior work
+              ignores adult content or treats demographics as single-axis.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 30-STEP PIPELINE -->
+      <section class="section">
+        <div class="container">
+          <h2 data-aos="fade-up">7. The 30-Step Reproducible Pipeline</h2>
+          <p class="section-intro" data-aos="fade-up">
+            This isn't just a paper — it's a complete, reproducible research
+            framework. Every step is automated, documented, and
+            version-controlled.
+          </p>
+
+          <div class="pipeline-detailed" data-aos="fade-up">
+            <div class="pipeline-phase">
+              <div class="phase-header discovery">
+                <span class="phase-range">Steps 1-6</span>
+                <h3>Data & Bias Discovery</h3>
+              </div>
+              <div class="phase-steps">
+                <div class="step">01: Corpus statistics & validation</div>
+                <div class="step">02: Exploratory data analysis</div>
+                <div class="step">03: PMI & stereotypical co-occurrence</div>
+                <div class="step">04: Harm terminology extraction</div>
+                <div class="step">05: Label preprocessing</div>
+                <div class="step">06: Temporal trend analysis</div>
+              </div>
+            </div>
+
+            <div class="pipeline-phase">
+              <div class="phase-header modeling">
+                <span class="phase-range">Steps 7-13</span>
+                <h3>Modeling & Fairness</h3>
+              </div>
+              <div class="phase-steps">
+                <div class="step">07: Baseline model training</div>
+                <div class="step">08: Comprehensive evaluation</div>
+                <div class="step">09: BERT fine-tuning</div>
+                <div class="step">10: Pre-processing mitigation</div>
+                <div class="step">11: In-processing mitigation</div>
+                <div class="step">12: Post-processing mitigation</div>
+                <div class="step">13: Mitigation effectiveness</div>
+              </div>
+            </div>
+
+            <div class="pipeline-phase">
+              <div class="phase-header advanced">
+                <span class="phase-range">Steps 15-23</span>
+                <h3>Advanced Analysis</h3>
+              </div>
+              <div class="phase-steps">
+                <div class="step">15: Causal inference setup</div>
+                <div class="step">16-19: Temporal & gap analysis</div>
+                <div class="step">20-21: Network strength metrics</div>
+                <div class="step">22: Category harm analysis</div>
+                <div class="step">23: Effect size calculation</div>
+              </div>
+            </div>
+
+            <div class="pipeline-phase">
+              <div class="phase-header synthesis">
+                <span class="phase-range">Steps 24-30</span>
+                <h3>Synthesis & Outputs</h3>
+              </div>
+              <div class="phase-steps">
+                <div class="step">24: Ground truth validation</div>
+                <div class="step">25: Pareto frontier generation</div>
+                <div class="step">26: Interactive dashboards</div>
+                <div class="step">27-28: Table generation</div>
+                <div class="step">29-30: Final report assembly</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECH STACK -->
+      <section class="section section-alt">
+        <div class="container container-narrow">
+          <h2 data-aos="fade-up">Technical Implementation</h2>
+
+          <div class="tech-stack-detailed" data-aos="fade-up">
+            <div class="tech-category">
+              <h3>Core ML & Fairness</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Python 3.12+</span>
+                <span class="tech-tag">scikit-learn</span>
+                <span class="tech-tag">Fairlearn</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Transformers (BERT)</span>
+              </div>
+            </div>
+
+            <div class="tech-category">
+              <h3>Data & Analysis</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Statsmodels</span>
+                <span class="tech-tag">NetworkX</span>
+                <span class="tech-tag">SciPy</span>
+              </div>
+            </div>
+
+            <div class="tech-category">
+              <h3>Visualization</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Seaborn</span>
+                <span class="tech-tag">Plotly</span>
+                <span class="tech-tag">Panel (Dashboards)</span>
+              </div>
+            </div>
+
+            <div class="tech-category">
+              <h3>Infrastructure</h3>
+              <div class="tech-tags">
+                <span class="tech-tag">Poetry</span>
+                <span class="tech-tag">pytest</span>
+                <span class="tech-tag">pre-commit</span>
+                <span class="tech-tag">GitHub Actions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-sample" data-aos="fade-up">
+            <h3>Sample: Fairness Evaluation</h3>
+            <pre><code><span class="keyword">from</span> fairlearn.metrics <span class="keyword">import</span> (
+    demographic_parity_difference,
+    equalized_odds_difference
+)
+
+<span class="comment"># Calculate fairness metrics by group</span>
+dpd = demographic_parity_difference(
+    y_true, y_pred,
+    sensitive_features=df[<span class="string">'intersectional_group'</span>]
+)
+
+eod = equalized_odds_difference(
+    y_true, y_pred,
+    sensitive_features=df[<span class="string">'intersectional_group'</span>]
+)
+
+<span class="keyword">print</span>(<span class="string">f"Demographic Parity Diff: {dpd:.4f}"</span>)
+<span class="keyword">print</span>(<span class="string">f"Equalized Odds Diff: {eod:.4f}"</span>)</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY TAKEAWAYS -->
+      <section class="section">
+        <div class="container container-narrow">
+          <h2 data-aos="fade-up">Key Takeaways</h2>
+
+          <div class="takeaways-grid" data-aos="fade-up">
+            <div class="takeaway-card">
+              <div class="takeaway-icon">📊</div>
+              <h3>Bias is Measurable</h3>
+              <p>
+                Intersectional fairness metrics reveal discrimination invisible
+                to aggregate accuracy scores.
+              </p>
+            </div>
+
+            <div class="takeaway-card">
+              <div class="takeaway-icon">🔧</div>
+              <h3>Bias is Fixable</h3>
+              <p>
+                In-processing mitigation reduced the accuracy gap from -12.6% to
+                -4.6% — a 64% improvement.
+              </p>
+            </div>
+
+            <div class="takeaway-card">
+              <div class="takeaway-icon">⚖️</div>
+              <h3>Trade-offs Exist</h3>
+              <p>
+                The Pareto frontier helps practitioners choose the right balance
+                for their context.
+              </p>
+            </div>
+
+            <div class="takeaway-card">
+              <div class="takeaway-icon">🔬</div>
+              <h3>Reproducibility Matters</h3>
+              <p>
+                30-step automated pipeline ensures every finding can be verified
+                and extended.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section section">
+        <div class="container text-center">
+          <h2 class="cta-title" data-aos="fade-up">Explore the Research</h2>
+          <p class="cta-text" data-aos="fade-up" data-aos-delay="100">
+            The complete codebase, data processing pipeline, and analysis
+            notebooks are available on GitHub. The full dissertation paper will
+            be published upon completion.
+          </p>
+          <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+            <a
+              href="https://github.com/louiseluli/AlgoFairness-Pornometrics"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              View Repository →
+            </a>
+            <a href="projects.html" class="btn btn-secondary">
+              ← Back to Projects
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <p class="footer-tagline">
+              Building algorithms that serve justice, not just efficiency.
+            </p>
+          </div>
+          <nav class="footer-nav">
+            <a href="projects.html">Back to Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Louise Ferreira. Built with purpose and code.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg
+        class="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg
+        class="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </body>
+</html>

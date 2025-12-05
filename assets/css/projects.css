@@ -691,15 +691,15 @@ body.dark-mode .phase-name {
   .gallery-thumbs {
     gap: var(--space-1);
   }
-  
+
   .gallery-thumbs .thumb {
     padding: var(--space-1) var(--space-2);
   }
-  
+
   .gallery-thumbs .thumb-label {
     font-size: 0.65rem;
   }
-  
+
   .gallery-main {
     aspect-ratio: 1/1;
   }
