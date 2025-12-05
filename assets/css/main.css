@@ -847,7 +847,8 @@ pre code {
 }
 
 /* Prevent horizontal overflow */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100%;
 }

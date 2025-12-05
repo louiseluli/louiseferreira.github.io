@@ -594,7 +594,11 @@ body.dark-mode .filter-btn {
   color: var(--primary-color);
   line-height: 1;
   margin-bottom: var(--space-2);
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -628,9 +632,115 @@ body.dark-mode .stat-card {
 }
 
 body.dark-mode .stat-number {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+/* -----------------------------------------------------------------------------
+   PROJECT CARD STATS (For individual project cards)
+   ----------------------------------------------------------------------------- */
+.project-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.project-stat {
+  background: linear-gradient(135deg, rgba(90, 31, 153, 0.08), rgba(107, 43, 171, 0.05));
+  border: 2px solid rgba(90, 31, 153, 0.15);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-stat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.project-stat:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 20px rgba(90, 31, 153, 0.15);
+}
+
+.project-stat:hover::before {
+  opacity: 1;
+}
+
+.project-stat .stat-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.project-stat .stat-label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--gray-700);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Highlighted stat (important discovery) */
+.project-stat.highlight {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.08));
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.project-stat.highlight::before {
+  background: linear-gradient(90deg, #10b981, #059669);
+  opacity: 1;
+}
+
+.project-stat.highlight .stat-num {
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.project-stat.highlight:hover {
+  border-color: #10b981;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Dark mode project stats */
+body.dark-mode .project-stat {
+  background: linear-gradient(135deg, rgba(196, 181, 253, 0.1), rgba(167, 139, 250, 0.05));
+  border-color: rgba(196, 181, 253, 0.2);
+}
+
+body.dark-mode .project-stat .stat-label {
+  color: var(--gray-600);
+}
+
+body.dark-mode .project-stat.highlight {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.15), rgba(16, 185, 129, 0.1));
+  border-color: rgba(52, 211, 153, 0.3);
 }
 
 /* -----------------------------------------------------------------------------
