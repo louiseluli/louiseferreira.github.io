@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/projects.css" />
     <link rel="stylesheet" href="assets/css/algofairness.css" />
+
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
 
   <body>
@@ -908,6 +911,20 @@ eod = equalized_odds_difference(
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/lightbox.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize animations
+      if (typeof AOS !== "undefined") {
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-out",
+          once: true,
+          offset: 100,
+        });
+      }
+    </script>
 
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       <svg
