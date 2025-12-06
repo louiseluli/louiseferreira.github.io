@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my work as an AI Fairness Researcher and Machine Learning Engineer.
 
-🌐 **Live site:** [louiseluli.github.io](https://louiseluli.github.io)
+🌐 **Live site:** [louiseluli.github.io/louiseferreira.github.io](https://louiseluli.github.io/louiseferreira.github.io/index.html)
 
 ## About
 
