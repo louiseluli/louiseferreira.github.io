@@ -109,8 +109,8 @@
 .project-card {
   background-color: var(--white);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  margin-bottom: var(--space-8);
+  padding: var(--space-10) var(--space-12);
+  margin-bottom: var(--space-10);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
   display: flex;
@@ -159,17 +159,18 @@
 
 .project-card-body {
   flex-grow: 1;
+  margin-top: var(--space-4);
 }
 
 .project-card-body p {
-  line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-4);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
   color: var(--text-dark);
 }
 
 .project-card-footer {
-  margin-top: var(--space-6);
-  padding-top: var(--space-6);
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
   border-top: 2px solid var(--gray-200);
 }
 

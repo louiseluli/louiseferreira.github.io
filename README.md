@@ -63,5 +63,3 @@ open index.html
 - 🐙 [GitHub](https://github.com/louiseluli)
 
 ---
-
-_Built with purpose and code._ ✨
