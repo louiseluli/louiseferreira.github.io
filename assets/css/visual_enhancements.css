@@ -1,0 +1,1006 @@
+/* =============================================================================
+   VISUAL ENHANCEMENTS - RETRO VIDEOGAME AESTHETIC
+   Professional portfolio with pixel-art, CRT, glitch, and neon effects
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   RETRO FONT INTEGRATION
+   ----------------------------------------------------------------------------- */
+.retro-heading,
+.retro-text-sm,
+.retro-label,
+.retro-card-number,
+.retro-quest-num,
+.quest-badge,
+.circle-num,
+.circle-label,
+.btn-pixel-icon {
+  font-family: "Press Start 2P", monospace;
+}
+
+/* -----------------------------------------------------------------------------
+   SCANLINE OVERLAY (CRT Monitor Effect)
+   ----------------------------------------------------------------------------- */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.015) 2px,
+    rgba(0, 0, 0, 0.015) 4px
+  );
+  opacity: 0.4;
+}
+
+body.dark-mode .scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  opacity: 0.5;
+}
+
+/* -----------------------------------------------------------------------------
+   PIXEL GRID BACKGROUND (Hero)
+   ----------------------------------------------------------------------------- */
+.pixel-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(90, 31, 153, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 31, 153, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+}
+
+body.dark-mode .pixel-grid {
+  background-image:
+    linear-gradient(rgba(196, 181, 253, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 181, 253, 0.06) 1px, transparent 1px);
+}
+
+#pixel-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* -----------------------------------------------------------------------------
+   GLITCH TEXT EFFECT (opt-in via data-text on single-line elements)
+   ----------------------------------------------------------------------------- */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-text-fill-color: initial;
+  background: none;
+}
+
+.glitch-text:hover::before {
+  opacity: 0.6;
+  color: #ff006e;
+  animation: glitch-1 0.3s ease-in-out;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+}
+
+.glitch-text:hover::after {
+  opacity: 0.6;
+  color: #00f5d4;
+  animation: glitch-2 0.3s ease-in-out;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(3px, -3px); }
+  60% { transform: translate(-2px, 1px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, -3px); }
+  40% { transform: translate(-3px, 3px); }
+  60% { transform: translate(2px, -1px); }
+  80% { transform: translate(-2px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* -----------------------------------------------------------------------------
+   NEON GLOW EFFECT
+   ----------------------------------------------------------------------------- */
+.neon-glow {
+  text-shadow:
+    0 0 7px rgba(90, 31, 153, 0.3),
+    0 0 20px rgba(90, 31, 153, 0.15),
+    0 0 42px rgba(90, 31, 153, 0.1);
+  animation: neon-pulse 4s ease-in-out infinite alternate;
+}
+
+body.dark-mode .neon-glow {
+  text-shadow:
+    0 0 7px rgba(196, 181, 253, 0.5),
+    0 0 20px rgba(196, 181, 253, 0.3),
+    0 0 42px rgba(196, 181, 253, 0.2),
+    0 0 80px rgba(196, 181, 253, 0.1);
+}
+
+@keyframes neon-pulse {
+  from {
+    text-shadow:
+      0 0 7px rgba(90, 31, 153, 0.3),
+      0 0 20px rgba(90, 31, 153, 0.15);
+  }
+  to {
+    text-shadow:
+      0 0 10px rgba(90, 31, 153, 0.5),
+      0 0 30px rgba(90, 31, 153, 0.25),
+      0 0 60px rgba(90, 31, 153, 0.15);
+  }
+}
+
+body.dark-mode .neon-glow {
+  animation-name: neon-pulse-dark;
+}
+
+@keyframes neon-pulse-dark {
+  from {
+    text-shadow:
+      0 0 7px rgba(196, 181, 253, 0.5),
+      0 0 20px rgba(196, 181, 253, 0.3);
+  }
+  to {
+    text-shadow:
+      0 0 10px rgba(196, 181, 253, 0.7),
+      0 0 30px rgba(196, 181, 253, 0.4),
+      0 0 60px rgba(196, 181, 253, 0.2),
+      0 0 100px rgba(196, 181, 253, 0.1);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   BLINKING CURSOR
+   ----------------------------------------------------------------------------- */
+.blink-cursor {
+  animation: blink 1s step-end infinite;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.8em;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO BADGE (Greeting)
+   ----------------------------------------------------------------------------- */
+.retro-badge {
+  position: relative;
+  border: 2px solid var(--primary-color);
+  background: linear-gradient(135deg,
+    rgba(90, 31, 153, 0.1),
+    rgba(90, 31, 153, 0.05)
+  ) !important;
+  border-radius: 4px !important;
+  box-shadow:
+    3px 3px 0 rgba(90, 31, 153, 0.3),
+    inset 0 0 20px rgba(90, 31, 153, 0.05);
+}
+
+body.dark-mode .retro-badge {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg,
+    rgba(196, 181, 253, 0.15),
+    rgba(196, 181, 253, 0.05)
+  ) !important;
+  box-shadow:
+    3px 3px 0 rgba(196, 181, 253, 0.2),
+    inset 0 0 20px rgba(196, 181, 253, 0.05),
+    0 0 15px rgba(196, 181, 253, 0.1);
+  color: var(--primary-color) !important;
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO SEPARATOR & LABEL
+   ----------------------------------------------------------------------------- */
+.retro-separator {
+  color: var(--primary-color);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7em;
+  margin-right: 0.5em;
+  animation: blink 2s step-end infinite;
+}
+
+.retro-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-color);
+  margin: 0 0.75em;
+  vertical-align: middle;
+}
+
+body.dark-mode .retro-dot {
+  background: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+}
+
+.retro-label {
+  display: block;
+  text-align: center;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: var(--space-3);
+  opacity: 0.7;
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO DIVIDER
+   ----------------------------------------------------------------------------- */
+.retro-divider {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: var(--space-4) auto var(--space-8);
+}
+
+.retro-divider span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+.retro-divider span:nth-child(2) {
+  opacity: 0.8;
+  width: 12px;
+  height: 12px;
+}
+
+.retro-divider span:nth-child(3) {
+  opacity: 0.5;
+}
+
+body.dark-mode .retro-divider span {
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO SECTION HEADER
+   ----------------------------------------------------------------------------- */
+.section-header-retro {
+  margin-bottom: var(--space-6);
+}
+
+.section-header-retro .section-title {
+  position: relative;
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO CARDS
+   ----------------------------------------------------------------------------- */
+.retro-card {
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible;
+}
+
+.retro-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.retro-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 0 -2px var(--primary-color),
+    0 16px 30px rgba(90, 31, 153, 0.15);
+}
+
+body.dark-mode .retro-card:hover {
+  border-color: var(--primary-color);
+  box-shadow:
+    0 8px 0 -2px var(--primary-color),
+    0 0 30px rgba(196, 181, 253, 0.1),
+    0 16px 30px rgba(0, 0, 0, 0.3);
+}
+
+.retro-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px dashed var(--gray-200);
+}
+
+.retro-card-number {
+  font-size: 0.6rem;
+  color: var(--primary-color);
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+}
+
+/* XP Bar */
+.retro-xp-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--gray-200);
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid var(--gray-300);
+}
+
+.retro-xp-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 0;
+  transition: width 1.5s ease;
+  position: relative;
+}
+
+.retro-xp-bar span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.15) 3px,
+    rgba(255, 255, 255, 0.15) 6px
+  );
+}
+
+body.dark-mode .retro-xp-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .retro-xp-bar span {
+  box-shadow: 0 0 10px rgba(196, 181, 253, 0.3);
+}
+
+/* Retro Icon */
+.retro-icon {
+  position: relative;
+  background: linear-gradient(135deg,
+    rgba(90, 31, 153, 0.1),
+    rgba(90, 31, 153, 0.05));
+  border: 2px solid rgba(90, 31, 153, 0.2);
+  padding: var(--space-4);
+  border-radius: 4px;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.retro-card:hover .retro-icon {
+  background: linear-gradient(135deg,
+    rgba(90, 31, 153, 0.2),
+    rgba(90, 31, 153, 0.1));
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(90, 31, 153, 0.15);
+  transform: scale(1.05);
+}
+
+body.dark-mode .retro-icon {
+  background: linear-gradient(135deg,
+    rgba(196, 181, 253, 0.15),
+    rgba(196, 181, 253, 0.05));
+  border-color: rgba(196, 181, 253, 0.3);
+}
+
+body.dark-mode .retro-card:hover .retro-icon {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(196, 181, 253, 0.2);
+}
+
+/* Retro Link */
+.retro-link {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.retro-link span {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.retro-link:hover span {
+  transform: translateX(4px);
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO QUEST CARDS (Focus Section)
+   ----------------------------------------------------------------------------- */
+.retro-quest-card {
+  border-left: 3px solid var(--primary-color);
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.retro-quest-card::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--primary-color);
+  border-radius: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+body.dark-mode .retro-quest-card::before {
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.retro-quest-num {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.1em;
+}
+
+.quest-status {
+  margin-top: var(--space-3);
+}
+
+.quest-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(90, 31, 153, 0.05);
+  animation: badge-pulse 3s ease-in-out infinite;
+}
+
+.quest-badge.active {
+  border-color: var(--success-color);
+  color: var(--success-color);
+  background: rgba(4, 120, 87, 0.05);
+}
+
+body.dark-mode .quest-badge.active {
+  border-color: var(--success-color);
+  color: var(--success-color);
+  background: rgba(110, 231, 183, 0.1);
+  box-shadow: 0 0 10px rgba(110, 231, 183, 0.15);
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO BUTTONS
+   ----------------------------------------------------------------------------- */
+.retro-btn {
+  position: relative;
+  border-radius: 4px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  border: 2px solid transparent;
+}
+
+.retro-btn.btn-primary {
+  box-shadow:
+    4px 4px 0 rgba(90, 31, 153, 0.4);
+}
+
+.retro-btn.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0 rgba(90, 31, 153, 0.4);
+}
+
+.retro-btn.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    2px 2px 0 rgba(90, 31, 153, 0.4);
+}
+
+.retro-btn.btn-secondary {
+  box-shadow:
+    4px 4px 0 rgba(90, 31, 153, 0.2);
+}
+
+.retro-btn.btn-secondary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0 rgba(90, 31, 153, 0.3);
+}
+
+body.dark-mode .retro-btn.btn-primary {
+  box-shadow:
+    4px 4px 0 rgba(196, 181, 253, 0.3),
+    0 0 15px rgba(196, 181, 253, 0.1);
+}
+
+body.dark-mode .retro-btn.btn-primary:hover {
+  box-shadow:
+    6px 6px 0 rgba(196, 181, 253, 0.3),
+    0 0 25px rgba(196, 181, 253, 0.15);
+}
+
+body.dark-mode .retro-btn.btn-secondary {
+  box-shadow:
+    4px 4px 0 rgba(196, 181, 253, 0.15);
+}
+
+.btn-pixel-icon {
+  font-size: 0.7em;
+  margin-right: 0.3em;
+  vertical-align: middle;
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO TERMINAL (Code Snippet)
+   ----------------------------------------------------------------------------- */
+.retro-terminal {
+  border: 2px solid rgba(90, 31, 153, 0.3) !important;
+  border-radius: 4px !important;
+  position: relative;
+}
+
+.retro-terminal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 0, 0.008) 2px,
+    rgba(0, 255, 0, 0.008) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.retro-terminal .snippet-header {
+  border-bottom: 2px solid rgba(90, 31, 153, 0.2) !important;
+  background: linear-gradient(90deg, #0a0e1a, #0f172a) !important;
+}
+
+body.dark-mode .retro-terminal {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 20px rgba(196, 181, 253, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+   PIXEL BORDER EFFECT (Stat Circles)
+   ----------------------------------------------------------------------------- */
+.pixel-border {
+  border-radius: 4px !important;
+  position: relative;
+}
+
+.pixel-border::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.stat-circle.pixel-border {
+  border-radius: 4px !important;
+}
+
+.stat-circle.pixel-border .circle-num {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.2rem;
+}
+
+.stat-circle.pixel-border .circle-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.05em;
+}
+
+/* -----------------------------------------------------------------------------
+   PIXEL ARROW DOWN (Scroll Indicator)
+   ----------------------------------------------------------------------------- */
+.pixel-arrow-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  animation: pixel-bounce 2s ease-in-out infinite;
+}
+
+.pixel-arrow-down span {
+  display: block;
+  background: var(--primary-color);
+  opacity: 0.6;
+}
+
+.pixel-arrow-down span:nth-child(1) {
+  width: 12px;
+  height: 3px;
+}
+
+.pixel-arrow-down span:nth-child(2) {
+  width: 8px;
+  height: 3px;
+}
+
+.pixel-arrow-down span:nth-child(3) {
+  width: 4px;
+  height: 3px;
+}
+
+@keyframes pixel-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.retro-text-sm {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* -----------------------------------------------------------------------------
+   CTA RETRO FRAME
+   ----------------------------------------------------------------------------- */
+.cta-retro-frame {
+  position: relative;
+  padding: var(--space-12);
+  border: 2px solid rgba(90, 31, 153, 0.15);
+  border-radius: 4px;
+  background: linear-gradient(135deg,
+    rgba(90, 31, 153, 0.02),
+    rgba(90, 31, 153, 0.06)
+  );
+}
+
+.cta-retro-frame::before,
+.cta-retro-frame::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--primary-color);
+  opacity: 0.3;
+}
+
+.cta-retro-frame::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.cta-retro-frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+body.dark-mode .cta-retro-frame {
+  border-color: rgba(196, 181, 253, 0.2);
+  background: linear-gradient(135deg,
+    rgba(196, 181, 253, 0.03),
+    rgba(196, 181, 253, 0.08)
+  );
+  box-shadow: 0 0 30px rgba(196, 181, 253, 0.05);
+}
+
+body.dark-mode .cta-retro-frame::before,
+body.dark-mode .cta-retro-frame::after {
+  border-color: var(--primary-color);
+  opacity: 0.4;
+}
+
+/* -----------------------------------------------------------------------------
+   RETRO HEADING STYLE
+   ----------------------------------------------------------------------------- */
+.retro-heading {
+  position: relative;
+}
+
+/* -----------------------------------------------------------------------------
+   FOOTER RETRO ENHANCEMENTS
+   ----------------------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--primary-color) 20%,
+    var(--secondary-color) 50%,
+    var(--primary-color) 80%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.footer-bottom p {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem !important;
+  letter-spacing: 0.1em;
+}
+
+/* -----------------------------------------------------------------------------
+   NAVBAR RETRO TOUCH
+   ----------------------------------------------------------------------------- */
+.navbar-brand span {
+  position: relative;
+}
+
+.site-header::after {
+  background: linear-gradient(90deg,
+    var(--primary-color),
+    #ff006e,
+    #00f5d4,
+    var(--primary-color)
+  ) !important;
+  height: 2px !important;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------------------------------
+   FOCUS SECTION RETRO STYLING
+   ----------------------------------------------------------------------------- */
+.focus-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.focus-item {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+  padding: var(--space-6);
+  background: var(--white);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.focus-item:hover {
+  border-color: var(--primary-color);
+  transform: translateX(4px);
+  box-shadow: -4px 4px 0 rgba(90, 31, 153, 0.15);
+}
+
+body.dark-mode .focus-item:hover {
+  box-shadow:
+    -4px 4px 0 rgba(196, 181, 253, 0.15),
+    0 0 20px rgba(196, 181, 253, 0.05);
+}
+
+.focus-number {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  opacity: 0.3;
+  min-width: 60px;
+  line-height: 1;
+}
+
+.focus-text h3 {
+  margin-bottom: var(--space-2);
+}
+
+.focus-text p {
+  margin-bottom: var(--space-2);
+}
+
+/* -----------------------------------------------------------------------------
+   CTA SECTION STYLING
+   ----------------------------------------------------------------------------- */
+.cta-title {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-4);
+}
+
+.cta-text {
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--gray-700);
+}
+
+body.dark-mode .cta-text {
+  color: var(--gray-600);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* -----------------------------------------------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   ----------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .scanlines {
+    opacity: 0.2;
+  }
+
+  .retro-label {
+    font-size: 0.5rem;
+  }
+
+  .retro-card-header {
+    gap: var(--space-2);
+  }
+
+  .retro-card-number {
+    font-size: 0.5rem;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    display: none;
+  }
+
+  .cta-retro-frame {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .cta-retro-frame::before,
+  .cta-retro-frame::after {
+    display: none;
+  }
+
+  .focus-item {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .focus-number {
+    font-size: 1rem;
+  }
+
+  .stat-circle.pixel-border .circle-num {
+    font-size: 1rem;
+  }
+
+  .stat-circle.pixel-border .circle-label {
+    font-size: 0.35rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .pixel-subtitle {
+    font-size: var(--text-sm) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .retro-text-sm {
+    font-size: 0.45rem;
+  }
+
+  .quest-badge {
+    font-size: 0.4rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.4rem !important;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   REDUCED MOTION PREFERENCES
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .glitch-text::before,
+  .glitch-text::after {
+    display: none;
+  }
+
+  .neon-glow {
+    animation: none;
+  }
+
+  .blink-cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .badge-pulse {
+    animation: none;
+  }
+
+  .pixel-arrow-down {
+    animation: none;
+  }
+
+  .scanlines {
+    display: none;
+  }
+
+  #pixel-canvas {
+    display: none;
+  }
+}

@@ -182,11 +182,12 @@
                 <p>
                   This thesis proves this discrimination is
                   <strong>measurable</strong>, <strong>quantifiable</strong>,
-                  and most importantly — <strong>fixable</strong>. Through a
-                  novel
-                  <strong>Ensemble Fairness Optimization</strong> approach, I
-                  successfully reduced documented bias while preserving
-                  predictive accuracy.
+                  and most importantly — <strong>fixable</strong>. I
+                  compared <strong>six bias mitigation strategies</strong>
+                  head-to-head with Pareto analysis, and found something
+                  counter-intuitive along the way: the theoretically
+                  favored technique — adversarial debiasing — actually made
+                  things worse for two of the three marginalized groups.
                 </p>
               </div>
 
@@ -198,16 +199,16 @@
                     <div class="stat-label">Videos Analyzed</div>
                   </div>
                   <div class="stat-card">
-                    <div class="stat-number">0.8%</div>
+                    <div class="stat-number">2.98%</div>
                     <div class="stat-label">Black Women Representation</div>
                   </div>
                   <div class="stat-card">
-                    <div class="stat-number">92.6%</div>
-                    <div class="stat-label">Best Model Accuracy (BERT)</div>
+                    <div class="stat-number">95.3%</div>
+                    <div class="stat-label">Best Accuracy (Reweighed RF)</div>
                   </div>
                   <div class="stat-card highlight-stat">
-                    <div class="stat-number">-12.6%</div>
-                    <div class="stat-label">Baseline Gap (Black Women)</div>
+                    <div class="stat-number">53%</div>
+                    <div class="stat-label">Black Women EOD Reduction</div>
                   </div>
                 </div>
               </div>
@@ -216,10 +217,12 @@
                 <h3>Key Findings: Bias is Measurable</h3>
                 <p>
                   High overall model accuracy masks significant underlying
-                  biases. The RF model's F1-score for Asian Women (0.119) is
-                  <strong>less than a quarter</strong>
-                  of the score for White Women (0.583), demonstrating severe
-                  performance disparity.
+                  biases. The baseline Random Forest recalls Black Women's
+                  content correctly just
+                  <strong>56.2% of the time</strong>, nearly 20 points below
+                  White Women's <strong>75.8%</strong> — an Equal Opportunity
+                  Difference (EOD) of 0.196. Latina Women fare even worse
+                  (EOD 0.200).
                 </p>
 
                 <div class="findings-table">
@@ -235,27 +238,27 @@
                     <tbody>
                       <tr>
                         <td>Random Forest</td>
-                        <td>Asian Women</td>
-                        <td>79.5%</td>
-                        <td class="metric-bad">0.119</td>
+                        <td>Latina Women</td>
+                        <td>81.0%</td>
+                        <td class="metric-bad">0.664</td>
                       </tr>
                       <tr>
                         <td>Random Forest</td>
                         <td>Black Women</td>
-                        <td>83.3%</td>
-                        <td>0.494</td>
+                        <td>84.4%</td>
+                        <td>0.686</td>
                       </tr>
                       <tr>
                         <td>Random Forest</td>
                         <td>White Women</td>
-                        <td>70.7%</td>
-                        <td class="metric-good">0.583</td>
+                        <td>91.7%</td>
+                        <td class="metric-good">0.842</td>
                       </tr>
                       <tr>
-                        <td>BERT</td>
-                        <td>Black Women</td>
-                        <td>95.6%</td>
-                        <td class="metric-good">0.904</td>
+                        <td>DistilBERT</td>
+                        <td>Overall</td>
+                        <td>92.4%</td>
+                        <td class="metric-good">0.868</td>
                       </tr>
                     </tbody>
                   </table>
@@ -263,14 +266,18 @@
               </div>
 
               <div class="research-section">
-                <h3>Solutions: Bias Can Be Reduced</h3>
+                <h3>Solutions: Bias Can Be Reduced (But Not However You'd Guess)</h3>
                 <p>
-                  I tested three bias mitigation strategies: pre-processing
-                  (Reweighing), in-processing (Exponentiated Gradient with
-                  Demographic Parity), and post-processing (Calibrated Equalized
-                  Odds). The best approach reduced the accuracy gap for Black
-                  women from <strong>-12.6% to -4.6%</strong> — a 64%
-                  improvement.
+                  I benchmarked six mitigation strategies — pre-, in-, and
+                  post-processing — with Pareto analysis across accuracy and
+                  fairness. Only two came out non-dominated: <strong>reweighing</strong>
+                  (best accuracy, 95.3%, Black Women EOD down 53% to 0.092) and
+                  <strong>post-processing ThresholdOptimizer</strong> (near-exact
+                  parity, max EOD 0.027, at a 3.9pp accuracy cost). Adversarial
+                  debiasing — the technique the literature predicts should win —
+                  was dominated on <em>both</em> axes, worsening EOD for Asian
+                  Women (0.109 → 0.283) because their content vocabulary <em>is</em>
+                  the classification signal.
                 </p>
 
                 <div class="mitigation-comparison">
@@ -278,25 +285,37 @@
                     <div class="comparison-label">Baseline RF</div>
                     <div class="comparison-bar">
                       <div class="bar-segment bad" style="width: 100%">
-                        <span>-12.6% accuracy gap</span>
+                        <span>87.8% acc, EOD: 0.196</span>
                       </div>
                     </div>
                   </div>
                   <div class="comparison-item">
                     <div class="comparison-label">
-                      Reweighed RF (Best Accuracy)
+                      Reweighed RF (Best Accuracy, Non-Dominated)
                     </div>
                     <div class="comparison-bar">
-                      <div class="bar-segment medium" style="width: 42%">
-                        <span>86.2% acc, EOD: 0.053</span>
+                      <div class="bar-segment good" style="width: 95%">
+                        <span>95.3% acc, EOD: 0.092 ✨</span>
                       </div>
                     </div>
                   </div>
                   <div class="comparison-item">
-                    <div class="comparison-label">In-Processing (EG + DP)</div>
+                    <div class="comparison-label">
+                      Post-Processing (Best Fairness, Non-Dominated)
+                    </div>
                     <div class="comparison-bar">
-                      <div class="bar-segment good" style="width: 36.5%">
-                        <span>-4.6% gap (64% improvement!) ✨</span>
+                      <div class="bar-segment medium" style="width: 84%">
+                        <span>83.9% acc, max EOD: 0.027 (near-parity)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comparison-item">
+                    <div class="comparison-label">
+                      Adversarial Debiasing (Failed — Dominated)
+                    </div>
+                    <div class="comparison-bar">
+                      <div class="bar-segment bad" style="width: 80%">
+                        <span>79.6% acc, EOD worsened for 2 groups ⚠️</span>
                       </div>
                     </div>
                   </div>
@@ -369,7 +388,7 @@
                   View Full Case Study →
                 </a>
                 <a
-                  href="https://github.com/louiseluli/AlgoFairness-Pornometrics"
+                  href="https://github.com/louiseluli/Thesis_UniEssex_revised"
                   class="btn btn-secondary"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -389,28 +408,28 @@
                 <div class="gallery-main">
                   <img
                     src="assets/img/algofairness/showcase/pareto_frontier.png"
-                    alt="Accuracy-Fairness Pareto Frontier showing trade-offs between different mitigation strategies"
+                    alt="Accuracy-Fairness Pareto Frontier: reweighing and post-processing are the only non-dominated strategies"
                     class="gallery-image active"
                     id="gallery-pareto"
                     loading="lazy"
                   />
                   <img
                     src="assets/img/algofairness/showcase/corpus_overview.png"
-                    alt="Corpus Overview Dashboard showing dataset composition and statistics"
+                    alt="Bar chart of corpus representation by race x gender intersection, showing Black, Latina, and Asian women each under 3%"
                     class="gallery-image"
                     id="gallery-corpus"
                     loading="lazy"
                   />
                   <img
                     src="assets/img/algofairness/showcase/mitigation_effectiveness.png"
-                    alt="Mitigation Effectiveness comparing bias reduction across strategies"
+                    alt="Decision margin histogram for the pre-processing reweighing strategy, the best-accuracy mitigation approach"
                     class="gallery-image"
                     id="gallery-mitigation"
                     loading="lazy"
                   />
                   <img
                     src="assets/img/algofairness/results/fairness_curve.png"
-                    alt="Fairness Curves showing model performance across demographic groups"
+                    alt="Fairness vs. threshold curve showing max Equal Opportunity Difference across demographic groups"
                     class="gallery-image"
                     id="gallery-fairness"
                     loading="lazy"
@@ -452,8 +471,9 @@
                 <!-- Caption -->
                 <div class="gallery-caption">
                   <p id="gallery-caption-text">
-                    Accuracy-Fairness Pareto Frontier: Comparing mitigation
-                    strategies across the trade-off space
+                    Accuracy-Fairness Pareto Frontier: Reweighing and
+                    post-processing are the only non-dominated strategies of
+                    five tested
                   </p>
                 </div>
               </div>
@@ -893,7 +913,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2025 Louise Ferreira. Built with purpose and code.</p>
+          <p>&copy; 2026 Louise Ferreira. Built with purpose and code.</p>
         </div>
       </div>
     </footer>

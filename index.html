@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -129,25 +129,33 @@
     </header>
 
     <main id="main-content" class="main-content">
+      <!-- Scanline overlay for retro CRT effect -->
+      <div class="scanlines" aria-hidden="true"></div>
+
       <section class="hero">
         <div class="hero-background">
-          <div class="wave-pattern"></div>
+          <div class="pixel-grid" aria-hidden="true"></div>
+          <canvas id="pixel-canvas" aria-hidden="true"></canvas>
         </div>
         <div class="container">
           <div class="hero-content">
             <div class="hero-text" data-aos="fade-right">
-              <div class="hero-greeting">
+              <div class="hero-greeting retro-badge">
                 <span class="greeting-emoji">👋🏾</span>
                 <span>Hi, I'm Louise</span>
+                <span class="blink-cursor" aria-hidden="true">_</span>
               </div>
 
               <h1 class="hero-title">
                 Building Algorithms for<br />
-                <span class="highlight-text">Justice, Not Just Efficiency</span>
+                <span class="highlight-text neon-glow">Justice, Not Just Efficiency</span>
               </h1>
 
-              <h2 class="hero-subtitle">
-                AI Fairness Researcher • Machine Learning Engineer
+              <h2 class="hero-subtitle pixel-subtitle">
+                <span class="retro-separator" aria-hidden="true">></span>
+                AI Fairness Researcher
+                <span class="retro-dot" aria-hidden="true"></span>
+                Machine Learning Engineer
               </h2>
 
               <p class="hero-bio">
@@ -161,10 +169,12 @@
               </p>
 
               <div class="hero-cta">
-                <a href="projects.html" class="btn btn-primary">
+                <a href="projects.html" class="btn btn-primary retro-btn">
+                  <span class="btn-pixel-icon" aria-hidden="true">&#9654;</span>
                   View Research
                 </a>
-                <a href="contact.html" class="btn btn-secondary">
+                <a href="contact.html" class="btn btn-secondary retro-btn">
+                  <span class="btn-pixel-icon" aria-hidden="true">&#9733;</span>
                   Let's Connect
                 </a>
               </div>
@@ -172,19 +182,19 @@
 
             <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
               <div class="visual-stats">
-                <div class="stat-circle primary">
+                <div class="stat-circle primary pixel-border">
                   <div class="circle-content">
                     <span class="circle-num">5+</span>
                     <span class="circle-label">Years Exp</span>
                   </div>
                 </div>
-                <div class="stat-circle secondary">
+                <div class="stat-circle secondary pixel-border">
                   <div class="circle-content">
                     <span class="circle-num">3</span>
                     <span class="circle-label">Continents</span>
                   </div>
                 </div>
-                <div class="stat-circle tertiary">
+                <div class="stat-circle tertiary pixel-border">
                   <div class="circle-content">
                     <span class="circle-num">5</span>
                     <span class="circle-label">Languages</span>
@@ -192,7 +202,7 @@
                 </div>
               </div>
 
-              <div class="code-snippet">
+              <div class="code-snippet retro-terminal">
                 <div class="snippet-header">
                   <span class="snippet-dot red"></span>
                   <span class="snippet-dot yellow"></span>
@@ -202,49 +212,42 @@
                 <pre
                   class="snippet-code"
                 ><code><span class="code-comment"># Mitigating intersectional bias</span>
-<span class="code-keyword">from</span> fairlearn.reductions <span class="code-keyword">import</span> ExponentiatedGradient
-<span class="code-keyword">from</span> fairlearn.metrics <span class="code-keyword">import</span> demographic_parity_difference
+<span class="code-keyword">from</span> fairlearn.metrics <span class="code-keyword">import</span> equalized_odds_difference
+<span class="code-keyword">from</span> sklearn.utils.class_weight <span class="code-keyword">import</span> compute_sample_weight
 
-<span class="code-comment"># Baseline accuracy gap: Black women -12.6%</span>
-baseline_gap = <span class="code-number">-0.126</span>
+<span class="code-comment"># Baseline EOD, Black women vs. White women: 0.196</span>
+baseline_eod = <span class="code-number">0.196</span>
 
-<span class="code-comment"># Apply in-processing mitigation</span>
-mitigator = ExponentiatedGradient(
-    estimator=base_model,
-    constraints=DemographicParity()
-)
-mitigator.fit(X, y, sensitive_features=groups)
+<span class="code-comment"># Apply pre-processing reweighing</span>
+weights = compute_sample_weight(<span class="code-string">"balanced"</span>, groups)
+model.fit(X, y, sample_weight=weights)
 
-<span class="code-comment"># Result: Gap reduced to -4.6%</span>
-<span class="code-function">print</span>(<span class="code-string">"Bias reduction: 64%"</span>)</code></pre>
+<span class="code-comment"># Result: EOD reduced to 0.092, accuracy up to 95.3%</span>
+<span class="code-function">print</span>(<span class="code-string">"Bias reduction: 53%"</span>)</code></pre>
               </div>
             </div>
           </div>
         </div>
 
         <div class="scroll-indicator">
-          <span>Explore Work</span>
-          <svg
-            class="scroll-arrow"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-          </svg>
+          <span class="retro-text-sm">Explore Work</span>
+          <div class="pixel-arrow-down" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
         </div>
       </section>
 
       <section class="overview section" aria-labelledby="overview-title">
         <div class="container">
-          <h2 id="overview-title" class="section-title text-center">
-            What I Bring to the Table
-          </h2>
+          <div class="section-header-retro">
+            <span class="retro-label" aria-hidden="true">// SKILLS</span>
+            <h2 id="overview-title" class="section-title text-center retro-heading">
+              What I Bring to the Table
+            </h2>
+            <div class="retro-divider" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
           <p class="section-intro text-center">
             My work bridges the gap between technical implementation and ethical
             responsibility. From classifying harmful content to governing
@@ -252,8 +255,12 @@ mitigator.fit(X, y, sensitive_features=groups)
           </p>
 
           <div class="grid grid-3">
-            <article class="feature-card card" data-aos="fade-up">
-              <div class="feature-icon" aria-hidden="true">
+            <article class="feature-card card retro-card" data-aos="fade-up">
+              <div class="retro-card-header" aria-hidden="true">
+                <span class="retro-card-number">01</span>
+                <span class="retro-xp-bar"><span style="width: 92%"></span></span>
+              </div>
+              <div class="feature-icon retro-icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -275,17 +282,21 @@ mitigator.fit(X, y, sensitive_features=groups)
                 dissertation reduced algorithmic disparity against Black women
                 by 64%.
               </p>
-              <a href="projects.html" class="feature-link">
-                Explore projects
+              <a href="projects.html" class="feature-link retro-link">
+                <span aria-hidden="true">></span> Explore projects
               </a>
             </article>
 
             <article
-              class="feature-card card"
+              class="feature-card card retro-card"
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <div class="feature-icon" aria-hidden="true">
+              <div class="retro-card-header" aria-hidden="true">
+                <span class="retro-card-number">02</span>
+                <span class="retro-xp-bar"><span style="width: 88%"></span></span>
+              </div>
+              <div class="feature-icon retro-icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -307,15 +318,21 @@ mitigator.fit(X, y, sensitive_features=groups)
                 compliance, and AI security at Big Four firms and global
                 fintechs.
               </p>
-              <a href="skills.html" class="feature-link"> View skills </a>
+              <a href="skills.html" class="feature-link retro-link">
+                <span aria-hidden="true">></span> View skills
+              </a>
             </article>
 
             <article
-              class="feature-card card"
+              class="feature-card card retro-card"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div class="feature-icon" aria-hidden="true">
+              <div class="retro-card-header" aria-hidden="true">
+                <span class="retro-card-number">03</span>
+                <span class="retro-xp-bar"><span style="width: 95%"></span></span>
+              </div>
+              <div class="feature-icon retro-icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -338,7 +355,9 @@ mitigator.fit(X, y, sensitive_features=groups)
                 Chief Diversity Officer at Shaping Horizons. Building pathways
                 for underrepresented groups in tech through Negritude no PhD.
               </p>
-              <a href="awards.html" class="feature-link"> See achievements </a>
+              <a href="awards.html" class="feature-link retro-link">
+                <span aria-hidden="true">></span> See achievements
+              </a>
             </article>
           </div>
         </div>
@@ -346,13 +365,19 @@ mitigator.fit(X, y, sensitive_features=groups)
 
       <section class="focus section section-alt" aria-labelledby="focus-title">
         <div class="container container-narrow">
-          <h2 id="focus-title" class="section-title text-center">
-            Currently Exploring
-          </h2>
+          <div class="section-header-retro">
+            <span class="retro-label" aria-hidden="true">// QUEST LOG</span>
+            <h2 id="focus-title" class="section-title text-center retro-heading">
+              Currently Exploring
+            </h2>
+            <div class="retro-divider" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
 
           <div class="focus-content">
-            <div class="focus-item" data-aos="fade-right">
-              <span class="focus-number">01</span>
+            <div class="focus-item retro-quest-card" data-aos="fade-right">
+              <span class="focus-number retro-quest-num">01</span>
               <div class="focus-text">
                 <h3>Intersectional Bias in Content Moderation</h3>
                 <p>
@@ -360,11 +385,14 @@ mitigator.fit(X, y, sensitive_features=groups)
                   and BIPOC creators? I'm developing fairness interventions
                   using Fairlearn and custom NLP pipelines to fix this.
                 </p>
+                <div class="quest-status" aria-hidden="true">
+                  <span class="quest-badge active">IN PROGRESS</span>
+                </div>
               </div>
             </div>
 
-            <div class="focus-item" data-aos="fade-right" data-aos-delay="100">
-              <span class="focus-number">02</span>
+            <div class="focus-item retro-quest-card" data-aos="fade-right" data-aos-delay="100">
+              <span class="focus-number retro-quest-num">02</span>
               <div class="focus-text">
                 <h3>Cultural Data Mining</h3>
                 <p>
@@ -372,6 +400,9 @@ mitigator.fit(X, y, sensitive_features=groups)
                   in digital spaces. My recent work analyzed 140,000+ films to
                   map historical representation trends.
                 </p>
+                <div class="quest-status" aria-hidden="true">
+                  <span class="quest-badge active">IN PROGRESS</span>
+                </div>
               </div>
             </div>
           </div>
@@ -380,24 +411,30 @@ mitigator.fit(X, y, sensitive_features=groups)
 
       <section class="cta-section section" aria-labelledby="cta-title">
         <div class="container text-center">
-          <h2 id="cta-title" class="cta-title" data-aos="fade-up">
-            Let's Build Fairer Technology Together
-          </h2>
-          <p class="cta-text" data-aos="fade-up" data-aos-delay="100">
-            I'm always open to collaborating on projects that center equity,
-            justice, and ethical AI. Whether you're a researcher, organizer, or
-            just curious about algorithmic fairness — let's connect.
-          </p>
-          <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
-            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
-            <a
-              href="https://github.com/louiseluli"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-secondary"
-            >
-              View GitHub
-            </a>
+          <div class="cta-retro-frame">
+            <h2 id="cta-title" class="cta-title retro-heading" data-aos="fade-up">
+              Let's Build Fairer Technology Together
+            </h2>
+            <p class="cta-text" data-aos="fade-up" data-aos-delay="100">
+              I'm always open to collaborating on projects that center equity,
+              justice, and ethical AI. Whether you're a researcher, organizer, or
+              just curious about algorithmic fairness — let's connect.
+            </p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+              <a href="contact.html" class="btn btn-primary retro-btn">
+                <span class="btn-pixel-icon" aria-hidden="true">&#9733;</span>
+                Get In Touch
+              </a>
+              <a
+                href="https://github.com/louiseluli"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary retro-btn"
+              >
+                <span class="btn-pixel-icon" aria-hidden="true">&#9654;</span>
+                View GitHub
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -471,13 +508,14 @@ mitigator.fit(X, y, sensitive_features=groups)
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2025 Louise Ferreira. Built with purpose and code.</p>
+          <p>&copy; 2026 Louise Ferreira. Built with purpose and code.</p>
         </div>
       </div>
     </footer>
 
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/retro-effects.js"></script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

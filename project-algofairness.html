@@ -89,7 +89,7 @@
               color: #fff;
             "
           >
-            🔬 MSc Dissertation Research • University of Essex • 2024
+            🔬 MSc Dissertation Research • University of Essex • 2025
           </div>
           <h1 class="page-title" data-aos="fade-up">
             AlgoFairness Pornometrics
@@ -128,16 +128,16 @@
               <div class="stat-label">Videos Analyzed</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">0.8%</div>
+              <div class="stat-number">2.98%</div>
               <div class="stat-label">Black Women Representation</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">92.6%</div>
-              <div class="stat-label">Best Model Accuracy (BERT)</div>
+              <div class="stat-number">95.3%</div>
+              <div class="stat-label">Best Accuracy (Reweighed RF)</div>
             </div>
             <div class="stat-card highlight-stat">
-              <div class="stat-number">64%</div>
-              <div class="stat-label">Bias Reduction Achieved</div>
+              <div class="stat-number">53%</div>
+              <div class="stat-label">Black Women EOD Reduction</div>
             </div>
           </div>
         </div>
@@ -160,10 +160,13 @@
             <p>
               This thesis proves this discrimination is
               <strong>measurable</strong>, <strong>quantifiable</strong>, and
-              most importantly — <strong>fixable</strong>. Through a novel
-              <strong>Ensemble Fairness Optimization</strong> approach, I
-              successfully reduced documented bias while preserving predictive
-              accuracy.
+              most importantly — <strong>fixable</strong>. I benchmarked six
+              bias mitigation strategies against each other with
+              <strong>Pareto analysis</strong>, and found something the
+              literature doesn't predict: the theoretically favored
+              technique — adversarial debiasing — actually made outcomes
+              worse for Asian and Latina Women, because their content
+              vocabulary <em>is</em> the classification signal.
             </p>
           </div>
 
@@ -171,20 +174,26 @@
             <h3>Research Questions</h3>
             <ol>
               <li>
-                <strong>RQ1:</strong> What representational biases exist in UGC
-                adult video platform metadata?
+                <strong>RQ1:</strong> How are videos currently categorized,
+                and what representational biases exist in UGC adult video
+                platform metadata?
               </li>
               <li>
-                <strong>RQ2:</strong> How do ML classifiers perform across
-                intersectional demographic groups?
+                <strong>RQ2:</strong> Can ML models accurately predict
+                categories, and do they exhibit biases across intersectional
+                demographic groups?
               </li>
               <li>
-                <strong>RQ3:</strong> What are the causal mechanisms driving
-                algorithmic disparities?
+                <strong>RQ3:</strong> How can we quantify and compare biases
+                across different classification systems?
               </li>
               <li>
-                <strong>RQ4:</strong> Can bias mitigation techniques reduce
-                disparities while preserving accuracy?
+                <strong>RQ4:</strong> Which bias mitigation techniques most
+                effectively reduce disparities while preserving accuracy?
+              </li>
+              <li>
+                <strong>RQ5:</strong> What are the ethical considerations and
+                societal impacts of biased categorization?
               </li>
             </ol>
           </div>
@@ -200,16 +209,16 @@
             <div class="figure-main">
               <img
                 src="assets/img/algofairness/showcase/corpus_overview.png"
-                alt="Corpus Overview Dashboard showing the composition of 535,236 videos across demographic categories, temporal distribution, and metadata statistics"
+                alt="Bar chart showing representation share of each race x gender intersection in the 535,236-video corpus, with White x Female far ahead and Black, Latina, and Asian women each under 3%"
                 class="research-figure clickable"
                 loading="lazy"
               />
             </div>
             <div class="figure-caption">
-              <strong>Figure 1: Corpus Overview Dashboard</strong> —
-              Comprehensive view of the 535,236-video dataset showing
-              demographic distributions, temporal patterns, and metadata
-              characteristics.
+              <strong>Figure 1: Representation by Race × Gender
+              Intersection</strong> — Share of the 535,236-video corpus held
+              by each intersectional group. Black, Latina, and Asian women
+              are each under 3%, dwarfed by White women's share.
             </div>
           </div>
 
@@ -217,22 +226,27 @@
             <h3>Key Observations</h3>
             <ul>
               <li>
-                <strong>Severe underrepresentation:</strong> Black women
-                comprise only 0.81% of the corpus despite being a distinct
-                intersectional category
+                <strong>Severe underrepresentation:</strong> Black Women
+                comprise only 2.98% of the corpus (15,966 videos), Latina
+                Women 2.63% (14,070), and Asian Women 2.84% (15,196) —
+                against White Women's much larger share
               </li>
               <li>
-                <strong>49 metadata columns</strong> including protected
-                attributes (race, gender, sexuality, age) extracted via NLP
-                tagging
+                <strong>52 features across 111 categories</strong> including
+                protected attributes (race, gender, sexuality, age) inferred
+                from user-submitted tags and platform metadata
               </li>
               <li>
-                <strong>Temporal span:</strong> Videos from 2007-2024 enable
-                longitudinal bias analysis
+                <strong>Engagement gap:</strong> White Women average 4.26
+                views/day vs. 3.46 (Black), 3.44 (Latina), and 3.43 (Asian) —
+                and Black Women's ratings are declining 3.38 points/year
+                faster than the corpus average
               </li>
               <li>
-                <strong>Language distribution:</strong> Multilingual content
-                with intersection-specific patterns
+                <strong>Linguistic harm:</strong> PMI analysis shows racial
+                identity is encoded primarily through user-submitted tags
+                (e.g. "black girl", PMI 5.07) rather than platform-assigned
+                categories
               </li>
             </ul>
           </div>
@@ -252,56 +266,58 @@
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/eda/lang_intersection_heatmap.png"
-                alt="Heatmap showing language distribution across intersectional demographic groups"
+                alt="Heatmap of log2 over/under-representation for each category by race/ethnicity, showing Black content overrepresented in 'ebony' tags and Asian content overrepresented in 'asian' tags"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Language × Intersection Heatmap</strong> — Non-English
-                content correlates strongly with specific demographic groups,
-                suggesting potential language-based algorithmic penalties.
+                <strong>Category × Race/Ethnicity Representation</strong> —
+                Log2 over/under-representation by category. Racial identity
+                is disproportionately concentrated in a small set of
+                stereotyped tags rather than spread evenly across categories.
               </div>
             </div>
 
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/eda/top_categories.png"
-                alt="Bar chart showing top content categories by frequency"
+                alt="Bar chart showing the 15 most frequent content categories by video count and percentage of corpus"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Top Categories Distribution</strong> — Category tags
-                show clear skew toward stereotypical classifications for
-                marginalized groups.
+                <strong>Top 15 Categories</strong> — "Blowjob" (38.1%), "big
+                tits" (32.2%), and "amateur" (28.4%) dominate the corpus's
+                category vocabulary.
               </div>
             </div>
 
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/eda/mdi_decomposition.png"
-                alt="Intersectional representation decomposition showing MDI scores"
+                alt="Bar chart of KL divergence from the global category distribution, by race/ethnicity: Asian highest at 0.555, Black second, Latina and White lowest"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Marginal Disparity Index (MDI)</strong> — Quantifying
-                representational gaps across single and intersectional
-                identities. Higher MDI = greater underrepresentation.
+                <strong>Category KL Divergence by Group</strong> — Asian
+                Women's category distribution diverges furthest from the
+                corpus norm (KL: 0.555) — the structural reason adversarial
+                debiasing fails for this group.
               </div>
             </div>
 
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/eda/views_boxplot.png"
-                alt="Boxplot showing view count distribution across demographic groups"
+                alt="Boxplot of log10 views-per-day by group: White Women, Latina Women, Black Women, Asian Women"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>View Distribution by Group</strong> — Visibility
-                disparities: some intersectional groups receive systematically
-                fewer views, suggesting algorithmic suppression.
+                <strong>Views-per-Day by Group</strong> — White Women hold a
+                consistent engagement edge, with a heavier high-view tail
+                than Black, Latina, or Asian women.
               </div>
             </div>
           </div>
@@ -310,28 +326,29 @@
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/eda/category_cardinality.png"
-                alt="Category cardinality analysis showing tag diversity"
+                alt="Histogram of the number of tags assigned per video, peaking around 18-20 tags"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Category Cardinality</strong> — Tag diversity varies
-                significantly by group, with marginalized identities receiving
-                fewer, more stereotypical labels.
+                <strong>Tag Cardinality per Video</strong> — Most videos
+                carry 15-24 tags, the raw material from which race and
+                gender are inferred.
               </div>
             </div>
 
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/eda/month_seasonality.png"
-                alt="Monthly seasonality patterns in content uploads"
+                alt="Line chart of upload seasonality by month for Asian, Black, Latina, and White Women, all groups spiking sharply in July-August"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Temporal Seasonality</strong> — Upload patterns show
-                consistent trends across months, validating dataset stability
-                for longitudinal analysis.
+                <strong>Seasonality by Group</strong> — Black, Latina, and
+                Asian women's content shares spike far more sharply in
+                July-August than White women's, a pattern that validates the
+                need for age-normalized (views-per-day) metrics.
               </div>
             </div>
           </div>
@@ -349,71 +366,74 @@
           </p>
 
           <div class="findings-table-container" data-aos="fade-up">
-            <h3>Performance by Intersectional Group</h3>
+            <h3>Random Forest Performance by Intersectional Group</h3>
             <table class="findings-table">
               <thead>
                 <tr>
-                  <th>Model</th>
                   <th>Group</th>
                   <th>Accuracy</th>
+                  <th>Recall</th>
                   <th>F1-Score</th>
-                  <th>Gap vs Best</th>
+                  <th>EOD vs. White Women</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Random Forest</td>
-                  <td>Asian Women</td>
-                  <td>79.5%</td>
-                  <td class="metric-bad">0.119</td>
-                  <td class="metric-bad">-79.6%</td>
+                  <td>Latina Women</td>
+                  <td>81.0%</td>
+                  <td class="metric-bad">0.558</td>
+                  <td class="metric-bad">0.664</td>
+                  <td class="metric-bad">0.200</td>
                 </tr>
                 <tr>
-                  <td>Random Forest</td>
                   <td>Black Women</td>
-                  <td>83.3%</td>
-                  <td>0.494</td>
-                  <td>-15.3%</td>
+                  <td>84.4%</td>
+                  <td class="metric-bad">0.562</td>
+                  <td>0.686</td>
+                  <td class="metric-bad">0.196</td>
                 </tr>
                 <tr>
-                  <td>Random Forest</td>
-                  <td>White Women</td>
-                  <td>70.7%</td>
-                  <td class="metric-good">0.583</td>
-                  <td>—</td>
+                  <td>Asian Women</td>
+                  <td>87.6%</td>
+                  <td>0.649</td>
+                  <td>0.740</td>
+                  <td>0.109</td>
                 </tr>
                 <tr class="highlight-row">
-                  <td>BERT</td>
-                  <td>Overall</td>
-                  <td class="metric-good">92.6%</td>
-                  <td class="metric-good">0.891</td>
+                  <td>White Women</td>
+                  <td class="metric-good">91.7%</td>
+                  <td class="metric-good">0.758</td>
+                  <td class="metric-good">0.842</td>
                   <td>—</td>
-                </tr>
-                <tr>
-                  <td>BERT</td>
-                  <td>Black Women</td>
-                  <td>95.6%</td>
-                  <td class="metric-good">0.904</td>
-                  <td>+1.5%</td>
                 </tr>
               </tbody>
             </table>
+            <p class="section-intro" style="margin-top: 1.5rem">
+              Overall test accuracy is <strong>87.8%</strong> (F1: 0.758) —
+              but Black Women's recall of 0.562 means nearly
+              <strong>one in five</strong> of their videos is miscategorized
+              that shouldn't be. DistilBERT (92.4% accuracy, F1: 0.868)
+              narrows the Black Women recall gap substantially (EOD: 0.196 →
+              0.080) but remains Pareto-dominated by the mitigation
+              strategies below on either accuracy or fairness.
+            </p>
           </div>
 
           <div class="figure-showcase" data-aos="fade-up">
             <div class="figure-main">
               <img
                 src="assets/img/algofairness/results/fairness_curve.png"
-                alt="Fairness curves showing model performance across demographic groups at different thresholds"
+                alt="Line chart of maximum Equal Opportunity Difference across all groups as the classification threshold varies from 0 to 1, peaking near 0.26 around threshold 0.6"
                 class="research-figure clickable"
                 loading="lazy"
               />
             </div>
             <div class="figure-caption">
-              <strong>Figure 2: Fairness Curves</strong> — Performance metrics
-              across threshold values reveal how different groups are affected
-              by classification decisions. The gap between curves represents
-              algorithmic discrimination.
+              <strong>Figure 2: Fairness vs. Threshold</strong> — Max |EOD|
+              across all groups as the decision threshold varies. The
+              baseline's default operating point sits well inside the
+              highest-disparity region — the reason threshold choice alone
+              (ThresholdOptimizer) can recover most of the fairness gap.
             </div>
           </div>
 
@@ -421,28 +441,30 @@
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/results/roc_curve.png"
-                alt="ROC curves comparing model discrimination ability"
+                alt="ROC curve for the baseline Random Forest classifier, AUROC 0.957"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>ROC Curves</strong> — Area Under Curve (AUC) comparison
-                across models shows strong overall discrimination, but
-                group-specific analysis tells a different story.
+                <strong>ROC Curve</strong> — AUROC of 0.957 for the baseline
+                Random Forest. Strong aggregate discrimination — but this
+                single number is exactly what hides the 19.6-point recall
+                gap for Black Women.
               </div>
             </div>
 
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/results/pr_curve.png"
-                alt="Precision-Recall curves for minority class performance"
+                alt="Precision-Recall curve for the baseline Random Forest classifier, average precision 0.876"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Precision-Recall Curves</strong> — Critical for
-                imbalanced datasets. Performance on minority groups (the ones
-                that matter most) is significantly worse.
+                <strong>Precision-Recall Curve</strong> — AP of 0.876
+                overall. Critical for the imbalanced positive class (13.7%
+                of the corpus), where per-group performance diverges sharply
+                from this aggregate curve.
               </div>
             </div>
           </div>
@@ -451,15 +473,16 @@
             <div class="figure-main">
               <img
                 src="assets/img/algofairness/results/confusion_matrix.png"
-                alt="Confusion matrix showing classification errors"
+                alt="Confusion matrix at the operating threshold: 68,992 true negatives, 7,699 false positives, 3,667 false negatives, 26,690 true positives"
                 class="research-figure clickable"
                 loading="lazy"
               />
             </div>
             <div class="figure-caption">
-              <strong>Figure 3: Confusion Matrix</strong> — Error patterns
-              reveal systematic misclassification of content from marginalized
-              creators.
+              <strong>Figure 3: Confusion Matrix</strong> — Baseline Random
+              Forest at the operating threshold. The 3,667 false negatives
+              are exactly where recall disparities like Black Women's 0.562
+              live — content wrongly withheld from its protected category.
             </div>
           </div>
         </div>
@@ -470,9 +493,10 @@
         <div class="container">
           <h2 data-aos="fade-up">4. Bias Mitigation: Finding Solutions</h2>
           <p class="section-intro" data-aos="fade-up">
-            I tested three categories of fairness interventions across the ML
-            pipeline. The key insight: <strong>there's no free lunch</strong>,
-            but smart trade-offs exist.
+            I benchmarked six fairness interventions across the ML pipeline
+            with Pareto analysis. The key insight:
+            <strong>the theoretically favored technique isn't always the
+            one that works</strong>.
           </p>
 
           <div class="mitigation-stages" data-aos="fade-up">
@@ -488,9 +512,9 @@
                   training.
                 </p>
                 <ul>
-                  <li>✅ Simple to implement</li>
-                  <li>✅ Model-agnostic</li>
-                  <li>⚠️ Limited bias reduction</li>
+                  <li>✅ Best accuracy of any strategy (95.3%)</li>
+                  <li>✅ Black Women EOD: 0.196 → 0.092 (−53%)</li>
+                  <li>✅ Non-dominated — Pareto-optimal</li>
                 </ul>
               </div>
             </div>
@@ -509,9 +533,9 @@
                   Constrains optimization to satisfy fairness during training.
                 </p>
                 <ul>
-                  <li>✅ Best fairness results</li>
-                  <li>✅ Principled approach</li>
-                  <li>⚠️ Computational cost</li>
+                  <li>⚠️ Accuracy unchanged (87.8%)</li>
+                  <li>⚠️ Max EOD worsens to 0.297 (Latina)</li>
+                  <li>❌ Dominated on the Pareto frontier</li>
                 </ul>
               </div>
             </div>
@@ -519,17 +543,37 @@
             <div class="stage-card">
               <div class="stage-header post">
                 <span class="stage-num">3</span>
+                <h3>In-Processing (Adversarial)</h3>
+              </div>
+              <div class="stage-body">
+                <p><strong>Technique:</strong> Adversarial Debiasing</p>
+                <p>
+                  Trains a predictor against an adversary that tries to infer
+                  the protected attribute — the literature's favored approach.
+                </p>
+                <ul>
+                  <li>❌ Accuracy drops to 79.6%</li>
+                  <li>❌ Asian Women EOD worsens: 0.109 → 0.283</li>
+                  <li>❌ Dominated on <em>both</em> accuracy and fairness</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <div class="stage-header post">
+                <span class="stage-num">4</span>
                 <h3>Post-Processing</h3>
               </div>
               <div class="stage-body">
-                <p><strong>Technique:</strong> Calibrated Equalized Odds</p>
+                <p><strong>Technique:</strong> ThresholdOptimizer (Equalized Odds)</p>
                 <p>
-                  Adjusts predictions after training to equalize error rates.
+                  Adjusts decision thresholds per group after training, no
+                  retraining required.
                 </p>
                 <ul>
-                  <li>✅ No retraining needed</li>
-                  <li>✅ Works with any model</li>
-                  <li>⚠️ May reduce overall accuracy</li>
+                  <li>✅ Near-exact parity: max EOD 0.027</li>
+                  <li>⚠️ 3.9pp accuracy cost (83.9%)</li>
+                  <li>✅ Non-dominated — best when parity is the mandate</li>
                 </ul>
               </div>
             </div>
@@ -539,28 +583,30 @@
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/results/inproc_margins.png"
-                alt="In-processing mitigation margins showing fairness-accuracy trade-off"
+                alt="Histogram of decision margins (predicted probability minus 0.5) on the test set for the in-processing Exponentiated Gradient with Demographic Parity strategy"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>In-Processing Margins</strong> — Exponentiated Gradient
-                achieves the best fairness-accuracy balance, reducing the gap to
-                -4.6%.
+                <strong>Decision Margins — In-Processing (EG + DP)</strong> —
+                Exponentiated Gradient leaves accuracy flat (87.8%) while
+                widening the Latina Women gap to 0.297 EOD — dominated on
+                the Pareto frontier.
               </div>
             </div>
 
             <div class="figure-item">
               <img
                 src="assets/img/algofairness/results/postproc_margins.png"
-                alt="Post-processing mitigation margins"
+                alt="Histogram of decision margins on the test set for the post-processing ThresholdOptimizer (Equalized Odds) strategy"
                 class="research-figure clickable"
                 loading="lazy"
               />
               <div class="figure-caption">
-                <strong>Post-Processing Margins</strong> — Calibrated Equalized
-                Odds provides quick wins without retraining, but with lower
-                ceiling.
+                <strong>Decision Margins — Post-Processing
+                (ThresholdOptimizer)</strong> — Near-exact parity (max EOD
+                0.027) without retraining, at a 3.9pp accuracy cost.
+                Non-dominated.
               </div>
             </div>
           </div>
@@ -569,15 +615,16 @@
             <div class="figure-main">
               <img
                 src="assets/img/algofairness/showcase/mitigation_effectiveness.png"
-                alt="Comparison of mitigation effectiveness across all strategies"
+                alt="Histogram of decision margins on the test set for the pre-processing Reweighing strategy, showing a bimodal distribution with mass shifted toward confident positive predictions"
                 class="research-figure clickable"
                 loading="lazy"
               />
             </div>
             <div class="figure-caption">
-              <strong>Figure 4: Mitigation Effectiveness Comparison</strong> —
-              Head-to-head comparison of all three mitigation strategies across
-              fairness metrics. In-processing wins.
+              <strong>Figure 4: Decision Margins — Pre-Processing
+              (Reweighing)</strong> — The best-accuracy strategy (95.3%),
+              cutting Black Women's EOD by 53% (0.196 → 0.092). Non-dominated
+              on the Pareto frontier.
             </div>
           </div>
         </div>
@@ -597,18 +644,17 @@
             <div class="figure-main">
               <img
                 src="assets/img/algofairness/showcase/pareto_frontier.png"
-                alt="Accuracy-Fairness Pareto Frontier showing the trade-off space between model accuracy and fairness metrics, with different mitigation strategies plotted"
+                alt="Scatter plot of overall accuracy vs. fairness (1 minus max disparity) for RF baseline, RF in-processing, RF reweighed, RF post-processing, and BERT baseline, with RF post-processing and RF reweighed connected as the non-dominated Pareto frontier"
                 class="research-figure clickable"
                 loading="lazy"
               />
             </div>
             <div class="figure-caption">
               <strong>Figure 5: Accuracy-Fairness Pareto Frontier</strong> —
-              Each point represents a model configuration. Points on the
-              frontier represent optimal trade-offs — you can't improve fairness
-              without sacrificing accuracy, and vice versa. The goal is to move
-              from the bottom-left (unfair, inaccurate) to the top-right (fair,
-              accurate).
+              Five model configurations plotted by accuracy vs. fairness (1 −
+              max disparity). RF Reweighed and RF Post-processing form the
+              non-dominated frontier; RF Baseline, RF In-processing, and
+              BERT Baseline all sit strictly below it.
             </div>
           </div>
 
@@ -618,55 +664,32 @@
               <div class="legend-item">
                 <span class="legend-dot baseline"></span>
                 <span
-                  ><strong>Baseline RF:</strong> 80.5% accuracy, -12.6% gap —
-                  Starting point</span
+                  ><strong>Baseline RF:</strong> 87.8% accuracy, max EOD 0.200
+                  (Latina) — Starting point</span
                 >
               </div>
               <div class="legend-item">
                 <span class="legend-dot reweighed"></span>
                 <span
-                  ><strong>Reweighed RF:</strong> 86.2% accuracy, EOD: 0.053 —
-                  Best accuracy</span
+                  ><strong>Reweighed RF:</strong> 95.3% accuracy, EOD: 0.092
+                  (Black) — Best accuracy, non-dominated</span
                 >
               </div>
               <div class="legend-item">
                 <span class="legend-dot inproc"></span>
                 <span
-                  ><strong>EG + DP:</strong> 80.3% accuracy, -4.6% gap — Best
-                  fairness (64% improvement!)</span
+                  ><strong>ThresholdOptimizer:</strong> 83.9% accuracy, max
+                  EOD 0.027 — Best fairness, non-dominated</span
                 >
               </div>
               <div class="legend-item">
                 <span class="legend-dot bert"></span>
                 <span
-                  ><strong>BERT:</strong> 92.6% accuracy — Highest overall,
-                  moderate fairness</span
+                  ><strong>DistilBERT:</strong> 92.4% accuracy, EOD: 0.080
+                  (Black) — High accuracy, but dominated by the two points
+                  above</span
                 >
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESEARCH LANDSCAPE -->
-      <section class="section section-alt">
-        <div class="container">
-          <h2 data-aos="fade-up">6. Research Landscape & Positioning</h2>
-
-          <div class="figure-showcase" data-aos="fade-up">
-            <div class="figure-main">
-              <img
-                src="assets/img/algofairness/showcase/research_landscape.png"
-                alt="Research landscape showing positioning of this work relative to existing literature"
-                class="research-figure clickable"
-                loading="lazy"
-              />
-            </div>
-            <div class="figure-caption">
-              <strong>Figure 6: Research Positioning</strong> — This work fills
-              a critical gap at the intersection of algorithmic fairness,
-              content moderation, and intersectional analysis. Most prior work
-              ignores adult content or treats demographics as single-axis.
             </div>
           </div>
         </div>
@@ -675,7 +698,7 @@
       <!-- 30-STEP PIPELINE -->
       <section class="section">
         <div class="container">
-          <h2 data-aos="fade-up">7. The 30-Step Reproducible Pipeline</h2>
+          <h2 data-aos="fade-up">6. The 30-Step Reproducible Pipeline</h2>
           <p class="section-intro" data-aos="fade-up">
             This isn't just a paper — it's a complete, reproducible research
             framework. Every step is automated, documented, and
@@ -837,17 +860,19 @@ eod = equalized_odds_difference(
               <div class="takeaway-icon">🔧</div>
               <h3>Bias is Fixable</h3>
               <p>
-                In-processing mitigation reduced the accuracy gap from -12.6% to
-                -4.6% — a 64% improvement.
+                Reweighing cut Black Women's EOD by 53% while improving
+                accuracy to 95.3%; ThresholdOptimizer got to near-exact
+                parity (max EOD 0.027).
               </p>
             </div>
 
             <div class="takeaway-card">
               <div class="takeaway-icon">⚖️</div>
-              <h3>Trade-offs Exist</h3>
+              <h3>The "Obvious" Fix Backfired</h3>
               <p>
-                The Pareto frontier helps practitioners choose the right balance
-                for their context.
+                Adversarial debiasing — the literature's favored technique —
+                worsened outcomes for Asian and Latina Women, because their
+                content vocabulary <em>is</em> the classification signal.
               </p>
             </div>
 
@@ -869,12 +894,12 @@ eod = equalized_odds_difference(
           <h2 class="cta-title" data-aos="fade-up">Explore the Research</h2>
           <p class="cta-text" data-aos="fade-up" data-aos-delay="100">
             The complete codebase, data processing pipeline, and analysis
-            notebooks are available on GitHub. The full dissertation paper will
-            be published upon completion.
+            notebooks are available on GitHub. The dissertation was awarded
+            with Distinction at the University of Essex.
           </p>
           <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
             <a
-              href="https://github.com/louiseluli/AlgoFairness-Pornometrics"
+              href="https://github.com/louiseluli/Thesis_UniEssex_revised"
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary"
@@ -903,7 +928,7 @@ eod = equalized_odds_difference(
           </nav>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Louise Ferreira. Built with purpose and code.</p>
+          <p>&copy; 2026 Louise Ferreira. Built with purpose and code.</p>
         </div>
       </div>
     </footer>

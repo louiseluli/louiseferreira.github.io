@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Caption mapping
   const captions = {
     "gallery-pareto":
-      "Accuracy-Fairness Pareto Frontier: Comparing mitigation strategies across the trade-off space",
+      "Accuracy-Fairness Pareto Frontier: Reweighing and post-processing are the only non-dominated strategies of five tested",
     "gallery-corpus":
-      "Corpus Overview Dashboard: Dataset composition showing 535K videos across demographic intersections",
+      "Representation by Race x Gender: Black, Latina, and Asian women each hold under 3% of the 535K-video corpus",
     "gallery-mitigation":
-      "Mitigation Effectiveness: Comparing bias reduction across pre-, in-, and post-processing strategies",
+      "Decision Margins, Reweighing: the best-accuracy mitigation strategy (95.3%), cutting Black Women's EOD by 53%",
     "gallery-fairness":
-      "Fairness Curves: Model performance disparities across demographic groups at various thresholds",
+      "Fairness vs. Threshold: max Equal Opportunity Difference across groups peaks near threshold 0.6",
   };
 
   thumbs.forEach(thumb => {
