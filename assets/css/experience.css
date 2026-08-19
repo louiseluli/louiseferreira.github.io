@@ -357,6 +357,11 @@ body.dark-mode .timeline-marker {
   margin-bottom: var(--space-3);
 }
 
+body.dark-mode .timeline-period {
+  background-color: rgba(196, 181, 253, 0.2);
+  color: var(--primary-color);
+}
+
 .timeline-header h3 {
   font-size: var(--text-2xl);
   margin-bottom: var(--space-2);

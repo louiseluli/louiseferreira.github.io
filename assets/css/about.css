@@ -249,6 +249,11 @@ body.dark-mode .timeline-content {
   margin-bottom: var(--space-3);
 }
 
+body.dark-mode .timeline-year {
+  background-color: rgba(196, 181, 253, 0.2);
+  color: var(--primary-color);
+}
+
 .timeline-content h3 {
   font-size: var(--text-2xl);
   margin-bottom: var(--space-4);
