@@ -417,7 +417,7 @@ body.dark-mode .highlight-label {
 
 /* Code Snippet Card */
 .code-snippet {
-  background-color: #1e293b;
+  background-color: #0f172a;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
@@ -425,11 +425,6 @@ body.dark-mode .highlight-label {
   max-width: 480px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.5s ease;
-}
-
-/* Light mode - darker code snippet for contrast */
-.code-snippet {
-  background-color: #0f172a;
 }
 
 .code-snippet:hover {
