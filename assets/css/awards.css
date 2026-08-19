@@ -181,6 +181,11 @@ body.dark-mode .award-content {
   color: var(--white);
 }
 
+.award-badge.publication {
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  color: var(--white);
+}
+
 /* Award title and org */
 .award-title {
   font-size: var(--text-2xl);
@@ -220,6 +225,19 @@ body.dark-mode .award-impact {
 .award-impact strong {
   color: var(--primary-color);
   font-weight: 600;
+}
+
+.award-link {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.award-link:hover,
+.award-link:focus-visible {
+  text-decoration: underline;
 }
 
 /* -----------------------------------------------------------------------------
