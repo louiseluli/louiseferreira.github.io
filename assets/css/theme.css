@@ -11,12 +11,17 @@ body.dark-mode,
 [data-theme="dark"] {
   /* Core Colors - Dark Theme Overrides */
   --background-light: #0f172a; /* Slate 900 */
-  --white: #1e293b; /* Slate 800 - card backgrounds */
+  --white: #1e293b; /* Slate 800 - card backgrounds. NOTE: not an actual white — never use for text color in dark mode */
+  --gray-50: #0b1220; /* Recessed panel bg, darker than page bg */
   --gray-100: #1e293b; /* Surface */
   --gray-200: #334155; /* Borders */
-  --gray-300: #64748b; /* Muted text - 4.5:1 on dark bg ✓ */
+  --gray-300: #64748b; /* Muted text - was documented 4.5:1, actually 3.75:1 vs page bg; kept for borders/non-text use */
+  --gray-400: #a3b0c2; /* Secondary text - 8.1:1 on page bg, 6.7:1 on card bg ✓ */
+  --gray-500: #c2cbd8; /* Lighter secondary text - 10.9:1 on page bg, 8.9:1 on card bg ✓ */
   --gray-600: #94a3b8; /* Secondary text - 5.6:1 on dark bg ✓ */
   --gray-700: #e2e8f0; /* Primary text - 12.6:1 on dark bg ✓ */
+  --gray-800: #f1f5f9; /* Near-white text - 16.3:1 on page bg ✓ */
+  --text-muted: #a3b0c2; /* Muted secondary text - 8.1:1 on page bg ✓ */
   --text-dark: #f8fafc; /* Headings - 15.8:1 on dark bg ✓ */
 
   /* Theme Colors - Adjusted for Dark Mode Contrast */

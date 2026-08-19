@@ -807,7 +807,7 @@ body.dark-mode .interactive-demo {
 body.dark-mode #cinemaSearchInput {
   background-color: var(--background-light);
   border-color: var(--gray-300);
-  color: var(--white);
+  color: var(--text-dark);
 }
 
 body.dark-mode .film-result-card {

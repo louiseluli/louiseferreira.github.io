@@ -32,13 +32,22 @@
   /* Neutrals & Backgrounds (Light Mode Default) */
   --background-light: #fafafa;
   --white: #ffffff;
+  --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-300: #d1d5db;
+  /* Gray-400 on white: 4.8:1 ✓ */
+  --gray-400: #6b7280;
+  /* Gray-500 on white: 6.5:1 ✓ */
+  --gray-500: #52606d;
   /* Gray-600 on white: 5.9:1 ✓ */
   --gray-600: #4b5563;
   /* Gray-700 on white: 8.6:1 ✓ */
   --gray-700: #374151;
+  /* Gray-800 on white: 14.7:1 ✓ */
+  --gray-800: #1f2937;
+  /* Text-muted on white: 4.8:1 ✓ */
+  --text-muted: #6b7280;
   /* Text-dark on white: 15.4:1 ✓ */
   --text-dark: #0f172a;
 
